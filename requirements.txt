@@ -1,0 +1,10 @@
+Pillow
+numpy
+pytesseract
+rapidfuzz
+pyperclip
+pynput
+scipy
+pystray
+pyqt6
+requests

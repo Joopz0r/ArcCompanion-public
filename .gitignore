@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Build
+build/
+dist/
+*.spec
+
+# User Data
+data/progress.json
+data/progress.json.bak
+data/config.ini
+
+# IDE
+.vscode/
+.idea/
