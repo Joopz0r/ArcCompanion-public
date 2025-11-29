@@ -516,6 +516,11 @@ def main():
         if getattr(sys, 'frozen', False):
             base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.executable))
             return os.path.join(base_path, 'Tesseract-OCR', 'tesseract.exe')
+        # In development mode, check for local Tesseract-OCR folder
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        local_tesseract = os.path.join(script_dir, 'Tesseract-OCR', 'tesseract.exe')
+        if os.path.exists(local_tesseract):
+            return local_tesseract
         return None
 
     parser = argparse.ArgumentParser()
