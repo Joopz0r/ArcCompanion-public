@@ -181,6 +181,10 @@ class ItemDatabaseWindow(QWidget):
         self.view_filter.currentTextChanged.connect(self.filter_items)
         filter_layout.addWidget(self.view_filter)
 
+        self.needed_filter = self._create_combo_box("Needed For", ["Quests", "Hideout", "Projects"])
+        self.needed_filter.currentTextChanged.connect(self.filter_items)
+        filter_layout.addWidget(self.needed_filter)
+
         self.type_filter = self._create_combo_box("All Types", self.all_types)
         self.type_filter.currentTextChanged.connect(self.filter_items)
         filter_layout.addWidget(self.type_filter)
@@ -190,6 +194,45 @@ class ItemDatabaseWindow(QWidget):
         filter_layout.addWidget(self.rarity_filter)
 
         main_layout.addLayout(filter_layout)
+        
+        # --- Legend Bar ---
+        legend_layout = QHBoxLayout()
+        legend_layout.setSpacing(20)
+        legend_layout.setContentsMargins(0, 0, 0, 10)
+        
+        legend_label = QLabel("<b>Border Legend:</b>")
+        legend_label.setStyleSheet("color: #888; font-size: 12px;")
+        legend_layout.addWidget(legend_label)
+        
+        # Quest legend
+        quest_box = QLabel()
+        quest_box.setFixedSize(30, 20)
+        quest_box.setStyleSheet("background-color: #1A1F2B; border: 2px solid #4CAF50; border-radius: 3px;")
+        quest_text = QLabel("Quests")
+        quest_text.setStyleSheet("color: #4CAF50; font-size: 11px;")
+        legend_layout.addWidget(quest_box)
+        legend_layout.addWidget(quest_text)
+        
+        # Hideout legend
+        hideout_box = QLabel()
+        hideout_box.setFixedSize(30, 20)
+        hideout_box.setStyleSheet("background-color: #1A1F2B; border: 2px solid #2196F3; border-radius: 3px;")
+        hideout_text = QLabel("Hideout")
+        hideout_text.setStyleSheet("color: #2196F3; font-size: 11px;")
+        legend_layout.addWidget(hideout_box)
+        legend_layout.addWidget(hideout_text)
+        
+        # Project legend
+        project_box = QLabel()
+        project_box.setFixedSize(30, 20)
+        project_box.setStyleSheet("background-color: #1A1F2B; border: 2px solid #FF9800; border-radius: 3px;")
+        project_text = QLabel("Projects")
+        project_text.setStyleSheet("color: #FF9800; font-size: 11px;")
+        legend_layout.addWidget(project_box)
+        legend_layout.addWidget(project_text)
+        
+        legend_layout.addStretch()
+        main_layout.addLayout(legend_layout)
 
         self.scroll_area = QScrollArea()
         self.scroll_area.setWidgetResizable(True)
@@ -235,6 +278,7 @@ class ItemDatabaseWindow(QWidget):
         
         search_text = self.search_bar.text().lower().strip()
         selected_view = self.view_filter.currentText()
+        selected_needed = self.needed_filter.currentText()
         selected_type = self.type_filter.currentText()
         selected_rarity = self.rarity_filter.currentText()
 
@@ -288,6 +332,13 @@ class ItemDatabaseWindow(QWidget):
 
             if selected_view == "Tracked Only" and item_id not in tracked_items: continue
             if selected_view == "With Notes" and item_id not in noted_items: continue
+            
+            # Filter by "Needed For"
+            if selected_needed != "Needed For":
+                needed_in = self.check_item_needed_for(item_id)
+                if selected_needed == "Quests" and 'quest' not in needed_in: continue
+                if selected_needed == "Hideout" and 'hideout' not in needed_in: continue
+                if selected_needed == "Projects" and 'project' not in needed_in: continue
             
             if selected_type != "All Types" and item_type != selected_type: continue
             if selected_rarity != "All Rarities" and rarity != selected_rarity: continue
@@ -454,7 +505,10 @@ class ItemDatabaseWindow(QWidget):
         
         is_tracked = self.is_item_tracked(item_id)
         track_btn.setChecked(is_tracked)
-        self.update_track_button_style(track_btn, is_tracked)
+        
+        # Check where item is needed
+        needed_in = self.check_item_needed_for(item_id)
+        self.update_track_button_style(track_btn, is_tracked, needed_in)
         track_btn.clicked.connect(lambda checked, i=item_id, b=track_btn: self.toggle_track_item(i, b))
         
         # Note Button
@@ -548,31 +602,58 @@ class ItemDatabaseWindow(QWidget):
             
         req_list = []
         if item_id:
+            # Check Quests
+            quest_details = []
+            for quest in self.data_manager.quest_data:
+                name_field = quest.get('name', {})
+                quest_name = name_field.get('en', 'Unknown Quest') if isinstance(name_field, dict) else str(name_field)
+                for req in quest.get('requiredItemIds', []):
+                    if req.get('itemId') == item_id:
+                        qty = req.get('quantity', 1)
+                        quest_details.append(f"{quest_name} ({qty}x)")
+            
             # Check Hideout
-            used_in_hideout = False
+            hideout_details = []
             for station in self.data_manager.hideout_data:
-                if used_in_hideout: break
+                name_field = station.get('name', {})
+                station_name = name_field.get('en', 'Station') if isinstance(name_field, dict) else str(name_field)
                 for level in station.get('levels', []):
-                    if any(r.get('itemId') == item_id for r in level.get('requirementItemIds', [])):
-                        used_in_hideout = True
-                        break
-            if used_in_hideout: req_list.append("Hideout")
+                    for req in level.get('requirementItemIds', []):
+                        if req.get('itemId') == item_id:
+                            qty = req.get('quantity', 1)
+                            level_num = level.get('level', '?')
+                            hideout_details.append(f"{station_name} Lv.{level_num} ({qty}x)")
+                            break
 
             # Check Projects
-            found_projects = set()
+            project_details = []
             for proj in self.data_manager.project_data:
-                p_name = str(proj.get('name', 'Project'))
+                name_field = proj.get('name', 'Project')
+                p_name = name_field.get('en', 'Project') if isinstance(name_field, dict) else str(name_field)
                 clean_name = p_name.replace("Project", "").strip()
                 if not clean_name: clean_name = p_name
-                is_needed = False
                 for phase in proj.get('phases', []):
-                    if any(r.get('itemId') == item_id for r in phase.get('requirementItemIds', [])):
-                        is_needed = True; break
-                if is_needed: found_projects.add(clean_name)
-            if found_projects: req_list.extend(sorted(list(found_projects)))
+                    for req in phase.get('requirementItemIds', []):
+                        if req.get('itemId') == item_id:
+                            qty = req.get('quantity', 1)
+                            project_details.append(f"{clean_name} ({qty}x)")
+                            break
 
-        if req_list: 
-            tooltip_lines.append(f"<b>Needed for:</b> <span style='color:#FFA500'>{', '.join(req_list)}</span>")
+            # Build detailed needed-for section
+            if quest_details:
+                tooltip_lines.append(f"<b>Quests:</b> <span style='color:#4CAF50'>{', '.join(quest_details[:3])}</span>")
+                if len(quest_details) > 3:
+                    tooltip_lines.append(f"<span style='color:#888'>...and {len(quest_details) - 3} more</span>")
+            
+            if hideout_details:
+                tooltip_lines.append(f"<b>Hideout:</b> <span style='color:#2196F3'>{', '.join(hideout_details[:3])}</span>")
+                if len(hideout_details) > 3:
+                    tooltip_lines.append(f"<span style='color:#888'>...and {len(hideout_details) - 3} more</span>")
+            
+            if project_details:
+                tooltip_lines.append(f"<b>Projects:</b> <span style='color:#FF9800'>{', '.join(project_details[:3])}</span>")
+                if len(project_details) > 3:
+                    tooltip_lines.append(f"<span style='color:#888'>...and {len(project_details) - 3} more</span>")
             
         if (cb := item.get('craftBench')):
             bench = cb if isinstance(cb, str) else ", ".join(cb)
@@ -586,32 +667,94 @@ class ItemDatabaseWindow(QWidget):
     def is_item_tracked(self, item_id):
         return item_id in self.data_manager.user_progress.get('tracked_items', [])
 
+    def check_item_needed_for(self, item_id):
+        """Check where item is needed: quests, hideout, or projects"""
+        needed = []
+        
+        # Check Quests
+        for quest in self.data_manager.quest_data:
+            if any(req.get('itemId') == item_id for req in quest.get('requiredItemIds', [])):
+                needed.append('quest')
+                break
+        
+        # Check Hideout
+        for station in self.data_manager.hideout_data:
+            found = False
+            for level in station.get('levels', []):
+                if any(req.get('itemId') == item_id for req in level.get('requirementItemIds', [])):
+                    needed.append('hideout')
+                    found = True
+                    break
+            if found:
+                break
+        
+        # Check Projects
+        for proj in self.data_manager.project_data:
+            found = False
+            for phase in proj.get('phases', []):
+                if any(req.get('itemId') == item_id for req in phase.get('requirementItemIds', [])):
+                    needed.append('project')
+                    found = True
+                    break
+            if found:
+                break
+        
+        return needed
+
     def toggle_track_item(self, item_id, button):
         tracked_items = self.data_manager.user_progress.get('tracked_items', [])
+        needed_in = self.check_item_needed_for(item_id)
+        
         if item_id in tracked_items:
             tracked_items.remove(item_id)
-            self.update_track_button_style(button, False)
+            self.update_track_button_style(button, False, needed_in)
         else:
             tracked_items.append(item_id)
-            self.update_track_button_style(button, True)
+            self.update_track_button_style(button, True, needed_in)
         self.data_manager.user_progress['tracked_items'] = tracked_items
         self.data_manager.save_user_progress()
         self.filter_items()
 
-    def update_track_button_style(self, button, is_tracked):
+    def update_track_button_style(self, button, is_tracked, needed_in=None):
+        if needed_in is None:
+            needed_in = []
+        
+        # Define border colors based on where item is needed
+        colors = []
+        if 'quest' in needed_in:
+            colors.append('#4CAF50')  # Green
+        if 'hideout' in needed_in:
+            colors.append('#2196F3')  # Blue
+        if 'project' in needed_in:
+            colors.append('#FF9800')  # Orange
+        
+        # Divide border among colors
+        if len(colors) == 3:
+            # All 3: top + left = green, right = blue, bottom = orange
+            border_style = f"border-top: 2px solid {colors[0]}; border-left: 2px solid {colors[0]}; border-right: 2px solid {colors[1]}; border-bottom: 2px solid {colors[2]};"
+        elif len(colors) == 2:
+            # 2 colors: top + left = first, right + bottom = second
+            border_style = f"border-top: 2px solid {colors[0]}; border-left: 2px solid {colors[0]}; border-right: 2px solid {colors[1]}; border-bottom: 2px solid {colors[1]};"
+        elif len(colors) == 1:
+            # Single color
+            border_style = f"border: 2px solid {colors[0]};"
+        else:
+            # No special requirements
+            border_style = "border: 1px solid #444;"
+        
         if is_tracked:
             button.setText("TRACKED")
-            button.setStyleSheet("""
-                QPushButton { background-color: rgba(76, 175, 80, 0.2); color: #4CAF50;
-                    border: 1px solid #4CAF50; border-radius: 4px; font-weight: bold; font-size: 10px; }
-                QPushButton:hover { background-color: rgba(76, 175, 80, 0.4); }
+            button.setStyleSheet(f"""
+                QPushButton {{ background-color: rgba(76, 175, 80, 0.2); color: #4CAF50;
+                    {border_style} border-radius: 4px; font-weight: bold; font-size: 10px; }}
+                QPushButton:hover {{ background-color: rgba(76, 175, 80, 0.4); }}
             """)
         else:
             button.setText("TRACK")
-            button.setStyleSheet("""
-                QPushButton { background-color: transparent; color: #666;
-                    border: 1px solid #444; border-radius: 4px; font-weight: bold; font-size: 10px; }
-                QPushButton:hover { border: 1px solid #888; color: #aaa; }
+            button.setStyleSheet(f"""
+                QPushButton {{ background-color: transparent; color: #666;
+                    {border_style} border-radius: 4px; font-weight: bold; font-size: 10px; }}
+                QPushButton:hover {{ color: #aaa; }}
             """)
 
     def edit_item_note(self, item_id, button, card_widget, item, color_hex):
