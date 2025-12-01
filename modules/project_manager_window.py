@@ -47,7 +47,11 @@ class ProjectManagerWindow(BaseManagerWindow):
             for phase_info in sorted(project.get('phases', []), key=lambda x: x.get('phase', 0)):
                 phase_num = phase_info.get('phase', 0)
                 reqs = phase_info.get('requirementItemIds', [])
-                if not reqs: continue
+                categories = phase_info.get('requirementCategories', [])
+                
+                # Skip phases with no requirements at all
+                if not reqs and not categories: 
+                    continue
                 
                 wrapper = QWidget()
                 w_layout = QVBoxLayout(wrapper)
@@ -72,7 +76,30 @@ class ProjectManagerWindow(BaseManagerWindow):
                 h_row.addWidget(btn_complete)
                 w_layout.addLayout(h_row)
                 
-                # Requirement Rows
+                # Handle Category-based Requirements (Phase 5)
+                if categories:
+                    # Phase 5 uses Metal Parts color (#B0B0B0) for all categories
+                    metal_parts_color = "#B0B0B0"
+                    
+                    for cat in categories:
+                        cat_name = cat.get('category', 'Unknown')
+                        value_req = cat.get('valueRequired', 0)
+                        saved = self.user_progress.get('projects', {}).get(p_id, {}).get('categories', {}).get(str(phase_num), {}).get(cat_name, 0)
+                        
+                        row = QHBoxLayout()
+                        lbl = QLabel(cat_name)
+                        lbl.setStyleSheet(f"color: {metal_parts_color}; border: none;")
+                        
+                        ctrl = InventoryControl(saved, value_req, show_extra_buttons=True)
+                        ctrl.value_changed.connect(self.start_save_timer)
+                        self.inventory_widgets[(p_id, phase_num, cat_name)] = ctrl
+                        
+                        row.addWidget(lbl)
+                        row.addStretch(1)
+                        row.addWidget(ctrl)
+                        w_layout.addLayout(row)
+                
+                # Handle Item-based Requirements (Phases 1-4)
                 for req in reqs:
                     item_id, qty = req.get('itemId'), req.get('quantity', 0)
                     item_name = self.item_finder.id_to_name_map.get(item_id, "Unknown")
@@ -157,14 +184,27 @@ class ProjectManagerWindow(BaseManagerWindow):
         self.refresh_visibility()
 
     def save_progress(self):
-        for (p_id, p_num, item_id), widget in self.inventory_widgets.items():
-             inv_dict = self.user_progress.setdefault('projects', {}).setdefault(p_id, {}).setdefault('inventory', {})
-             phase_dict = inv_dict.setdefault(str(p_num), {})
+        for (p_id, p_num, key), widget in self.inventory_widgets.items():
              val = widget.get_value()
-             if val > 0:
-                phase_dict[item_id] = val
-             elif item_id in phase_dict:
-                del phase_dict[item_id]
+             
+             # Determine if this is a category (Phase 5) or item (Phases 1-4)
+             # Categories are strings like "Combat Items", items are UUIDs
+             if isinstance(key, str) and any(cat in key for cat in ["Combat Items", "Survival Items", "Provisions", "Materials"]):
+                 # Category-based (Phase 5)
+                 cat_dict = self.user_progress.setdefault('projects', {}).setdefault(p_id, {}).setdefault('categories', {})
+                 phase_dict = cat_dict.setdefault(str(p_num), {})
+                 if val > 0:
+                     phase_dict[key] = val
+                 elif key in phase_dict:
+                     del phase_dict[key]
+             else:
+                 # Item-based (Phases 1-4)
+                 inv_dict = self.user_progress.setdefault('projects', {}).setdefault(p_id, {}).setdefault('inventory', {})
+                 phase_dict = inv_dict.setdefault(str(p_num), {})
+                 if val > 0:
+                     phase_dict[key] = val
+                 elif key in phase_dict:
+                     del phase_dict[key]
                 
         try:
             with open(Constants.PROGRESS_FILE, 'w', encoding='utf-8') as f:
