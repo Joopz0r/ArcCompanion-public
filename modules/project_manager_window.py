@@ -90,7 +90,7 @@ class ProjectManagerWindow(BaseManagerWindow):
                         lbl = QLabel(cat_name)
                         lbl.setStyleSheet(f"color: {metal_parts_color}; border: none;")
                         
-                        ctrl = InventoryControl(saved, value_req, show_extra_buttons=True)
+                        ctrl = InventoryControl(saved, value_req, show_extra_buttons=True, increment_step=10000, base_step=1000)
                         ctrl.value_changed.connect(self.start_save_timer)
                         self.inventory_widgets[(p_id, phase_num, cat_name)] = ctrl
                         

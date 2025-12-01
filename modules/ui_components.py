@@ -37,10 +37,12 @@ class TextProgressBar(QProgressBar):
 class InventoryControl(QWidget):
     value_changed = pyqtSignal()
 
-    def __init__(self, initial_val, max_val, show_extra_buttons=True):
+    def __init__(self, initial_val, max_val, show_extra_buttons=True, increment_step=10, base_step=1):
         super().__init__()
         self.value = initial_val
         self.max_val = max_val
+        self.increment_step = increment_step
+        self.base_step = base_step
         
         # Prevent the parent layout from stretching/shrinking this whole control
         self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
@@ -61,15 +63,16 @@ class InventoryControl(QWidget):
             b.setStyleSheet(BTN_FONT)
             return b
 
-        # -10 Button
+        # -increment Button
         if show_extra_buttons:
-            btn_m10 = make_btn("-10", 45)
-            btn_m10.clicked.connect(lambda: self.change(-10))
+            btn_label = f"-{self.increment_step//1000}k" if self.increment_step >= 1000 else f"-{self.increment_step}"
+            btn_m10 = make_btn(btn_label, 45)
+            btn_m10.clicked.connect(lambda: self.change(-self.increment_step))
             layout.addWidget(btn_m10)
 
-        # -1 Button
+        # -base_step Button
         btn_m1 = make_btn("-")
-        btn_m1.clicked.connect(lambda: self.change(-1))
+        btn_m1.clicked.connect(lambda: self.change(-self.base_step))
         layout.addWidget(btn_m1)
         
         # --- Progress Bar ---
@@ -79,15 +82,16 @@ class InventoryControl(QWidget):
         self._update_style()
         layout.addWidget(self.pbar) # This widget now expands horizontally within the control
         
-        # +1 Button
+        # +base_step Button
         btn_p1 = make_btn("+")
-        btn_p1.clicked.connect(lambda: self.change(1))
+        btn_p1.clicked.connect(lambda: self.change(self.base_step))
         layout.addWidget(btn_p1)
         
-        # +10 Button
+        # +increment Button
         if show_extra_buttons:
-            btn_p10 = make_btn("+10", 45)
-            btn_p10.clicked.connect(lambda: self.change(10))
+            btn_label = f"+{self.increment_step//1000}k" if self.increment_step >= 1000 else f"+{self.increment_step}"
+            btn_p10 = make_btn(btn_label, 45)
+            btn_p10.clicked.connect(lambda: self.change(self.increment_step))
             layout.addWidget(btn_p10)
 
     def _update_style(self):
