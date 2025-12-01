@@ -139,6 +139,11 @@ class ItemDatabaseWindow(QWidget):
         self.pending_labels = {}
         self.image_cache = {}
         
+        # --- NEW: Requirement Cache (Performance Optimization) ---
+        self.req_cache = {} 
+        self._build_requirements_cache()
+        # ---------------------------------------------------------
+        
         self.setMinimumWidth(720) 
         self.tooltip_filter = InstantTooltipFilter(self)
         
@@ -152,6 +157,67 @@ class ItemDatabaseWindow(QWidget):
 
         self.init_ui()
         self.filter_items() 
+
+    def _build_requirements_cache(self):
+        """
+        Pre-calculates where every item is needed (Quests, Hideout, Projects)
+        to avoid expensive loops during filtering and rendering.
+        """
+        self.req_cache = {}
+        
+        # 1. Process Quests
+        for quest in self.data_manager.quest_data:
+            name_field = quest.get('name', {})
+            quest_name = name_field.get('en', 'Unknown Quest') if isinstance(name_field, dict) else str(name_field)
+            
+            for req in quest.get('requiredItemIds', []):
+                item_id = req.get('itemId')
+                if not item_id: continue
+                
+                qty = req.get('quantity', 1)
+                if item_id not in self.req_cache: 
+                    self.req_cache[item_id] = {'types': set(), 'details': {'quest': [], 'hideout': [], 'project': []}}
+                
+                self.req_cache[item_id]['types'].add('quest')
+                self.req_cache[item_id]['details']['quest'].append(f"{quest_name} ({qty}x)")
+
+        # 2. Process Hideout
+        for station in self.data_manager.hideout_data:
+            name_field = station.get('name', {})
+            station_name = name_field.get('en', 'Station') if isinstance(name_field, dict) else str(name_field)
+            
+            for level in station.get('levels', []):
+                for req in level.get('requirementItemIds', []):
+                    item_id = req.get('itemId')
+                    if not item_id: continue
+                    
+                    qty = req.get('quantity', 1)
+                    level_num = level.get('level', '?')
+                    
+                    if item_id not in self.req_cache: 
+                        self.req_cache[item_id] = {'types': set(), 'details': {'quest': [], 'hideout': [], 'project': []}}
+                    
+                    self.req_cache[item_id]['types'].add('hideout')
+                    self.req_cache[item_id]['details']['hideout'].append(f"{station_name} Lv.{level_num} ({qty}x)")
+
+        # 3. Process Projects
+        for proj in self.data_manager.project_data:
+            name_field = proj.get('name', 'Project')
+            p_name = name_field.get('en', 'Project') if isinstance(name_field, dict) else str(name_field)
+            clean_name = p_name.replace("Project", "").strip() or p_name
+            
+            for phase in proj.get('phases', []):
+                for req in phase.get('requirementItemIds', []):
+                    item_id = req.get('itemId')
+                    if not item_id: continue
+                    
+                    qty = req.get('quantity', 1)
+                    
+                    if item_id not in self.req_cache: 
+                        self.req_cache[item_id] = {'types': set(), 'details': {'quest': [], 'hideout': [], 'project': []}}
+                    
+                    self.req_cache[item_id]['types'].add('project')
+                    self.req_cache[item_id]['details']['project'].append(f"{clean_name} ({qty}x)")
 
     def init_ui(self):
         main_layout = QVBoxLayout(self)
@@ -333,12 +399,15 @@ class ItemDatabaseWindow(QWidget):
             if selected_view == "Tracked Only" and item_id not in tracked_items: continue
             if selected_view == "With Notes" and item_id not in noted_items: continue
             
-            # Filter by "Needed For"
+            # Filter by "Needed For" - USES CACHE O(1)
             if selected_needed != "Needed For":
-                needed_in = self.check_item_needed_for(item_id)
-                if selected_needed == "Quests" and 'quest' not in needed_in: continue
-                if selected_needed == "Hideout" and 'hideout' not in needed_in: continue
-                if selected_needed == "Projects" and 'project' not in needed_in: continue
+                # Safe lookup using cache
+                cached_data = self.req_cache.get(item_id, {'types': set()})
+                needed_types = cached_data['types']
+                
+                if selected_needed == "Quests" and 'quest' not in needed_types: continue
+                if selected_needed == "Hideout" and 'hideout' not in needed_types: continue
+                if selected_needed == "Projects" and 'project' not in needed_types: continue
             
             if selected_type != "All Types" and item_type != selected_type: continue
             if selected_rarity != "All Rarities" and rarity != selected_rarity: continue
@@ -506,7 +575,7 @@ class ItemDatabaseWindow(QWidget):
         is_tracked = self.is_item_tracked(item_id)
         track_btn.setChecked(is_tracked)
         
-        # Check where item is needed
+        # Check where item is needed (Uses Cache now)
         needed_in = self.check_item_needed_for(item_id)
         self.update_track_button_style(track_btn, is_tracked, needed_in)
         track_btn.clicked.connect(lambda checked, i=item_id, b=track_btn: self.toggle_track_item(i, b))
@@ -600,46 +669,15 @@ class ItemDatabaseWindow(QWidget):
             traders = sorted(list(set(t.get('trader', 'Unknown').title() for t in trades)))
             tooltip_lines.append(f"<br><b>Sold by:</b> <span style='color:#ADD8E6'>{', '.join(traders)}</span>")
             
-        req_list = []
+        # --- NEW: Use Cache for Tooltips (Faster) ---
         if item_id:
-            # Check Quests
-            quest_details = []
-            for quest in self.data_manager.quest_data:
-                name_field = quest.get('name', {})
-                quest_name = name_field.get('en', 'Unknown Quest') if isinstance(name_field, dict) else str(name_field)
-                for req in quest.get('requiredItemIds', []):
-                    if req.get('itemId') == item_id:
-                        qty = req.get('quantity', 1)
-                        quest_details.append(f"{quest_name} ({qty}x)")
+            cached = self.req_cache.get(item_id, {'details': {}})
+            details = cached.get('details', {})
             
-            # Check Hideout
-            hideout_details = []
-            for station in self.data_manager.hideout_data:
-                name_field = station.get('name', {})
-                station_name = name_field.get('en', 'Station') if isinstance(name_field, dict) else str(name_field)
-                for level in station.get('levels', []):
-                    for req in level.get('requirementItemIds', []):
-                        if req.get('itemId') == item_id:
-                            qty = req.get('quantity', 1)
-                            level_num = level.get('level', '?')
-                            hideout_details.append(f"{station_name} Lv.{level_num} ({qty}x)")
-                            break
+            quest_details = details.get('quest', [])
+            hideout_details = details.get('hideout', [])
+            project_details = details.get('project', [])
 
-            # Check Projects
-            project_details = []
-            for proj in self.data_manager.project_data:
-                name_field = proj.get('name', 'Project')
-                p_name = name_field.get('en', 'Project') if isinstance(name_field, dict) else str(name_field)
-                clean_name = p_name.replace("Project", "").strip()
-                if not clean_name: clean_name = p_name
-                for phase in proj.get('phases', []):
-                    for req in phase.get('requirementItemIds', []):
-                        if req.get('itemId') == item_id:
-                            qty = req.get('quantity', 1)
-                            project_details.append(f"{clean_name} ({qty}x)")
-                            break
-
-            # Build detailed needed-for section
             if quest_details:
                 tooltip_lines.append(f"<b>Quests:</b> <span style='color:#4CAF50'>{', '.join(quest_details[:3])}</span>")
                 if len(quest_details) > 3:
@@ -654,6 +692,7 @@ class ItemDatabaseWindow(QWidget):
                 tooltip_lines.append(f"<b>Projects:</b> <span style='color:#FF9800'>{', '.join(project_details[:3])}</span>")
                 if len(project_details) > 3:
                     tooltip_lines.append(f"<span style='color:#888'>...and {len(project_details) - 3} more</span>")
+        # --------------------------------------------
             
         if (cb := item.get('craftBench')):
             bench = cb if isinstance(cb, str) else ", ".join(cb)
@@ -668,38 +707,11 @@ class ItemDatabaseWindow(QWidget):
         return item_id in self.data_manager.user_progress.get('tracked_items', [])
 
     def check_item_needed_for(self, item_id):
-        """Check where item is needed: quests, hideout, or projects"""
-        needed = []
-        
-        # Check Quests
-        for quest in self.data_manager.quest_data:
-            if any(req.get('itemId') == item_id for req in quest.get('requiredItemIds', [])):
-                needed.append('quest')
-                break
-        
-        # Check Hideout
-        for station in self.data_manager.hideout_data:
-            found = False
-            for level in station.get('levels', []):
-                if any(req.get('itemId') == item_id for req in level.get('requirementItemIds', [])):
-                    needed.append('hideout')
-                    found = True
-                    break
-            if found:
-                break
-        
-        # Check Projects
-        for proj in self.data_manager.project_data:
-            found = False
-            for phase in proj.get('phases', []):
-                if any(req.get('itemId') == item_id for req in phase.get('requirementItemIds', [])):
-                    needed.append('project')
-                    found = True
-                    break
-            if found:
-                break
-        
-        return needed
+        """Check where item is needed: quests, hideout, or projects (Uses Cache)"""
+        # Return list of types from cache (e.g., ['quest', 'hideout'])
+        if item_id in self.req_cache:
+            return list(self.req_cache[item_id]['types'])
+        return []
 
     def toggle_track_item(self, item_id, button):
         tracked_items = self.data_manager.user_progress.get('tracked_items', [])
@@ -742,19 +754,20 @@ class ItemDatabaseWindow(QWidget):
             # No special requirements
             border_style = "border: 1px solid #444;"
         
+        # FIX: Include border_style in hover state so colors don't vanish on hover
         if is_tracked:
             button.setText("TRACKED")
             button.setStyleSheet(f"""
                 QPushButton {{ background-color: rgba(76, 175, 80, 0.2); color: #4CAF50;
                     {border_style} border-radius: 4px; font-weight: bold; font-size: 10px; }}
-                QPushButton:hover {{ background-color: rgba(76, 175, 80, 0.4); }}
+                QPushButton:hover {{ {border_style} background-color: rgba(76, 175, 80, 0.4); }}
             """)
         else:
             button.setText("TRACK")
             button.setStyleSheet(f"""
                 QPushButton {{ background-color: transparent; color: #666;
                     {border_style} border-radius: 4px; font-weight: bold; font-size: 10px; }}
-                QPushButton:hover {{ color: #aaa; }}
+                QPushButton:hover {{ {border_style} color: #aaa; }}
             """)
 
     def edit_item_note(self, item_id, button, card_widget, item, color_hex):
