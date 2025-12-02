@@ -14,6 +14,7 @@ class ProjectManagerWindow(BaseManagerWindow):
         self.rarity_colors = rarity_colors
         self.project_data = project_data
         self.user_progress = user_progress
+        self.current_language = self._load_language_from_config()
 
         if 'projects' not in self.user_progress:
             self.user_progress['projects'] = {}
@@ -42,7 +43,10 @@ class ProjectManagerWindow(BaseManagerWindow):
             self.content_layout.addWidget(p_frame)
             
             # Project Header
-            p_layout.addWidget(QLabel(project.get('name', ''), objectName="Header"))
+            proj_name = project.get('name', {})
+            if isinstance(proj_name, dict):
+                proj_name = proj_name.get(self.current_language, proj_name.get('en', 'Project'))
+            p_layout.addWidget(QLabel(proj_name, objectName="Header"))
             
             for phase_info in sorted(project.get('phases', []), key=lambda x: x.get('phase', 0)):
                 phase_num = phase_info.get('phase', 0)
@@ -63,7 +67,10 @@ class ProjectManagerWindow(BaseManagerWindow):
                 
                 # Phase Header Row
                 h_row = QHBoxLayout()
-                title_text = f"Phase {phase_num}: {phase_info.get('name', '')}"
+                phase_name = phase_info.get('name', {})
+                if isinstance(phase_name, dict):
+                    phase_name = phase_name.get(self.current_language, phase_name.get('en', ''))
+                title_text = f"Phase {phase_num}: {phase_name}"
                 title = QLabel(title_text)
                 title.setStyleSheet("font-weight: bold; border: none; font-size: 15px; color: #9DA5B4;")
                 
@@ -210,3 +217,44 @@ class ProjectManagerWindow(BaseManagerWindow):
             with open(Constants.PROGRESS_FILE, 'w', encoding='utf-8') as f:
                 json.dump(self.user_progress, f, indent=2)
         except Exception as e: print(f"Error saving project progress: {e}")
+    
+    def _load_language_from_config(self):
+        """Load language from config file."""
+        import configparser
+        config = configparser.ConfigParser()
+        try:
+            config.read(Constants.CONFIG_FILE)
+            ocr_lang = config.get('General', 'language', fallback='eng')
+            for _, (data_lang, tess_lang) in Constants.LANGUAGES.items():
+                if tess_lang == ocr_lang:
+                    return data_lang
+        except:
+            pass
+        return 'en'
+    
+    def refresh_language(self, lang_code):
+        """Update all project and phase names with new language."""
+        self.current_language = lang_code
+        
+        # Update each phase title
+        for project in self.project_data:
+            p_id = project.get('id')
+            if not p_id:
+                continue
+            
+            for phase_info in sorted(project.get('phases', []), key=lambda x: x.get('phase', 0)):
+                phase_num = phase_info.get('phase', 0)
+                wrapper = self.phase_frames.get((p_id, phase_num))
+                if not wrapper:
+                    continue
+                
+                # Get localized phase name
+                phase_name = phase_info.get('name', {})
+                if isinstance(phase_name, dict):
+                    phase_name = phase_name.get(lang_code, phase_name.get('en', ''))
+                
+                # Find and update the phase title label
+                for child in wrapper.findChildren(QLabel):
+                    if 'Phase' in child.text() and '9DA5B4' in child.styleSheet():
+                        child.setText(f"Phase {phase_num}: {phase_name}")
+                        break

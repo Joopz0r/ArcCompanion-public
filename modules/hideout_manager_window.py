@@ -14,6 +14,7 @@ class HideoutManagerWindow(BaseManagerWindow):
         self.rarity_colors = rarity_colors
         self.raw_hideout_data = hideout_data
         self.user_progress = user_progress
+        self.current_language = self._load_language_from_config()
         
         if 'hideout_inventory' not in self.user_progress:
             self.user_progress['hideout_inventory'] = {}
@@ -72,7 +73,10 @@ class HideoutManagerWindow(BaseManagerWindow):
             header.addWidget(btn_up)
             header.addWidget(btn_down)
             
-            name_lbl = QLabel(station.get('name', 'Unknown'), objectName="Header")
+            station_name = station.get('name', {})
+            if isinstance(station_name, dict):
+                station_name = station_name.get(self.current_language, station_name.get('en', 'Station'))
+            name_lbl = QLabel(station_name, objectName="Header")
             # Override color slightly for Hideout Blue theme if desired, otherwise remove style
             name_lbl.setStyleSheet("font-size: 16px; font-weight: bold; color: #4476ED; border: none;")
             header.addWidget(name_lbl)
@@ -246,3 +250,40 @@ class HideoutManagerWindow(BaseManagerWindow):
             with open(Constants.PROGRESS_FILE, 'w', encoding='utf-8') as f: 
                 json.dump(self.user_progress, f, indent=2)
         except Exception as e: print(f"Error saving hideout progress: {e}")
+    
+    def _load_language_from_config(self):
+        """Load language from config file."""
+        import configparser
+        config = configparser.ConfigParser()
+        try:
+            config.read(Constants.CONFIG_FILE)
+            ocr_lang = config.get('General', 'language', fallback='eng')
+            for _, (data_lang, tess_lang) in Constants.LANGUAGES.items():
+                if tess_lang == ocr_lang:
+                    return data_lang
+        except:
+            pass
+        return 'en'
+    
+    def refresh_language(self, lang_code):
+        """Update all station names with new language."""
+        self.current_language = lang_code
+        
+        for station in self.raw_hideout_data:
+            station_id = station.get('id')
+            widgets = self.station_widgets.get(station_id)
+            if not widgets:
+                continue
+            
+            # Get localized station name
+            station_name = station.get('name', {})
+            if isinstance(station_name, dict):
+                station_name = station_name.get(lang_code, station_name.get('en', 'Station'))
+            
+            # Find and update the station name label
+            frame = widgets.get('frame')
+            if frame:
+                for child in frame.findChildren(QLabel):
+                    if 'Header' == child.objectName() or '4476ED' in child.styleSheet():
+                        child.setText(station_name)
+                        break

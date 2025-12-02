@@ -118,6 +118,7 @@ class HotkeyButton(QPushButton):
 class SettingsWindow(QWidget):
     start_download = pyqtSignal(list)
     start_language_download = pyqtSignal(str)
+    language_changed = pyqtSignal(str)
 
     SECTIONS = {
         'price': ('Price', 'show_price'),
@@ -458,6 +459,13 @@ class SettingsWindow(QWidget):
             
         if new_price_hk != self.start_hotkey_price or new_quest_hk != self.start_hotkey_quest:
             QMessageBox.information(self, "Restart Required", "You have modified keybindings.\nPlease restart the application for the new hotkeys to take effect.")
+
+        # Emit language change signal after saving
+        display_name = self.lang_combo.currentText()
+        if display_name in Constants.LANGUAGES:
+            lang_tuple = Constants.LANGUAGES[display_name]
+            lang_code = lang_tuple[0]
+            self.language_changed.emit(lang_code)
 
         if self.on_save_callback:
             self.on_save_callback()

@@ -11,6 +11,7 @@ class QuestManagerWindow(BaseManagerWindow):
         super().__init__()
         self.data_manager = data_manager
         self.user_progress = user_progress
+        self.current_language = self._load_language_from_config()
 
         if 'quests' not in self.user_progress:
             self.user_progress['quests'] = {}
@@ -59,7 +60,10 @@ class QuestManagerWindow(BaseManagerWindow):
             reorder_layout.addWidget(btn_up); reorder_layout.addWidget(btn_down)
             h_layout.addLayout(reorder_layout)
             
-            title = QLabel(quest.get('name', '')); 
+            quest_name = quest.get('name', {})
+            if isinstance(quest_name, dict):
+                quest_name = quest_name.get(self.current_language, quest_name.get('en', 'Quest'))
+            title = QLabel(quest_name); 
             title.setStyleSheet("font-weight: bold; font-size: 16px; border: none; color: #E5C07B;")
             h_layout.addWidget(title); h_layout.addStretch()
             
@@ -211,3 +215,61 @@ class QuestManagerWindow(BaseManagerWindow):
             with open(Constants.PROGRESS_FILE, 'w', encoding='utf-8') as f:
                 json.dump(self.user_progress, f, indent=2)
         except Exception as e: print(f"Error saving quest progress: {e}")
+    
+    def _load_language_from_config(self):
+        """Load language from config file."""
+        import configparser
+        config = configparser.ConfigParser()
+        try:
+            config.read(Constants.CONFIG_FILE)
+            ocr_lang = config.get('General', 'language', fallback='eng')
+            for _, (data_lang, tess_lang) in Constants.LANGUAGES.items():
+                if tess_lang == ocr_lang:
+                    return data_lang
+        except:
+            pass
+        return 'en'
+    
+    def refresh_language(self, lang_code):
+        """Update all quest names and objectives with new language."""
+        self.current_language = lang_code
+        
+        # Access raw quest data from data_manager (not the flattened all_quests_data)
+        raw_quest_data = self.data_manager.quest_data
+        
+        for quest in raw_quest_data:
+            q_id = quest.get('id')
+            widgets = self.quest_widgets.get(q_id)
+            if not widgets:
+                continue
+            
+            # Get localized name from raw data
+            quest_name = quest.get('name', {})
+            if isinstance(quest_name, dict):
+                quest_name = quest_name.get(lang_code, quest_name.get('en', 'Quest'))
+            
+            # Find title label in frame and update it
+            frame = widgets.get('frame')
+            if frame:
+                for child in frame.findChildren(QLabel):
+                    if 'bold' in child.styleSheet() and 'E5C07B' in child.styleSheet():
+                        child.setText(quest_name)
+                        break
+            
+            # Update objective labels
+            objectives = quest.get('objectives', [])
+            obj_widgets = widgets.get('objs', [])
+            
+            for i, obj_widget in enumerate(obj_widgets):
+                if i < len(objectives):
+                    obj_data = objectives[i]
+                    # Get localized objective text
+                    if isinstance(obj_data, dict):
+                        obj_text = obj_data.get(lang_code, obj_data.get('en', ''))
+                    else:
+                        obj_text = obj_data
+                    
+                    # Update the label
+                    obj_label = obj_widget.get('label')
+                    if obj_label:
+                        obj_label.setText(obj_text)

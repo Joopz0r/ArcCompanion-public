@@ -242,6 +242,9 @@ class ProgressHubWindow(QWidget):
         self.item_db_tab = ItemDatabaseWindow(self.data_manager)
         self.settings_tab = SettingsWindow(on_save_callback=settings_callback)
         
+        # Connect language change signal
+        self.settings_tab.language_changed.connect(self._on_language_changed)
+        
         # --- NEW: ABOUT TAB ---
         # Pass the update checker function to the About Tab
         self.about_tab = AboutTab(app_version, app_update_checker_func)
@@ -301,6 +304,39 @@ class ProgressHubWindow(QWidget):
         elif current_widget == self.project_tab:
             self.project_tab.reset_project_progress_confirmation()
 
+    def _on_language_changed(self, lang_code):
+        """Called when user changes language in Settings tab."""
+        # Update tab content
+        if hasattr(self.quest_tab, 'refresh_language'):
+            self.quest_tab.refresh_language(lang_code)
+        if hasattr(self.hideout_tab, 'refresh_language'):
+            self.hideout_tab.refresh_language(lang_code)
+        if hasattr(self.project_tab, 'refresh_language'):
+            self.project_tab.refresh_language(lang_code)
+        if hasattr(self.item_db_tab, 'refresh_language'):
+            self.item_db_tab.refresh_language(lang_code)
+        
+        # Update tab labels
+        tab_names = {
+            'en': ['Quests', 'Hideout', 'Expeditions', 'Item Database', 'Settings', 'About'],
+            'pt': ['Missões', 'Refúgio', 'Expedições', 'Base de Itens', 'Configurações', 'Sobre'],
+            'es': ['Misiones', 'Refugio', 'Expediciones', 'Base de Datos de Objetos', 'Ajustes', 'Acerca de'],
+            'fr': ['Quêtes', 'Refuge', 'Expéditions', 'Base de Données d\'Objets', 'Paramètres', 'À Propos'],
+            'de': ['Quests', 'Versteck', 'Expeditionen', 'Gegenstandsdatenbank', 'Einstellungen', 'Über'],
+            'ru': ['Задания', 'Убежище', 'Экспедиции', 'База Предметов', 'Настройки', 'О программе'],
+            'pl': ['Zadania', 'Kryjówka', 'Ekspedycje', 'Baza Przedmiotów', 'Ustawienia', 'O programie'],
+            'it': ['Missioni', 'Rifugio', 'Spedizioni', 'Database Oggetti', 'Impostazioni', 'Informazioni'],
+            'ja': ['クエスト', '隠れ家', '遠征', 'アイテムデータベース', '設定', '情報'],
+            'zh-CN': ['任务', '藏身处', '远征', '物品数据库', '设置', '关于'],
+            'kr': ['퀘스트', '은신처', '원정', '아이템 데이터베이스', '설정', '정보']
+        }
+        
+        # Default to English if language not found
+        labels = tab_names.get(lang_code, tab_names['en'])
+        
+        for i, label in enumerate(labels):
+            self.tabs.setTabText(i, label)
+    
     def closeEvent(self, event):
         for tab in [self.hideout_tab, self.quest_tab, self.project_tab, self.item_db_tab]:
             if hasattr(tab, '_perform_save'):

@@ -119,6 +119,7 @@ class ItemDatabaseWindow(QWidget):
     def __init__(self, data_manager):
         super().__init__()
         self.data_manager = data_manager
+        self.current_language = self._load_language_from_config()
         
         # Use the ID Map to ensure we only get unique items
         if self.data_manager.id_to_item_map:
@@ -168,7 +169,7 @@ class ItemDatabaseWindow(QWidget):
         # 1. Process Quests
         for quest in self.data_manager.quest_data:
             name_field = quest.get('name', {})
-            quest_name = name_field.get('en', 'Unknown Quest') if isinstance(name_field, dict) else str(name_field)
+            quest_name = name_field.get(self.current_language, name_field.get('en', 'Unknown Quest')) if isinstance(name_field, dict) else str(name_field)
             
             for req in quest.get('requiredItemIds', []):
                 item_id = req.get('itemId')
@@ -184,7 +185,7 @@ class ItemDatabaseWindow(QWidget):
         # 2. Process Hideout
         for station in self.data_manager.hideout_data:
             name_field = station.get('name', {})
-            station_name = name_field.get('en', 'Station') if isinstance(name_field, dict) else str(name_field)
+            station_name = name_field.get(self.current_language, name_field.get('en', 'Station')) if isinstance(name_field, dict) else str(name_field)
             
             for level in station.get('levels', []):
                 for req in level.get('requirementItemIds', []):
@@ -203,7 +204,7 @@ class ItemDatabaseWindow(QWidget):
         # 3. Process Projects
         for proj in self.data_manager.project_data:
             name_field = proj.get('name', 'Project')
-            p_name = name_field.get('en', 'Project') if isinstance(name_field, dict) else str(name_field)
+            p_name = name_field.get(self.current_language, name_field.get('en', 'Project')) if isinstance(name_field, dict) else str(name_field)
             clean_name = p_name.replace("Project", "").strip() or p_name
             
             for phase in proj.get('phases', []):
@@ -218,6 +219,30 @@ class ItemDatabaseWindow(QWidget):
                     
                     self.req_cache[item_id]['types'].add('project')
                     self.req_cache[item_id]['details']['project'].append(f"{clean_name} ({qty}x)")
+
+    def _load_language_from_config(self):
+        """Load language preference from config.ini and convert to data format."""
+        import configparser
+        
+        config = configparser.ConfigParser()
+        try:
+            config.read('config.ini')
+            ocr_lang = config.get('Settings', 'language', fallback='eng')
+            
+            # Convert OCR language code to data language code
+            for display_name, (data_lang, ocr_code) in Constants.LANGUAGES.items():
+                if ocr_code == ocr_lang:
+                    return data_lang
+            return 'en'
+        except:
+            return 'en'
+    
+    def refresh_language(self, lang_code):
+        """Rebuild requirements cache with new language."""
+        self.current_language = lang_code
+        self._build_requirements_cache()
+        # Reapply current filters to update displayed tooltips
+        self.filter_items()
 
     def init_ui(self):
         main_layout = QVBoxLayout(self)
