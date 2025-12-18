@@ -182,14 +182,47 @@ class DataManager:
         item = self.get_item_by_name(item_name)
         return self.item_to_trades_map.get(item['id'], []) if item and 'id' in item else []
     
+    def find_quest_item_requirements(self, item_name: str, lang_code='en'):
+        """
+        Find quest requirements for an item.
+        Returns list of tuples: (display_string, is_complete)
+        """
+        results, target_item = [], self.get_item_by_name(item_name)
+        if not target_item or 'id' not in target_item: return []
+        tid = target_item['id']
+        
+        # Get user quest progress
+        u_quests = self.user_progress.get('quests', {})
+        
+        for quest in self.quest_data:
+            q_id = quest.get('id')
+            if not q_id: continue
+            
+            # Skip if quest is already completed
+            q_progress = u_quests.get(q_id, {})
+            if q_progress.get('quest_completed', False): continue
+            
+            # Check requirements
+            q_reqs = quest.get('requiredItemIds', [])
+            for req in q_reqs:
+                if req.get('itemId') == tid:
+                    q_name = self.get_localized_name(quest, lang_code)
+                    needed = req.get('quantity', 0)
+                    
+                    # Quests usually don't have a partial 'owned' count in user_progress 
+                    # unless it's tracked objective-wise, but for simple items we check stash?
+                    # For now, just show total needed.
+                    is_complete = False # Quests are either done or not for these items usually
+                    
+                    display_str = f"{q_name}: x{needed}"
+                    results.append((display_str, is_complete))
+                    
+        return results
+
     def find_hideout_requirements(self, item_name: str, lang_code='en'):
         """
         Find hideout upgrade requirements for an item.
         Returns list of tuples: (display_string, req_type, is_complete, needed_qty)
-        - display_string: formatted requirement text
-        - req_type: 'next' or 'future' 
-        - is_complete: True if user has enough items for this requirement
-        - needed_qty: quantity needed for the requirement
         """
         results, target_item = [], self.get_item_by_name(item_name)
         if not target_item or 'id' not in target_item: return []
@@ -208,7 +241,6 @@ class DataManager:
                         needed = req.get('quantity', 0)
                         owned = h_inv.get(sid, {}).get(str(lvl), {}).get(req.get('itemId'), 0)
                         is_complete = owned >= needed
-                        # Show remaining if not complete, otherwise show total needed with tick
                         if is_complete:
                             display_str = f"{sname} (Lvl {lvl}): x{needed}"
                         else:
@@ -218,7 +250,7 @@ class DataManager:
         return results
 
     def find_project_requirements(self, item_name: str, lang_code='en'):
-        """Find project/expedition requirements for an item. Returns list of (display_string, req_type) tuples."""
+        """Find project/expedition requirements for an item."""
         results, target_item = [], self.get_item_by_name(item_name)
         if not target_item or 'id' not in target_item: return []
         tid = target_item['id']
@@ -238,7 +270,6 @@ class DataManager:
                         needed = req.get('quantity', 0)
                         owned = inv.get(str(pnum), {}).get(req.get('itemId'), 0)
                         is_complete = owned >= needed
-                        # Show remaining if not complete, otherwise show total needed with tick
                         if is_complete:
                             display_str = f"{pname} (Ph{pnum}): x{needed}"
                         else:

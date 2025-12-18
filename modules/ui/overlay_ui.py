@@ -1,9 +1,9 @@
 from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QFrame, QGraphicsDropShadowEffect, QSizePolicy
-from PyQt6.QtCore import Qt, QTimer, QPoint
+from PyQt6.QtCore import Qt, QTimer, QPoint, QPropertyAnimation, QEasingCurve
 from PyQt6.QtGui import QFont, QCursor, QColor
 import os
 import math 
-from .constants import Constants
+from modules.core.constants import Constants
 
 class BaseOverlay(QWidget):
     def __init__(self, duration_ms, min_width=None, max_width=None, opacity=0.98, enable_distance_close=True, close_threshold=350):
@@ -52,7 +52,7 @@ class BaseOverlay(QWidget):
         
         self.duration_timer = QTimer(self)
         self.duration_timer.setSingleShot(True)
-        self.duration_timer.timeout.connect(self.close)
+        self.duration_timer.timeout.connect(self.close_with_fade)
         self.duration_timer.start(int(duration_ms))
 
         if enable_distance_close:
@@ -75,7 +75,21 @@ class BaseOverlay(QWidget):
         else: dy = 0
             
         distance = math.sqrt(dx*dx + dy*dy)
-        if distance > self.close_threshold: self.close()
+        if distance > self.close_threshold: self.close_with_fade()
+
+    def close_with_fade(self):
+        """Closes the overlay with a smooth fade-out animation."""
+        if hasattr(self, "_is_closing") and self._is_closing:
+            return
+        self._is_closing = True
+        
+        self.fade_anim = QPropertyAnimation(self, b"windowOpacity")
+        self.fade_anim.setDuration(300)
+        self.fade_anim.setStartValue(self.windowOpacity())
+        self.fade_anim.setEndValue(0.0)
+        self.fade_anim.setEasingCurve(QEasingCurve.Type.OutCubic)
+        self.fade_anim.finished.connect(self.close)
+        self.fade_anim.start()
 
     def set_border_color(self, color_hex):
         self.container.setStyleSheet(f"""
@@ -111,27 +125,63 @@ class BaseOverlay(QWidget):
         
         self.container_layout.addWidget(lbl)
 
-    def show_at_cursor(self):
+    def show_smart(self, x=None, y=None, user_settings=None):
+        """Improved show method that handles dual monitors and ensures visibility."""
+        from PyQt6.QtGui import QGuiApplication
+        
         cursor_pos = QCursor.pos()
-        self.move(cursor_pos.x() + 20, cursor_pos.y() + 20)
-        self.show()
+        target_screen = QGuiApplication.screenAt(cursor_pos)
+        if not target_screen:
+            target_screen = QGuiApplication.primaryScreen()
+            
+        screen_geom = target_screen.geometry()
+        overlay_height, overlay_width = self.sizeHint().height(), self.sizeHint().width()
+        
+        # Defaults if no settings provided
+        offset_x, offset_y, anchor_mode = 0, 0, "Mouse"
+        
+        if user_settings:
+            offset_x = user_settings.get_int('ItemOverlay', 'offset_x', fallback=0)
+            offset_y = user_settings.get_int('ItemOverlay', 'offset_y', fallback=0)
+            anchor_mode = user_settings.get_str('ItemOverlay', 'anchor_mode', fallback="Mouse")
+        
+        # Determine Base Position
+        if anchor_mode == "Mouse":
+             pos_x, pos_y = cursor_pos.x() + 20 + offset_x, cursor_pos.y() + 20 + offset_y
+        else:
+            sx, sy, sw, sh = screen_geom.x(), screen_geom.y(), screen_geom.width(), screen_geom.height()
+            
+            if "Top" in anchor_mode: base_y = sy + 20
+            elif "Bottom" in anchor_mode: base_y = sy + sh - overlay_height - 20
+            else: base_y = sy + (sh - overlay_height) // 2 
+            
+            if "Left" in anchor_mode: base_x = sx + 20
+            elif "Right" in anchor_mode: base_x = sx + sw - overlay_width - 20
+            else: base_x = sx + (sw - overlay_width) // 2 
+            
+            pos_x, pos_y = base_x + offset_x, base_y + offset_y
 
-    def show_at_position(self, x, y):
-        self.move(x, y)
+        # Keep on screen
+        if pos_x + overlay_width > screen_geom.right(): pos_x = screen_geom.right() - overlay_width
+        if pos_y + overlay_height > screen_geom.bottom(): pos_y = screen_geom.bottom() - overlay_height
+        if pos_x < screen_geom.left(): pos_x = screen_geom.left()
+        if pos_y < screen_geom.top(): pos_y = screen_geom.top()
+        
+        self.move(int(pos_x), int(pos_y))
         self.show()
 
 class ItemOverlay(BaseOverlay):
-    def __init__(self, item_data, user_settings, blueprint_required, hideout_reqs, project_reqs, trade_info, data_manager, user_note="", lang_code="en", stash_count=0, is_collected_blueprint=False):
+    def __init__(self, item_data, user_settings, blueprint_required, hideout_reqs, project_reqs, trade_info, data_manager, user_note="", lang_code="en", stash_count=0, is_collected_blueprint=False, quest_reqs=None):
         # Initial config read for constructor args
-        duration = user_settings.getfloat('ItemOverlay', 'duration_seconds', fallback=3.0) * 1000
-        font_size = user_settings.getint('ItemOverlay', 'font_size', fallback=12)
+        duration = user_settings.get_float('ItemOverlay', 'duration_seconds', fallback=3.0) * 1000
+        font_size = user_settings.get_int('ItemOverlay', 'font_size', fallback=12)
         min_w = max(280, font_size * 25)
         max_w = max(400, font_size * 35)
         
-        offset_x = user_settings.getint('ItemOverlay', 'offset_x', fallback=0)
-        offset_y = user_settings.getint('ItemOverlay', 'offset_y', fallback=0)
-        anchor_mode = user_settings.get('ItemOverlay', 'anchor_mode', fallback="Mouse")
-        opacity_val = user_settings.getint('ItemOverlay', 'opacity', fallback=98) / 100.0
+        offset_x = user_settings.get_int('ItemOverlay', 'offset_x', fallback=0)
+        offset_y = user_settings.get_int('ItemOverlay', 'offset_y', fallback=0)
+        anchor_mode = user_settings.get_str('ItemOverlay', 'anchor_mode', fallback="Mouse")
+        opacity_val = user_settings.get_int('ItemOverlay', 'opacity', fallback=98) / 100.0
         
         # Auto-disable leash if custom offsets are used OR if anchor is not Mouse
         enable_leash = (offset_x == 0 and offset_y == 0 and anchor_mode == "Mouse")
@@ -150,6 +200,7 @@ class ItemOverlay(BaseOverlay):
         self.lang_code = lang_code
         self.stash_count = stash_count
         self.is_collected_blueprint = is_collected_blueprint
+        self.quest_reqs = quest_reqs or []
         
         self.refresh_ui()
 
@@ -162,7 +213,7 @@ class ItemOverlay(BaseOverlay):
                 widget.deleteLater()
 
         # 2. Re-read settings
-        font_size = self.user_settings.getint('ItemOverlay', 'font_size', fallback=12)
+        font_size = self.user_settings.get_int('ItemOverlay', 'font_size', fallback=12)
         min_w = max(280, font_size * 25)
         max_w = max(400, font_size * 35)
         self.container.setMinimumWidth(min_w)
@@ -177,7 +228,7 @@ class ItemOverlay(BaseOverlay):
         item_id = self.item_data.get('id')
         tracked_items = self.data_manager.user_progress.get('tracked_items', [])
         is_tracked = item_id and item_id in tracked_items
-        show_indicator = self.user_settings.getboolean('ItemOverlay', 'show_tracked_indicator', fallback=True)
+        show_indicator = self.user_settings.get_bool('ItemOverlay', 'show_tracked_indicator', fallback=True)
         
         display_name = self.data_manager.get_localized_name(self.item_data, self.lang_code)
         
@@ -193,7 +244,7 @@ class ItemOverlay(BaseOverlay):
 
         # --- Renderers ---
         def render_trader():
-            if self.user_settings.getboolean('ItemOverlay', 'show_trader_info', fallback=True) and self.trade_info:
+            if self.user_settings.get_bool('ItemOverlay', 'show_trader_info', fallback=True) and self.trade_info:
                 if self.has_content: self.add_separator()
                 
                 for trade in self.trade_info:
@@ -208,7 +259,7 @@ class ItemOverlay(BaseOverlay):
                 self.has_content = True
 
         def render_price():
-            if self.user_settings.getboolean('ItemOverlay', 'show_price', fallback=True):
+            if self.user_settings.get_bool('ItemOverlay', 'show_price', fallback=True):
                 if self.has_content: self.add_separator()
                 raw_val = self.item_data.get('value')
                 if raw_val is not None:
@@ -228,7 +279,7 @@ class ItemOverlay(BaseOverlay):
                 self.has_content = True
 
         def render_storage():
-            if self.user_settings.getboolean('ItemOverlay', 'show_storage_info', fallback=True):
+            if self.user_settings.get_bool('ItemOverlay', 'show_storage_info', fallback=True):
                 if self.has_content: self.add_separator()
                 
                 final_path = Constants.STORAGE_ICON_PATH
@@ -245,7 +296,7 @@ class ItemOverlay(BaseOverlay):
                 self.has_content = True
 
         def render_crafting():
-            if self.user_settings.getboolean('ItemOverlay', 'show_crafting_info', fallback=True):
+            if self.user_settings.get_bool('ItemOverlay', 'show_crafting_info', fallback=True):
                 craft_bench, craft_time = self.item_data.get('craftBench'), self.item_data.get('craftTime')
                 if isinstance(craft_bench, list): craft_bench = ", ".join([str(b).replace('_', ' ').title() for b in craft_bench])
                 elif isinstance(craft_bench, str): craft_bench = craft_bench.replace('_', ' ').title()
@@ -258,8 +309,8 @@ class ItemOverlay(BaseOverlay):
                     self.has_content = True
 
         def render_hideout():
-            if not self.user_settings.getboolean('ItemOverlay', 'show_hideout_reqs', fallback=True): return
-            show_future = self.user_settings.getboolean('ItemOverlay', 'show_all_future_reqs', fallback=False)
+            if not self.user_settings.get_bool('ItemOverlay', 'show_hideout_reqs', fallback=True): return
+            show_future = self.user_settings.get_bool('ItemOverlay', 'show_all_future_reqs', fallback=False)
             
             filtered_reqs = []
             if self.hideout_reqs:
@@ -288,8 +339,8 @@ class ItemOverlay(BaseOverlay):
                 self.has_content = True
 
         def render_project():
-            if not self.user_settings.getboolean('ItemOverlay', 'show_project_reqs', fallback=True): return
-            show_future = self.user_settings.getboolean('ItemOverlay', 'show_all_future_project_reqs', fallback=False)
+            if not self.user_settings.get_bool('ItemOverlay', 'show_project_reqs', fallback=True): return
+            show_future = self.user_settings.get_bool('ItemOverlay', 'show_all_future_project_reqs', fallback=False)
             
             # Handle both old format (2-tuple) and new format (4-tuple)
             filtered_reqs = []
@@ -323,7 +374,7 @@ class ItemOverlay(BaseOverlay):
 
         def render_recycle():
             recycles = self.item_data.get('recyclesInto', {})
-            if self.user_settings.getboolean('ItemOverlay', 'show_recycles_into', fallback=False) and recycles:
+            if self.user_settings.get_bool('ItemOverlay', 'show_recycles_into', fallback=False) and recycles:
                 if self.has_content: self.add_separator()
                 self.add_label("Recycles Into:", font_size - 1, True, "#5C6370")
                 for item_id_raw, quantity in recycles.items():
@@ -336,7 +387,7 @@ class ItemOverlay(BaseOverlay):
 
         def render_salvage():
             salvages = self.item_data.get('salvagesInto', {})
-            if self.user_settings.getboolean('ItemOverlay', 'show_salvages_into', fallback=False) and salvages:
+            if self.user_settings.get_bool('ItemOverlay', 'show_salvages_into', fallback=False) and salvages:
                 if self.has_content: self.add_separator()
                 self.add_label("Salvages Into:", font_size - 1, True, "#5C6370")
                 for item_id_raw, quantity in salvages.items():
@@ -347,10 +398,21 @@ class ItemOverlay(BaseOverlay):
                 self.has_content = True
 
         def render_notes():
-            if self.user_settings.getboolean('ItemOverlay', 'show_notes', fallback=True) and self.user_note:
+            if self.user_settings.get_bool('ItemOverlay', 'show_notes', fallback=True) and self.user_note:
                 if self.has_content: self.add_separator()
                 self.add_label("Notes", font_size - 1, True, "#5C6370")
                 self.add_label(f"✎ {self.user_note}", font_size, False, "#FFEB3B", 10) 
+                self.has_content = True
+
+        def render_quest():
+            if self.user_settings.get_bool('ItemOverlay', 'show_quest_reqs', fallback=True) and self.quest_reqs:
+                if self.has_content: self.add_separator()
+                self.add_label("Quest Requirement:", font_size - 1, True, "#5C6370")
+                for req_str, is_complete in self.quest_reqs:
+                    color = "#4CAF50" if is_complete else "#61AFEF"
+                    display_text = f"■ {req_str}"
+                    if is_complete: display_text += " <span style='color:#4CAF50'>✓</span>"
+                    self.add_label(display_text, font_size, False, color, 10)
                 self.has_content = True
 
         renderers = {
@@ -361,17 +423,18 @@ class ItemOverlay(BaseOverlay):
             'crafting': render_crafting,
             'hideout': render_hideout,
             'project': render_project,
+            'quest': render_quest,
             'recycle': render_recycle,
             'salvage': render_salvage
         }
 
-        saved_order_str = self.user_settings.get('ItemOverlay', 'section_order', fallback="")
+        saved_order_str = self.user_settings.get_str('ItemOverlay', 'section_order', fallback="")
         if saved_order_str:
             order = [x.strip() for x in saved_order_str.split(',') if x.strip() in renderers]
             for k in renderers:
                 if k not in order: order.append(k)
         else:
-            order = ['price', 'storage', 'trader', 'notes', 'crafting', 'hideout', 'project', 'recycle', 'salvage']
+            order = ['price', 'storage', 'trader', 'notes', 'crafting', 'hideout', 'project', 'quest', 'recycle', 'salvage']
 
         for key in order:
             if key in renderers: renderers[key]()
@@ -379,66 +442,16 @@ class ItemOverlay(BaseOverlay):
         self.adjustSize()
         
     def show_smart(self, x=None, y=None):
-        from PyQt6.QtGui import QGuiApplication
-        
-        cursor_pos = QCursor.pos()
-        target_screen = QGuiApplication.screenAt(cursor_pos)
-        if not target_screen:
-            target_screen = QGuiApplication.primaryScreen()
-            
-        screen_geom = target_screen.geometry()
-        
-        overlay_height, overlay_width = self.size().height(), self.size().width()
-        
-        offset_x = self.user_settings.getint('ItemOverlay', 'offset_x', fallback=0)
-        offset_y = self.user_settings.getint('ItemOverlay', 'offset_y', fallback=0)
-        anchor_mode = self.user_settings.get('ItemOverlay', 'anchor_mode', fallback="Mouse")
-        
-        # Determine Base Position
-        if anchor_mode == "Mouse":
-             # Original behavior
-             pos_x, pos_y = cursor_pos.x() + 20 + offset_x, cursor_pos.y() + 20 + offset_y
-        else:
-            # Fixed Anchors
-            # Coordinates relative to the SCREEN (Top Left is 0,0 of that screen)
-            sx, sy, sw, sh = screen_geom.x(), screen_geom.y(), screen_geom.width(), screen_geom.height()
-            
-            # Base aligns
-            if "Top" in anchor_mode: base_y = sy + 20
-            elif "Bottom" in anchor_mode: base_y = sy + sh - overlay_height - 20
-            else: base_y = sy + (sh - overlay_height) // 2 # Center
-            
-            if "Left" in anchor_mode: base_x = sx + 20
-            elif "Right" in anchor_mode: base_x = sx + sw - overlay_width - 20
-            else: base_x = sx + (sw - overlay_width) // 2 # Center
-            
-            # Apply offsets
-            pos_x, pos_y = base_x + offset_x, base_y + offset_y
-
-        # Bounds Checking (Keep fully on screen if possible)
-        # Check Right
-        if pos_x + overlay_width > screen_geom.right():
-             pos_x = screen_geom.right() - overlay_width
-        # Check Bottom
-        if pos_y + overlay_height > screen_geom.bottom():
-             pos_y = screen_geom.bottom() - overlay_height
-        # Check Left
-        if pos_x < screen_geom.left():
-             pos_x = screen_geom.left()
-        # Check Top
-        if pos_y < screen_geom.top():
-             pos_y = screen_geom.top()
-        
-        self.move(int(pos_x), int(pos_y))
-        self.show()
+        # Delegate to base class with our settings
+        return super().show_smart(x, y, user_settings=self.user_settings)
 
 class QuestOverlayUI:
     @staticmethod
     def create_window(tracked_quests, user_settings, data_manager=None, lang_code="en"):
-        duration = user_settings.getfloat('QuestOverlay', 'duration_seconds', fallback=5.0) * 1000
-        width = user_settings.getint('QuestOverlay', 'width', fallback=350)
-        opacity = user_settings.getint('QuestOverlay', 'opacity', fallback=95) / 100.0
-        font_size = user_settings.getint('QuestOverlay', 'font_size', fallback=12)
+        duration = user_settings.get_float('QuestOverlay', 'duration_seconds', fallback=5.0) * 1000
+        width = user_settings.get_int('QuestOverlay', 'width', fallback=350)
+        opacity = user_settings.get_int('QuestOverlay', 'opacity', fallback=95) / 100.0
+        font_size = user_settings.get_int('QuestOverlay', 'font_size', fallback=12)
 
         overlay = BaseOverlay(duration, min_width=width, max_width=width, opacity=opacity, enable_distance_close=False)
         overlay.set_border_color(Constants.RARITY_COLORS.get('Rare', '#4A5469')) 

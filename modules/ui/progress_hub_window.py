@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTa
 from PyQt6.QtCore import pyqtSignal, Qt
 from PyQt6.QtGui import QIcon, QFont
 import os
-from .constants import Constants
+from modules.core.constants import Constants
 from .hideout_manager_window import HideoutManagerWindow
 from .quest_manager_window import QuestManagerWindow
 from .project_manager_window import ProjectManagerWindow

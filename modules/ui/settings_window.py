@@ -11,7 +11,7 @@ import shutil
 import zipfile
 from datetime import datetime
 
-from .constants import Constants
+from modules.core.constants import Constants
 from .ui_components import ModernToggle, SettingsCard, HotkeyButton
 from .base_page import BasePage
 
@@ -32,10 +32,11 @@ class SettingsWindow(BasePage):
         'crafting': ('Crafting Info', 'show_crafting_info'),
         'hideout': ('Hideout Reqs', 'show_hideout_reqs'),
         'project': ('Project Reqs', 'show_project_reqs'),
+        'quest': ('Quest Reqs', 'show_quest_reqs'),
         'recycle': ('Recycles Into', 'show_recycles_into'),
         'salvage': ('Salvages Into', 'show_salvages_into')
     }
-    DEFAULT_ORDER = ['price', 'storage', 'trader', 'notes', 'crafting', 'hideout', 'project', 'recycle', 'salvage']
+    DEFAULT_ORDER = ['price', 'storage', 'trader', 'notes', 'crafting', 'hideout', 'project', 'quest', 'recycle', 'salvage']
     DEFAULT_OCR_COLOR = (249, 238, 223)
 
     def __init__(self, config_manager, data_manager=None, on_save_callback=None):
@@ -573,7 +574,7 @@ class SettingsWindow(BasePage):
                 sep = QFrame(); sep.setFrameShape(QFrame.Shape.HLine); sep.setStyleSheet("background-color: rgba(255, 255, 255, 0.1); max-height: 1px; border: none;"); self.p_layout.addWidget(sep); self.preview_widgets[f"sep_{key}"] = sep
             l = QLabel(html); l.setWordWrap(True); self.p_layout.addWidget(l); self.preview_widgets[key] = l
             if sub: sl = QLabel(sub_html); sl.setStyleSheet("color:#ABB2BF; margin-left:10px;"); self.p_layout.addWidget(sl); self.preview_widgets[sub] = sl
-        add("price", "Price: <span style='color:#E5C07B'>14,500</span>"); add("storage", "Stash: <span style='color:#ABB2BF'>4</span>"); add("trader", "<span style='color:#98C379'>Barkley: 2x Gold Watch</span>"); add("notes", "<span style='color:#FFEB3B'>✎ Save for quest later</span>"); add("crafting", "<span style='color:#5C6370; font-weight:bold'>Crafting</span>", "crafting_detail", "■ Advanced Bench (45s)"); add("hideout", "<span style='color:#5C6370; font-weight:bold'>Hideout Upgrade:</span>", "hideout_detail", "■ Med Bay Lv.2: x3"); add("project", "<span style='color:#5C6370; font-weight:bold'>Project Request:</span>", "project_detail", "■ Radio Tower (Ph2): x1"); add("recycle", "<span style='color:#5C6370; font-weight:bold'>Recycles Into:</span>", "recycle_detail", "■ 1x Circuit Board"); add("salvage", "<span style='color:#5C6370; font-weight:bold'>Salvages Into:</span>", "salvage_detail", "■ 2x Metal Scrap")
+        add("price", "Price: <span style='color:#E5C07B'>14,500</span>"); add("storage", "Stash: <span style='color:#ABB2BF'>4</span>"); add("trader", "<span style='color:#98C379'>Barkley: 2x Gold Watch</span>"); add("notes", "<span style='color:#FFEB3B'>✎ Save for quest later</span>"); add("crafting", "<span style='color:#5C6370; font-weight:bold'>Crafting</span>", "crafting_detail", "■ Advanced Bench (45s)"); add("hideout", "<span style='color:#5C6370; font-weight:bold'>Hideout Upgrade:</span>", "hideout_detail", "■ Med Bay Lv.2: x3"); add("project", "<span style='color:#5C6370; font-weight:bold'>Project Request:</span>", "project_detail", "■ Radio Tower (Ph2): x1"); add("quest", "<span style='color:#5C6370; font-weight:bold'>Quest Requirement:</span>", "quest_detail", "■ Doctor's Orders: x1"); add("recycle", "<span style='color:#5C6370; font-weight:bold'>Recycles Into:</span>", "recycle_detail", "■ 1x Circuit Board"); add("salvage", "<span style='color:#5C6370; font-weight:bold'>Salvages Into:</span>", "salvage_detail", "■ 2x Metal Scrap")
 
     def update_preview(self):
         # SAFETY CHECK: If this triggers before UI is built, return immediately
@@ -748,6 +749,7 @@ class SettingsWindow(BasePage):
             self.item_duration.value()/10.0, 
             self.chk_future_hideout.isChecked(), 
             self.chk_future_project.isChecked(),
+            section_states.get('show_quest_reqs', True), # Pass quest state
             self.slider_offset_x.value() * 50,
             self.slider_offset_y.value() * 50,
             self.cmb_anchor.currentText(),

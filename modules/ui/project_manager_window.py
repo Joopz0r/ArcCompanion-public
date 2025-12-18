@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import (QLabel, QPushButton, QFrame, QCheckBox, QMessageBox, QWidget, QVBoxLayout, QHBoxLayout, QSizePolicy, QTabWidget, QScrollArea)
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QPainter, QColor, QFont
-from .constants import Constants
+from modules.core.constants import Constants
 from .ui_components import InventoryControl, TextProgressBar
 from .base_page import BasePage
 

@@ -1,17 +1,20 @@
 import re
 import os
 import pytesseract
-from PIL import ImageEnhance
+import cv2
+import numpy as np
+from PIL import ImageEnhance, Image
 from typing import Optional, Dict, Any, List, Tuple
 from datetime import datetime
 
-# RapidFuzz / Difflib check
+import difflib
+# RapidFuzz check
 try:
     from rapidfuzz import process, fuzz; _HAS_RAPIDFUZZ = True
 except ImportError:
-    import difflib; _HAS_RAPIDFUZZ = False
+    _HAS_RAPIDFUZZ = False
 
-from .constants import Constants
+from modules.core.constants import Constants
 from .image_processor import ImageProcessor
 
 
@@ -161,13 +164,22 @@ class ItemScanner:
                 result_token = process.extractOne(candidate_lower, item_names_lower, scorer=fuzz.token_sort_ratio)
                 if result_token and result_token[1] > 0:
                     all_matches.append((lower_to_actual[result_token[0]], result_token[1], "TokenSort"))
-                    
             else:
                 # Fallback for difflib (slower/less accurate)
                 matches = difflib.get_close_matches(candidate_lower, item_names_lower, n=1, cutoff=0.5)
                 if matches:
                     score = difflib.SequenceMatcher(None, candidate_lower, matches[0]).ratio() * 100
                     all_matches.append((lower_to_actual[matches[0]], score, "Difflib"))
+            
+            # --- NEW: Direct Substring/Prefix Boost ---
+            # If the candidate perfectly matches the start of an item name, give it a massive boost
+            # This runs regardless of which fuzzy library is used
+            for item_name_l in item_names_lower:
+                if item_name_l.startswith(candidate_lower) or candidate_lower in item_name_l:
+                    actual = lower_to_actual[item_name_l]
+                    # Simple scoring for exact substring
+                    score = 90 if item_name_l.startswith(candidate_lower) else 80
+                    all_matches.append((actual, score, "Substring"))
         
         # Find the best match across all strategies
         # Prefer higher scores, and for ties prefer matches with similar length to candidate
@@ -246,10 +258,27 @@ class ItemScanner:
             img = img.crop((edge_trim, 0, w - edge_trim, h))  # Trim left and right edges
         # -----------------------------------------------------------------
 
-        # 3. Enhance Image for OCR
-        img = img.convert('L') # Convert to Grayscale
-        enhancer = ImageEnhance.Contrast(img)
-        img = enhancer.enhance(2.0) # High Contrast
+        # 3. Enhance Image for OCR (Using OpenCV - much faster than PIL)
+        img_np = np.array(img)
+        
+        # Convert to Grayscale
+        if len(img_np.shape) == 3:
+            gray = cv2.cvtColor(img_np, cv2.COLOR_RGB2GRAY)
+        else:
+            gray = img_np
+
+        # Rescale if too small (Tesseract loves ~30-40px high text)
+        # If the image height is small, upscale it
+        if h < 200:
+            scale_factor = 2.0
+            gray = cv2.resize(gray, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_CUBIC)
+
+        # High Contrast / Thresholding
+        # We use simple thresholding or adaptive thresholding for better OCR
+        _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        
+        # Convert back to PIL for Tesseract (pytesseract expectation)
+        img = Image.fromarray(thresh)
         
         # --- DEBUG: SAVE PROCESSED HEADER IMAGE ---
         if self.save_debug_images and debug_path and debug_prefix:
@@ -260,7 +289,7 @@ class ItemScanner:
                 print(f"Failed to save debug processed image: {e}")
         # ---------------------------------------
         
-        # 4. Setup Language / Tesseract Config (WITH SAFE ENGLISH WHITELIST)
+        # 4. Setup Language / Tesseract Config
         custom_lang_file = os.path.join(Constants.TESSDATA_DIR, f"{self.ocr_lang_code}.traineddata")
         
         # Determine effective language
@@ -273,13 +302,19 @@ class ItemScanner:
                 print(f"[WARN] Language file for '{self.ocr_lang_code}' not found. Falling back to 'eng'.")
             lang = 'eng'
 
+        # Optimized Flags:
+        # --oem 1: Use LSTM engine (standard/fast)
+        # --psm 6: Assume a single uniform block of text
+        # -c tessedit_do_invert=0: Don't spend time trying to invert colors
+        tess_options = "--psm 6 --oem 1 -c tessedit_do_invert=0"
+
         # Apply whitelist ONLY if English is selected
         if lang == 'eng':
             # Whitelist: a-z, A-Z, 0-9, Hyphen, Period, Parentheses
             whitelist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.() "
-            tess_config = f"--psm 6 -c tessedit_char_whitelist={whitelist}"
+            tess_config = f"{tess_options} -c tessedit_char_whitelist={whitelist}"
         else:
-            tess_config = "--psm 6"
+            tess_config = tess_options
         
         # 5. Run OCR
         try:
@@ -352,6 +387,7 @@ class ItemScanner:
             "trade": self.data_manager.find_trades_for_item(best_name),
             "hideout": self.data_manager.find_hideout_requirements(best_name, lang_code=self.json_lang_code), 
             "project": self.data_manager.find_project_requirements(best_name, lang_code=self.json_lang_code),
+            "quest": self.data_manager.find_quest_item_requirements(best_name, lang_code=self.json_lang_code),
             "blueprint": is_bp,
             "note": user_note,
             "stash_count": stash_count,

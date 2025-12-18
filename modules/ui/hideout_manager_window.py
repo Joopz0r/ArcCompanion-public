@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import (QLabel, QPushButton, QFrame, QMessageBox, QCheckBox, QVBoxLayout, QHBoxLayout, QWidget)
 from PyQt6.QtCore import Qt
-from .constants import Constants
+from modules.core.constants import Constants
 from .ui_components import InventoryControl
 from .base_page import BasePage
 

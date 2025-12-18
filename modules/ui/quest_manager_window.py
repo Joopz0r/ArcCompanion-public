@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import (QLabel, QPushButton, QFrame, QCheckBox, QMessageBox, QVBoxLayout, QHBoxLayout, QLineEdit, QComboBox)
 from PyQt6.QtCore import Qt
-from .constants import Constants
+from modules.core.constants import Constants
 from .base_page import BasePage
 
 class QuestManagerWindow(BasePage):

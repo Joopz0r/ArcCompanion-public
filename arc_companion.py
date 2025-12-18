@@ -4,26 +4,28 @@ import ctypes
 from dataclasses import dataclass
 from typing import Optional
 from datetime import datetime 
+import threading
+import pytesseract
+from PIL import Image
 
-from pynput import keyboard as pynput_keyboard
 from PyQt6.QtWidgets import (QApplication, QSystemTrayIcon, QMenu, 
                              QMessageBox, QProgressDialog)
 from PyQt6.QtGui import QIcon, QAction, QDesktopServices
 from PyQt6.QtCore import QObject, pyqtSignal, QThread, Qt, QUrl, QSharedMemory
 
-from modules.constants import Constants
-from modules.overlay_ui import ItemOverlay, QuestOverlayUI
-from modules.progress_hub_window import ProgressHubWindow
-from modules.data_manager import ItemDatabase, DataManager
-from modules.scanner import ItemScanner
-from modules.update_checker import UpdateChecker    
-from modules.app_updater import AppUpdateChecker
-from modules.config_manager import ConfigManager
+from modules.core.constants import Constants
+from modules.ui.overlay_ui import ItemOverlay, QuestOverlayUI, BaseOverlay
+from modules.ui.progress_hub_window import ProgressHubWindow
+from modules.core.data_manager import ItemDatabase, DataManager
+from modules.ocr.scanner import ItemScanner
+from modules.updater.update_checker import UpdateChecker    
+from modules.updater.app_updater import AppUpdateChecker
+from modules.core.config_manager import ConfigManager
+from modules.input.hotkey_listener import HotkeyListener
+from modules.workers.scan_worker import ScanWorker
+# -----------------------------------------------
 
-# --- SCIPY IMPORTS REMOVED HERE ---
-# (They used to be here, but we deleted them because we use OpenCV now)
-
-APP_VERSION = "1.3.1"
+APP_VERSION = "1.4.0"
 APP_UPDATE_URL = "https://arc-companion.xyz/check_update.php" 
 
 @dataclass
@@ -32,68 +34,6 @@ class Config:
     @classmethod
     def from_args(cls, args: argparse.Namespace) -> Config:
         return cls(tesseract_path=args.tesseract, once=args.once, debug=args.debug)
-
-class HotkeyListener(QObject):
-    item_check_triggered = pyqtSignal()
-    quest_log_triggered = pyqtSignal()
-    hub_triggered = pyqtSignal()
-    
-    def __init__(self, item_hotkey, quest_hotkey, hub_hotkey):
-        super().__init__()
-        self.item_hotkey_str = self._convert_to_pynput_format(item_hotkey)
-        self.quest_hotkey_str = self._convert_to_pynput_format(quest_hotkey)
-        self.hub_hotkey_str = self._convert_to_pynput_format(hub_hotkey)
-        self.listener = None
-
-    def _convert_to_pynput_format(self, hotkey_str):
-        parts = hotkey_str.lower().replace(" ", "").split('+')
-        formatted_parts = []
-        modifiers = {'ctrl', 'shift', 'alt', 'cmd', 'enter', 'tab', 'esc', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'insert', 'delete', 'home', 'end', 'pageup', 'pagedown'}
-        for part in parts:
-            if part in modifiers: formatted_parts.append(f"<{part}>")
-            else: formatted_parts.append(part)
-        return '+'.join(formatted_parts)
-
-    def run(self):
-        print(f"Hotkey listener started. Mapping: Item='{self.item_hotkey_str}', Quest='{self.quest_hotkey_str}', Hub='{self.hub_hotkey_str}'")
-        hotkeys = { 
-            self.item_hotkey_str: self._on_item_check, 
-            self.quest_hotkey_str: self._on_quest_log,
-            self.hub_hotkey_str: self._on_hub
-        }
-        try:
-            with pynput_keyboard.GlobalHotKeys(hotkeys) as self.listener: self.listener.join()
-        except Exception as e: print(f"Error in Hotkey Listener: {e}")
-
-    def stop(self):
-        if self.listener: self.listener.stop()
-
-    def _on_item_check(self): self.item_check_triggered.emit()
-    def _on_quest_log(self): self.quest_log_triggered.emit()
-    def _on_hub(self): self.hub_triggered.emit()
-
-# --- SCAN WORKER (THREADING) ---
-class ScanWorker(QObject):
-    """
-    Runs the screen scanning and OCR process in a separate thread.
-    """
-    finished = pyqtSignal(object)
-    error = pyqtSignal(str)
-
-    def __init__(self, scanner: ItemScanner, from_tray: bool):
-        super().__init__()
-        self.scanner = scanner
-        self.from_tray = from_tray
-
-    def run(self):
-        try:
-            # This calls the new OpenCV+MSS scanner
-            result = self.scanner.scan_screen(full_screen=self.from_tray)
-            self.finished.emit(result)
-        except Exception as e:
-            traceback.print_exc()
-            self.error.emit(str(e))
-            self.finished.emit(None)
 
 class ArcCompanionApp(QObject):
     start_data_download = pyqtSignal(list)
@@ -155,6 +95,35 @@ class ArcCompanionApp(QObject):
         """Starts hotkeys and app update checks after data is verified."""
         self._start_hotkey_service()
         self.check_for_app_updates(manual=False)
+        self.warm_up_tesseract()
+
+    def warm_up_tesseract(self):
+        """
+        Runs a OCR tasks in background to 'warm up' the Tesseract process for active languages.
+        """
+        def _warm_up():
+            try:
+                tess_path = self.cmd_config.tesseract_path
+                if tess_path:
+                    pytesseract.pytesseract.tesseract_cmd = tess_path
+                
+                # Pre-load English and the currently selected language
+                # This eliminates first-scan latency for both
+                langs_to_warm = ['eng']
+                if self.ocr_lang_code and self.ocr_lang_code != 'eng':
+                    langs_to_warm.append(self.ocr_lang_code)
+                
+                dummy_img = Image.new('RGB', (10, 10), color=(255, 255, 255))
+                for lang in langs_to_warm:
+                    try:
+                        _ = pytesseract.image_to_string(dummy_img, lang=lang, config='--psm 10')
+                        print(f"[INFO] Tesseract warmed up for '{lang}'.")
+                    except Exception: pass
+                print("[INFO] Tesseract warmup complete.")
+            except Exception as e:
+                print(f"[WARN] Tesseract warm-up failed: {e}")
+
+        threading.Thread(target=_warm_up, daemon=True).start()
 
     def on_tray_icon_activated(self, reason):
         if reason == QSystemTrayIcon.ActivationReason.Trigger:
@@ -267,6 +236,13 @@ class ArcCompanionApp(QObject):
     def handle_scan_result(self, scan_result):
         if scan_result:
             self.display_item_overlay(scan_result)
+        else:
+            # Item Not Found Feedback
+            ov = BaseOverlay(duration_ms=1500, min_width=200, opacity=0.9)
+            ov.add_label("No Item Detected", font_size=14, bold=True, color="#E06C75")
+            ov.set_border_color("#E06C75")
+            ov.show_smart()
+            self.overlays.append(ov)
 
     def process_quest_log(self):
         try:
@@ -275,14 +251,31 @@ class ArcCompanionApp(QObject):
         except Exception as e: print(f"Error: {e}")
 
     def display_item_overlay(self, data):
-        # Use simple instantiation instead of factory
-        from modules.overlay_ui import ItemOverlay
-        ov = ItemOverlay(data['item'], self.config_manager.parser, data['blueprint'], data['hideout'], data['project'], data['trade'], self.data_manager, data['note'], lang_code=self.json_lang_code, stash_count=data['stash_count'], is_collected_blueprint=data['is_collected_bp'])
+        # Close existing
+        for ov in self.overlays[:]:
+            try: ov.close_with_fade()
+            except: ov.close()
+        self.overlays.clear()
+        
+        ov = ItemOverlay(
+            data['item'], 
+            self.config_manager, 
+            data.get('blueprint', False), 
+            data.get('hideout', []), 
+            data.get('project', []), 
+            data.get('trade', []), 
+            self.data_manager, 
+            user_note=data.get('note', ""), 
+            lang_code=self.json_lang_code, 
+            stash_count=data.get('stash_count', 0), 
+            is_collected_blueprint=data.get('is_collected_bp', False),
+            quest_reqs=data.get('quest', [])
+        )
         ov.show_smart()
         self.overlays.append(ov)
 
     def display_quest_overlay(self, tracked):
-        ov = QuestOverlayUI.create_window(tracked, self.config_manager.parser, self.data_manager, lang_code=self.json_lang_code)
+        ov = QuestOverlayUI.create_window(tracked, self.config_manager, self.data_manager, lang_code=self.json_lang_code)
         self.overlays.append(ov)
 
     def ensure_data_exists(self):
@@ -468,7 +461,7 @@ class ArcCompanionApp(QObject):
         self.progress_hub.activateWindow()
         self.progress_hub.raise_()
 
-from modules.ui_components import set_dark_title_bar, DarkTitleBarProxy
+from modules.ui.ui_components import set_dark_title_bar, DarkTitleBarProxy
 
 def main():
     def get_tesseract_path():

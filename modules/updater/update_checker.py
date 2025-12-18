@@ -2,7 +2,7 @@ from PyQt6.QtCore import QObject, pyqtSignal
 import requests
 import json
 import os
-from .constants import Constants
+from modules.core.constants import Constants
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # The base URL for downloading the raw file content
