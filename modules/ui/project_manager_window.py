@@ -275,9 +275,12 @@ class ProjectManagerWindow(BasePage):
                         w_layout.addLayout(row)
                 
                 wrapper.setProperty("btn_complete", btn_complete)
+            
+            # Add a vertical stretch to each project's content_layout.
+            # This ensures that if some phases are hidden, the remaining content
+            # is pushed to the top instead of stretching to fill the whole box.
+            content_layout.addStretch()
         
-        # Add a stretch to the end of each tab to push content up if needed? 
-        # Actually QScrollArea handles it.
         self.refresh_visibility()
 
     def _on_inventory_changed(self, p_id, phase_num, item_id):

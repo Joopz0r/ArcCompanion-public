@@ -401,12 +401,59 @@ class ArcCompanionApp(QObject):
         self.app_update_thread = QThread()
         self.app_update_worker = AppUpdateChecker(APP_VERSION, APP_UPDATE_URL)
         self.app_update_worker.moveToThread(self.app_update_thread)
-        self.app_update_thread.started.connect(self.app_update_worker.run_check)
-        self.app_update_worker.update_available.connect(lambda v, u: QMessageBox.question(self.progress_hub, "Update", f"New version {v} available. Open site?", QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No) == QMessageBox.StandardButton.Yes and QDesktopServices.openUrl(QUrl(u)))
+        
+        # Connect signals
+        self.app_update_worker.update_available.connect(self.handle_app_update_available)
+        self.app_update_worker.update_progress.connect(self.handle_app_update_progress)
+        self.app_update_worker.update_ready.connect(self.handle_app_update_ready)
         self.app_update_worker.check_finished.connect(self.app_update_thread.quit)
         self.app_update_thread.finished.connect(self.app_update_thread.deleteLater)
-        if manual: self.app_update_worker.check_finished.connect(lambda: QMessageBox.information(self.progress_hub, "Up to Date", f"Version {APP_VERSION} is the latest."))
+        self.app_update_thread.started.connect(self.app_update_worker.run_check)
+        
+        if manual: 
+            self.app_update_worker.check_finished.connect(lambda: QMessageBox.information(self.progress_hub, "Up to Date", f"Version {APP_VERSION} is the latest."))
+            
         self.app_update_thread.start()
+
+    def handle_app_update_available(self, version, site_url, exe_url):
+        msg = f"New version {version} is available!\n\n"
+        if exe_url:
+            msg += "Would you like to download and install it automatically?\n(Application will restart after download)"
+            reply = QMessageBox.question(self.progress_hub, "Update Available", msg, 
+                                       QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No | QMessageBox.StandardButton.Cancel)
+            
+            if reply == QMessageBox.StandardButton.Yes:
+                # Start Direct Download
+                self.progress_dialog = QProgressDialog("Downloading Update...", "Cancel", 0, 100, self.progress_hub)
+                self.progress_dialog.setWindowModality(Qt.WindowModality.ApplicationModal)
+                self.progress_dialog.show()
+                # Run download in a worker thread to keep UI responsive
+                threading.Thread(target=self.app_update_worker.download_exe, args=(exe_url,), daemon=True).start()
+            elif reply == QMessageBox.StandardButton.No:
+                # Fallback to website
+                QDesktopServices.openUrl(QUrl(site_url))
+        else:
+            # No direct EXE, just open site
+            msg += "Open the website to download the new version?"
+            if QMessageBox.question(self.progress_hub, "Update Available", msg) == QMessageBox.StandardButton.Yes:
+                QDesktopServices.openUrl(QUrl(site_url))
+
+    def handle_app_update_progress(self, progress):
+        if hasattr(self, 'progress_dialog') and self.progress_dialog:
+            if progress == -1:
+                self.progress_dialog.close()
+                QMessageBox.critical(self.progress_hub, "Update Error", "Failed to download the update.")
+            else:
+                self.progress_dialog.setValue(progress)
+
+    def handle_app_update_ready(self, local_path):
+        if hasattr(self, 'progress_dialog') and self.progress_dialog:
+            self.progress_dialog.close()
+            
+        # Last confirmation before restart
+        if QMessageBox.question(self.progress_hub, "Install Update", 
+                               "Download complete. Restart and update now?") == QMessageBox.StandardButton.Yes:
+            self.app_update_worker.apply_update(local_path)
 
         
     def cleanup_threads(self):
