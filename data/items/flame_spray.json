@@ -98,5 +98,6 @@
   "recipe": {
     "air_freshener": 1,
     "fireball_burner": 1
-  }
+  },
+  "recommendation": "recycle"
 }

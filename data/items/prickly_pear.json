@@ -49,5 +49,6 @@
   },
   "updatedAt": "11/20/2025",
   "weightKg": 0.2,
-  "stackSize": 10
+  "stackSize": 10,
+  "recommendation": "keep"
 }

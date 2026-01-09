@@ -51,5 +51,6 @@
   "recyclesInto": {
     "advanced_electrical_components": 1,
     "speaker_component": 1
-  }
+  },
+  "recommendation": "recycle"
 }

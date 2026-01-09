@@ -75,5 +75,6 @@
     "chemicals": 3
   },
   "imageFilename": "https://cdn.arctracker.io/items/pulse_mine.png",
-  "updatedAt": "11/17/2025"
+  "updatedAt": "11/17/2025",
+  "recommendation": "keep"
 }

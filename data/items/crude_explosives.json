@@ -101,5 +101,6 @@
   "recipe": {
     "chemicals": 6
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "keep"
 }

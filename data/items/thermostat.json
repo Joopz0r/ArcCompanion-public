@@ -54,5 +54,6 @@
   "weightKg": 2,
   "stackSize": 3,
   "foundIn": "Residential",
-  "imageFilename": "https://cdn.arctracker.io/items/thermostat.png"
+  "imageFilename": "https://cdn.arctracker.io/items/thermostat.png",
+  "recommendation": "recycle"
 }

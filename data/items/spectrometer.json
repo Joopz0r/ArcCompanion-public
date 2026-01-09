@@ -51,5 +51,6 @@
   "recyclesInto": {
     "advanced_electrical_components": 1,
     "sensors": 1
-  }
+  },
+  "recommendation": "recycle"
 }

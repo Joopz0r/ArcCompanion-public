@@ -51,5 +51,6 @@
     "sensors": 1,
     "exodus_modules": 1
   },
-  "stackSize": 3
+  "stackSize": 3,
+  "recommendation": "recycle"
 }

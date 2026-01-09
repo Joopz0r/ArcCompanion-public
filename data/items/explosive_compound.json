@@ -58,5 +58,6 @@
   "salvagesInto": {
     "crude_explosives": 1
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "keep"
 }

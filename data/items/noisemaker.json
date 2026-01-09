@@ -93,5 +93,6 @@
   "updatedAt": "11/20/2025",
   "recyclesInto": {
     "speaker_component": 1
-  }
+  },
+  "recommendation": "recycle"
 }

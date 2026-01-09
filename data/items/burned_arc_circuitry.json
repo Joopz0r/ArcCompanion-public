@@ -53,5 +53,6 @@
   "stackSize": 5,
   "foundIn": "ARC",
   "imageFilename": "https://cdn.arctracker.io/items/burned_arc_circuitry.png",
-  "updatedAt": "12/07/2025"
+  "updatedAt": "12/07/2025",
+  "recommendation": "recycle"
 }

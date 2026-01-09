@@ -56,5 +56,6 @@
     "steel_spring": 2,
     "mechanical_components": 2
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "sell"
 }

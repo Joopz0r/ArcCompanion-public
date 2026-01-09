@@ -56,5 +56,6 @@
     "battery": 2
   },
   "craftBench": "workbench",
-  "craftQuantity": 5
+  "craftQuantity": 5,
+  "recommendation": "recycle"
 }

@@ -54,5 +54,6 @@
   "stackSize": 3,
   "foundIn": "Industrial",
   "imageFilename": "https://cdn.arctracker.io/items/polluted_air_filter.png",
-  "updatedAt": "11/10/2025"
+  "updatedAt": "11/10/2025",
+  "recommendation": "recycle"
 }

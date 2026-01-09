@@ -120,5 +120,6 @@
   "recyclesInto": {
     "antiseptic": 1,
     "fabric": 1
-  }
+  },
+  "recommendation": "keep"
 }

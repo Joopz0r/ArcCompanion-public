@@ -51,5 +51,6 @@
   "recyclesInto": {
     "electrical_components": 2,
     "assorted_seeds": 14
-  }
+  },
+  "recommendation": "recycle"
 }

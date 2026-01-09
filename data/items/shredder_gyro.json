@@ -51,5 +51,6 @@
   "recyclesInto": {
     "mechanical_components": 3,
     "arc_alloy": 3
-  }
+  },
+  "recommendation": "recycle"
 }

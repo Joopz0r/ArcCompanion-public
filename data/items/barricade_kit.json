@@ -98,5 +98,6 @@
     "mechanical_components": 1
   },
   "craftBench": "utility_bench",
-  "stationLevelRequired": 1
+  "stationLevelRequired": 1,
+  "recommendation": "recycle"
 }

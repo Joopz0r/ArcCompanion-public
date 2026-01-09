@@ -51,5 +51,6 @@
   "recyclesInto": {
     "synthesized_fuel": 2,
     "metal_parts": 6
-  }
+  },
+  "recommendation": "recycle"
 }

@@ -122,5 +122,6 @@
   ],
   "recyclesInto": {
     "rubber_parts": 4
-  }
+  },
+  "recommendation": "keep"
 }

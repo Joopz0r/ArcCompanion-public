@@ -56,5 +56,6 @@
     "arc_circuitry": 2
   },
   "craftBench": "refiner",
-  "stackSize": 3
+  "stackSize": 3,
+  "recommendation": "keep"
 }

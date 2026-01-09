@@ -47,5 +47,6 @@
   "weightKg": 0.2,
   "stackSize": 3,
   "foundIn": "Electrical",
-  "imageFilename": "https://cdn.arctracker.io/items/light_bulb.png"
+  "imageFilename": "https://cdn.arctracker.io/items/light_bulb.png",
+  "recommendation": "sell"
 }

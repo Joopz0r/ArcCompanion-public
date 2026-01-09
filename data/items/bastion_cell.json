@@ -54,5 +54,6 @@
   "stackSize": 3,
   "foundIn": "ARC",
   "imageFilename": "https://cdn.arctracker.io/items/bastion_cell.png",
-  "updatedAt": "11/01/2025"
+  "updatedAt": "11/01/2025",
+  "recommendation": "keep"
 }

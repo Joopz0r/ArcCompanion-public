@@ -54,5 +54,6 @@
   "foundIn": "Residential",
   "imageFilename": "https://cdn.arctracker.io/items/bicycle_pump.png",
   "updatedAt": "11/01/2025",
-  "stackSize": 3
+  "stackSize": 3,
+  "recommendation": "keep"
 }

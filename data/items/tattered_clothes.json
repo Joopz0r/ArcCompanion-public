@@ -53,5 +53,6 @@
   "imageFilename": "https://cdn.arctracker.io/items/tattered_clothes.png",
   "updatedAt": "11/20/2025",
   "weightKg": 0.8,
-  "stackSize": 3
+  "stackSize": 3,
+  "recommendation": "recycle"
 }

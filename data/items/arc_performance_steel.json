@@ -53,5 +53,6 @@
   "foundIn": "ARC",
   "imageFilename": "https://cdn.arctracker.io/items/arc_performance_steel.png",
   "updatedAt": "11/01/2025",
-  "stackSize": 3
+  "stackSize": 3,
+  "recommendation": "sell"
 }

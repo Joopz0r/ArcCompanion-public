@@ -50,5 +50,6 @@
   "weightKg": 0.5,
   "stackSize": 5,
   "foundIn": "ARC",
-  "updatedAt": "11/05/2025"
+  "updatedAt": "11/05/2025",
+  "recommendation": "recycle"
 }

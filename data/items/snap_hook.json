@@ -100,5 +100,6 @@
   },
   "craftBench": "utility_bench",
   "updatedAt": "12/07/2025",
-  "stackSize": 1
+  "stackSize": 1,
+  "recommendation": "keep"
 }

@@ -48,5 +48,6 @@
   "weightKg": 0.2,
   "stackSize": 3,
   "foundIn": "Residential, Commercial",
-  "imageFilename": "https://cdn.arctracker.io/items/playing_cards.png"
+  "imageFilename": "https://cdn.arctracker.io/items/playing_cards.png",
+  "recommendation": "sell"
 }

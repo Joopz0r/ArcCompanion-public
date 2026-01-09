@@ -51,5 +51,6 @@
   "weightKg": 3,
   "stackSize": 3,
   "foundIn": "Security",
-  "imageFilename": "https://cdn.arctracker.io/items/broken_handheld_radio.png"
+  "imageFilename": "https://cdn.arctracker.io/items/broken_handheld_radio.png",
+  "recommendation": "recycle"
 }

@@ -54,5 +54,6 @@
   },
   "foundIn": "ARC",
   "imageFilename": "https://cdn.arctracker.io/items/sentinel_firing_core.png",
-  "updatedAt": "10/30/2025"
+  "updatedAt": "10/30/2025",
+  "recommendation": "keep"
 }

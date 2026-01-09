@@ -120,5 +120,6 @@
   "recyclesInto": {
     "assorted_seeds": 2,
     "fabric": 5
-  }
+  },
+  "recommendation": "keep"
 }

@@ -113,5 +113,6 @@
       "sr": "Vreme Korišćenja",
       "value": "3s"
     }
-  }
+  },
+  "recommendation": "keep"
 }

@@ -99,5 +99,6 @@
     "explosive_compound": 3,
     "arc_motion_core": 2
   },
-  "craftBench": "explosives_bench"
+  "craftBench": "explosives_bench",
+  "recommendation": "keep"
 }

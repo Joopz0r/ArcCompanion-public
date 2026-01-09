@@ -1,0 +1,8728 @@
+[
+  {
+    "id": "adrenaline_shot",
+    "name": "Adrenaline Shot",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "common",
+    "description": "A serum that fully restores stamina and temporarily increases stamina regeneration.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 1
+      },
+      {
+        "id": "plastic_parts",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "chemicals",
+          "qty": 3
+        },
+        {
+          "id": "plastic_parts",
+          "qty": 3
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.2,
+    "value": 300,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "advanced_arc_powercell",
+    "name": "Advanced ARC Powercell",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "rare",
+    "description": "Very valuable resource that drops from certain ARC enemies",
+    "usage": {
+      "recipes": [
+        {
+          "id": "energy_ammo",
+          "qty": 1
+        },
+        {
+          "id": "energy_clip",
+          "qty": 1
+        },
+        {
+          "id": "surge_shield_recharger",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "arc_powercell",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Sentinel",
+      "Bombardier",
+      "Bastion",
+      "Rocketeer",
+      "Leaper",
+      "The Queen"
+    ],
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "advanced_electrical_components",
+    "name": "Advanced Electrical Components",
+    "category": "Refined Material",
+    "subcategory": "Topside Material",
+    "rarity": "rare",
+    "description": "Used to craft utility items and shield mods. Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "combat_mk3_flanking",
+          "qty": 2
+        },
+        {
+          "id": "combat_mk_3_aggressive",
+          "qty": 2
+        },
+        {
+          "id": "looting_mk_3_cautious",
+          "qty": 2
+        },
+        {
+          "id": "photoelectric_cloak",
+          "qty": 2
+        },
+        {
+          "id": "power_rod",
+          "qty": 2
+        },
+        {
+          "id": "raider_hatch_key",
+          "qty": 1
+        },
+        {
+          "id": "showstopper",
+          "qty": 1
+        },
+        {
+          "id": "snap_hook",
+          "qty": 4
+        },
+        {
+          "id": "tactical_mk3_defensive",
+          "qty": 2
+        },
+        {
+          "id": "tactical_mk_3_healing",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_iii",
+          "qty": 5
+        },
+        {
+          "id": "utility_station_iii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "electrical_components",
+        "qty": 1
+      },
+      {
+        "id": "wires",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "wires",
+          "qty": 3
+        },
+        {
+          "id": "electrical_components",
+          "qty": 2
+        }
+      ],
+      "station": [
+        {
+          "id": "refiner",
+          "level": 2
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Crafting",
+      "Recycling",
+      "The Queen"
+    ],
+    "weight": 1,
+    "value": 1750,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "advanced_mechanical_components",
+    "name": "Advanced Mechanical Components",
+    "category": "Crafting Materials",
+    "subcategory": "Refined Material",
+    "rarity": "rare",
+    "description": "Mostly used to craft advanced weapons. Can be recycled into crafting materials",
+    "usage": {
+      "recipes": [
+        {
+          "id": "bettina_i",
+          "qty": 3
+        },
+        {
+          "id": "bettina_ii",
+          "qty": 1
+        },
+        {
+          "id": "bettina_iii",
+          "qty": 1
+        },
+        {
+          "id": "bettina_iv",
+          "qty": 2
+        },
+        {
+          "id": "bobcat_ii",
+          "qty": 2
+        },
+        {
+          "id": "bobcat_iii",
+          "qty": 2
+        },
+        {
+          "id": "bobcat_iv",
+          "qty": 2
+        },
+        {
+          "id": "hullcracker_ii",
+          "qty": 1
+        },
+        {
+          "id": "hullcracker_iii",
+          "qty": 2
+        },
+        {
+          "id": "hullcracker_iv",
+          "qty": 2
+        },
+        {
+          "id": "magnetic_accelerator",
+          "qty": 2
+        },
+        {
+          "id": "osprey_i",
+          "qty": 2
+        },
+        {
+          "id": "osprey_ii",
+          "qty": 1
+        },
+        {
+          "id": "osprey_iii",
+          "qty": 1
+        },
+        {
+          "id": "osprey_iv",
+          "qty": 2
+        },
+        {
+          "id": "renegade_i",
+          "qty": 2
+        },
+        {
+          "id": "renegade_ii",
+          "qty": 1
+        },
+        {
+          "id": "renegade_iii",
+          "qty": 1
+        },
+        {
+          "id": "renegade_iv",
+          "qty": 2
+        },
+        {
+          "id": "tempest_ii",
+          "qty": 2
+        },
+        {
+          "id": "tempest_iii",
+          "qty": 2
+        },
+        {
+          "id": "tempest_iv",
+          "qty": 2
+        },
+        {
+          "id": "torrente_i",
+          "qty": 1
+        },
+        {
+          "id": "torrente_ii",
+          "qty": 1
+        },
+        {
+          "id": "torrente_iii",
+          "qty": 1
+        },
+        {
+          "id": "torrente_iv",
+          "qty": 3
+        },
+        {
+          "id": "venator_i",
+          "qty": 2
+        },
+        {
+          "id": "venator_ii",
+          "qty": 1
+        },
+        {
+          "id": "venator_iii",
+          "qty": 1
+        },
+        {
+          "id": "venator_iv",
+          "qty": 1
+        },
+        {
+          "id": "vulcano_ii",
+          "qty": 1
+        },
+        {
+          "id": "vulcano_iii",
+          "qty": 2
+        },
+        {
+          "id": "vulcano_iv",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_iii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "steel_spring",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "steel_spring",
+          "qty": 2
+        },
+        {
+          "id": "mechanical_components",
+          "qty": 2
+        }
+      ],
+      "station": [
+        {
+          "id": "refiner",
+          "level": 2
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Crafting",
+      "Recycling",
+      "The Queen"
+    ],
+    "weight": 1,
+    "value": 1750,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "agave",
+    "name": "Agave",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A piece of an agave leaf. Can be used to regain a small amount of health.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "agave_juice",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.2,
+    "value": 1000,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "agave_juice",
+    "name": "Agave Juice",
+    "category": "Quick Use",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "A concoction that temporarily increases stamina regeneration, at a small initial cost to health.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": {
+      "recipe": [
+        {
+          "id": "agave_juice",
+          "qty": 1
+        },
+        {
+          "id": "empty_wine_bottle",
+          "qty": 1
+        }
+      ],
+      "station": null
+    },
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Crafting"
+    ],
+    "weight": 0.2,
+    "value": 1800,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "air_freshener",
+    "name": "Air Freshener",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "May be worth a few coins.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "flame_spray",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.3,
+    "value": 2000,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "alarm_clock",
+    "name": "Alarm Clock",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 6
+      },
+      {
+        "id": "processor",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "antiseptic",
+    "name": "Antiseptic",
+    "category": "Refined Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "",
+    "usage": {
+      "recipes": [
+        {
+          "id": "sterilized_bandage",
+          "qty": 1
+        },
+        {
+          "id": "vita_shot",
+          "qty": 2
+        },
+        {
+          "id": "vita_spray",
+          "qty": 3
+        }
+      ],
+      "quests": [
+        "doctor_s_orders"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "medical_lab_iii",
+          "qty": 8
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 10
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "chemicals",
+          "qty": 10
+        },
+        {
+          "id": "great_mullein",
+          "qty": 2
+        }
+      ],
+      "station": null
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Crafting",
+      "Recycling",
+      "Medical"
+    ],
+    "weight": 1,
+    "value": 1000,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "apricot",
+    "name": "Apricot",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A sun ripe apricot. Can be consumed for a small amount of stamina.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "fruit_mix",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_3",
+          "qty": 5
+        },
+        {
+          "id": "scrappy_level_5",
+          "qty": 12
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Nature"
+    ],
+    "weight": 0.2,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_alloy",
+    "name": "ARC Alloy",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Obtained from ARC enemies or activites, or by recycling certain ARC parts. Used to craft components.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "arc_circuitry",
+          "qty": 6
+        },
+        {
+          "id": "arc_motion_core",
+          "qty": 6
+        },
+        {
+          "id": "light_shield",
+          "qty": 2
+        }
+      ],
+      "quests": [
+        "clearer_skies"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_i",
+          "qty": 6
+        },
+        {
+          "id": "medical_lab_i",
+          "qty": 6
+        },
+        {
+          "id": "utility_station_i",
+          "qty": 6
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC",
+      "Recycling"
+    ],
+    "weight": 0.25,
+    "value": 200,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_circuitry",
+    "name": "ARC Circuitry",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies or activities. Used to craft components. Can be recycled into ARC Alloy.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "deadline",
+          "qty": 2
+        },
+        {
+          "id": "medium_shield",
+          "qty": 1
+        },
+        {
+          "id": "power_rod",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_iii",
+          "qty": 10
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "arc_alloy",
+          "qty": 8
+        }
+      ],
+      "station": [
+        {
+          "id": "refiner",
+          "level": 2
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC",
+      "Crafting",
+      "Recycling"
+    ],
+    "weight": 0.3,
+    "value": 1000,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_coolant",
+    "name": "ARC Coolant",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies or activites. Can be recycled into chemicals",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 16
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_flex_rubber",
+    "name": "ARC Flex Rubber",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies or activities. Can be recycled into rubber.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 16
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_motion_core",
+    "name": "ARC Motion Core",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies or activities. Used to craft components. Can be recycled into ARC Alloy.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "launcher_ammo",
+          "qty": 1
+        },
+        {
+          "id": "magnetic_accelerator",
+          "qty": 2
+        },
+        {
+          "id": "wolfpack",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_ii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "arc_alloy",
+          "qty": 8
+        }
+      ],
+      "station": [
+        {
+          "id": "refiner",
+          "level": 2
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC",
+      "Recycling",
+      "Crafting"
+    ],
+    "weight": 0.3,
+    "value": 1000,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_performance_steel",
+    "name": "ARC Performance Steel",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies or activities. Used to craft components. Can be recycled into scrap metal.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 12
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_powercell",
+    "name": "ARC Powercell",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "common",
+    "description": "Valuable resource that drops from all ARC enemies.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "shield_recharger",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_i",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_synthetic_resin",
+    "name": "ARC Synthetic Resin",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies or activities. Can be recycled into plastic.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 14
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "arc_thermo_lining",
+    "name": "ARC Thermo Lining",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Obtained from ARC enemies and activities. Can be recycled into fabric.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 16
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "assorted_seeds",
+    "name": "Assorted Seeds",
+    "category": "Misc",
+    "subcategory": "Nature",
+    "rarity": "common",
+    "description": "A handful of seeds. Celeste might be looking for these.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling"
+    ],
+    "weight": 0.05,
+    "value": 100,
+    "max_stack_size": 100,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "bandage",
+    "name": "Bandage",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "common",
+    "description": "A medical item that gradually restores health over time.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 2
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "fabric",
+          "qty": 5
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        },
+        {
+          "id": "workbench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.1,
+    "value": 250,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "barricade_kit",
+    "name": "Barricade Kit",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "uncommon",
+    "description": "A deployable cover that can block incoming damage until it breaks.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 4
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "mechanical_components",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "utility_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.4,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "bastion_cell",
+    "name": "Bastion Cell",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_iii",
+          "qty": 6
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      },
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Bastion"
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "battery",
+    "name": "Battery",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "uncommon",
+    "description": "Used to craft a wide range of items. Can be recycled into scrap metal.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "energy_ammo",
+          "qty": 2
+        },
+        {
+          "id": "energy_clip",
+          "qty": 1
+        },
+        {
+          "id": "jolt_mine",
+          "qty": 1
+        },
+        {
+          "id": "medium_shield",
+          "qty": 4
+        }
+      ],
+      "quests": [
+        "trash_into_treasure"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling",
+      "Sold by Celeste"
+    ],
+    "weight": 0.25,
+    "value": 250,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "bicycle_pump",
+    "name": "Bicycle Pump",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "canister",
+        "qty": 4
+      },
+      {
+        "id": "metal_parts",
+        "qty": 10
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "binoculars",
+    "name": "Binoculars",
+    "category": "Gadget",
+    "subcategory": "Gadget",
+    "rarity": "common",
+    "description": "A basic pair of binoculars with two levels of magnification.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 4
+      },
+      {
+        "id": "rubber_parts_recipe",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "bison_driver",
+    "name": "Bison Driver",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "A critical control component from a Bison vehicle.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      },
+      {
+        "id": "arc_motion_core",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "arc"
+    ],
+    "weight": 1,
+    "value": 2500,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "bloated_tuna_can",
+    "name": "Bloated Tuna Can",
+    "category": "Misc",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "Something tells you that you don't want to open this...",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.2,
+    "value": 1000,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "bombardier_cell",
+    "name": "Bombardier Cell",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_iii",
+          "qty": 6
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 2
+      },
+      {
+        "id": "arc_alloys",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Bombardier"
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "breathtaking_snow_globe",
+    "name": "Breathtaking Snow Globe",
+    "category": "Trinket",
+    "subcategory": "Misc",
+    "rarity": "epic",
+    "description": "The envy of every Speranzan. Proof that this world was once thriving and magical.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.2,
+    "value": 7000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "broken_flashlight",
+    "name": "Broken Flashlight",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "battery",
+        "qty": 2
+      },
+      {
+        "id": "metal_parts",
+        "qty": 6
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "broken_guidance_system",
+    "name": "Broken Guidance System",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "processor",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "broken_handcuffs",
+    "name": "Broken Handcuffs",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 0.8,
+    "value": 270,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "broken_handheld_radio",
+    "name": "Broken Handheld Radio",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "sensors",
+        "qty": 3
+      },
+      {
+        "id": "wires",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "broken_riot_shield",
+    "name": "Broken Riot Shield",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 10
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "broken_taser",
+    "name": "Broken Taser",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "battery",
+        "qty": 2
+      },
+      {
+        "id": "wires",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "burned_arc_circuitry",
+    "name": "Burned ARC Circuitry",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into ARC Alloy.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.25,
+    "value": 640,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "camera_lens",
+    "name": "Camera Lens",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "movie_night"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "candle_holder",
+    "name": "Candle Holder",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 2,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "canister",
+    "name": "Canister",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "uncommon",
+    "description": "Used to craft a wide range of items. Can be recycled into plastic.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "bettina_i",
+          "qty": 3
+        },
+        {
+          "id": "heavy_fuze_grenade",
+          "qty": 2
+        },
+        {
+          "id": "smoke_grenade",
+          "qty": 1
+        },
+        {
+          "id": "vita_spray",
+          "qty": 3
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "plastics_parts",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling",
+      "Sold by Celeste"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "cat_bed",
+    "name": "Cat Bed",
+    "category": "Misc",
+    "subcategory": "Trinket",
+    "rarity": "uncommon",
+    "description": "At least a tiny bit more comfortable than your face.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_4",
+          "qty": 1
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.5,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "celestes_journal",
+    "name": "Celeste's Journal",
+    "category": "",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "Battered and torn, you can see the faint outline of doodles along the edges.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "chemicals",
+    "name": "Chemicals",
+    "category": "Crafting Materials",
+    "subcategory": "Basic Material",
+    "rarity": "common",
+    "description": "Used to craft medical supplies, explosives, and utility items.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "adrenaline_shot",
+          "qty": 3
+        },
+        {
+          "id": "antiseptic",
+          "qty": 10
+        },
+        {
+          "id": "crude_explosives",
+          "qty": 6
+        },
+        {
+          "id": "gas_grenade",
+          "qty": 4
+        },
+        {
+          "id": "heavy_ammo",
+          "qty": 2
+        },
+        {
+          "id": "li'l_smoke_grenade",
+          "qty": 5
+        },
+        {
+          "id": "light_ammo",
+          "qty": 2
+        },
+        {
+          "id": "light_impact_grenade",
+          "qty": 3
+        },
+        {
+          "id": "light_stick",
+          "qty": 3
+        },
+        {
+          "id": "lil_smoke_grenade",
+          "qty": 5
+        },
+        {
+          "id": "medium_ammo",
+          "qty": 2
+        },
+        {
+          "id": "remote_raider_flare",
+          "qty": 2
+        },
+        {
+          "id": "shotgun_ammo",
+          "qty": 2
+        },
+        {
+          "id": "smoke_grenade",
+          "qty": 7
+        },
+        {
+          "id": "snap_blast_grenade",
+          "qty": 7
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_i",
+          "qty": 50
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling",
+      "Sold by Celeste",
+      "Scrappy"
+    ],
+    "weight": 0.1,
+    "value": 50,
+    "max_stack_size": 50,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "coffee_pot",
+    "name": "Coffee Pot",
+    "category": "Crafting Materials",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "The power to face a new day, one drip at a time.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.3,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "complex_gun_parts",
+    "name": "Complex Gun Parts",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "epic",
+    "description": "Used to craft advanced weapons.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "aphelion_rifle",
+          "qty": 3
+        },
+        {
+          "id": "equalizer_i",
+          "qty": 3
+        },
+        {
+          "id": "equilizer",
+          "qty": 3
+        },
+        {
+          "id": "jupiter",
+          "qty": 3
+        },
+        {
+          "id": "jupiter_i",
+          "qty": 3
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "simple_gun_parts",
+        "qty": 3
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "light_gun_parts",
+          "qty": 2
+        },
+        {
+          "id": "medium_gun_parts",
+          "qty": 2
+        },
+        {
+          "id": "heavy_gun_parts",
+          "qty": 2
+        }
+      ],
+      "station": [
+        {
+          "id": "refiner",
+          "level": 3
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling",
+      "Sold by Celeste"
+    ],
+    "weight": 1,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "coolant",
+    "name": "Coolant",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 5
+      },
+      {
+        "id": "oil",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging",
+      "mechanical"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "cooling_coil",
+    "name": "Cooling Coil",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 6
+      },
+      {
+        "id": "steel_springs",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "cooling_fan",
+    "name": "Cooling Fan",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "project_ii"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 14
+      },
+      {
+        "id": "wires",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "technological"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "cracked_bioscanner",
+    "name": "Cracked Bioscanner",
+    "category": "Crafting Materials",
+    "subcategory": "Can be recycled into crafting materials.",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "medical_lab_ii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 3
+      },
+      {
+        "id": "battery",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "crude_explosives",
+    "name": "Crude Explosives",
+    "category": "Crafting Materials",
+    "subcategory": "Refined Material",
+    "rarity": "uncommon",
+    "description": "Used to craft explosives. Can be recycled into crafting materials",
+    "usage": {
+      "recipes": [
+        {
+          "id": "explosive_compound",
+          "qty": 2
+        },
+        {
+          "id": "launcher_ammo",
+          "qty": 2
+        },
+        {
+          "id": "shrapnel_grenade",
+          "qty": 1
+        },
+        {
+          "id": "snap_blast_grenade",
+          "qty": 2
+        },
+        {
+          "id": "trigger_nade",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_ii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 2,
+    "value": 270,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "crumpled_plastic_bottle",
+    "name": "Crumpled Plastic Bottle",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into plastic parts.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastics_parts",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0.8,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_arc_motion_core",
+    "name": "Damaged ARC Motion Core",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into ARC Alloy.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging"
+    ],
+    "weight": 0.25,
+    "value": 640,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_arc_powercell",
+    "name": "Damaged ARC Powercell",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "common",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "arc"
+    ],
+    "weight": 0.25,
+    "value": 293,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_fireball_burner",
+    "name": "Damaged Fireball Burner",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "common",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 1,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_heat_sink",
+    "name": "Damaged Heat Sink",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "utility_station_ii",
+          "qty": 2
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 6
+      },
+      {
+        "id": "wires",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "technological"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_hornet_driver",
+    "name": "Damaged Hornet Driver",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "common",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "the_trifecta",
+        "wasps_and_hornets"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.3,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_rocketeer_driver",
+    "name": "Damaged Rocketeer Driver",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "common",
+    "description": "Can be recycled into ARC Alloy.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC",
+      "Scavenging"
+    ],
+    "weight": 0.25,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_tick_pod",
+    "name": "Damaged Tick Pod",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "common",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "arc"
+    ],
+    "weight": 0.25,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "damaged_wasp_driver",
+    "name": "Damaged Wasp Driver",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "common",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "arc"
+    ],
+    "weight": 0.25,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "dart_board",
+    "name": "Dart board",
+    "category": "Crafting Materials",
+    "subcategory": "Trinket",
+    "rarity": "uncommon",
+    "description": "Some Raiders use it to practice dexterity. Others just like throwing things at other things.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging",
+      "commercial",
+      "residential"
+    ],
+    "weight": 1,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "deadline",
+    "name": "Deadline",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "epic",
+    "description": "A mine that deals damage to anything within its radius once the timer runs out.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "explosive_compound",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "arc_circuitry",
+          "qty": 2
+        },
+        {
+          "id": "explosive_compound",
+          "qty": 3
+        }
+      ],
+      "station": [
+        {
+          "id": "explosives_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "defibrillator",
+    "name": "Defibrillator",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "An injection that quickly revives downed raiders and restores some health.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "moss",
+        "qty": 1
+      },
+      {
+        "id": "plastic_parts",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "moss",
+          "qty": 1
+        },
+        {
+          "id": "plastic_parts",
+          "qty": 9
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.75,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "deflated_football",
+    "name": "Deflated Football",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Just by looking at this, you too start to feel slightly deflated.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 9
+      },
+      {
+        "id": "fabric",
+        "qty": 9
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging",
+      "residential"
+    ],
+    "weight": 0.8,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "degraded_arc_rubber",
+    "name": "Degraded ARC Rubber",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Obtained from ARC enemies or activites. Can be recycled into rubber.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 11
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "diving_goggles",
+    "name": "Diving Goggles",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 12
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging",
+      "residential"
+    ],
+    "weight": 2,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "dog_collar",
+    "name": "Dog Collar",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "After all this time, you can still smell the goodness.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_2",
+          "qty": 1
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 8
+      },
+      {
+        "id": "metal_parts",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "door_blocker",
+    "name": "Door Blocker",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "common",
+    "description": "A locking mechanism that can be placed on large metal doors to limit access.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 2
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "metal_parts",
+          "qty": 3
+        },
+        {
+          "id": "rubber_parts",
+          "qty": 3
+        }
+      ],
+      "station": [
+        {
+          "id": "utility_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.2,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "dried_out_arc_resin",
+    "name": "Dried-Out ARC Resin",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Obtained from ARC enemies or Activites. Can be recycled into plastic.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 9
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging",
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "duct_tape",
+    "name": "Duct Tape",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "uncommon",
+    "description": "Used to craft a wide range of items. Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "angled_grip_i",
+          "qty": 1
+        },
+        {
+          "id": "angled_grip_ii",
+          "qty": 1
+        },
+        {
+          "id": "lightweight_stock",
+          "qty": 6
+        },
+        {
+          "id": "padded_stock",
+          "qty": 5
+        },
+        {
+          "id": "stable_stock_i",
+          "qty": 1
+        },
+        {
+          "id": "stable_stock_ii",
+          "qty": 1
+        },
+        {
+          "id": "stable_stock_iii",
+          "qty": 6
+        },
+        {
+          "id": "vertical_grip_i",
+          "qty": 1
+        },
+        {
+          "id": "vertical_grip_iii",
+          "qty": 5
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling",
+      "Sold by Celeste",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "durable_cloth",
+    "name": "Durable Cloth",
+    "category": "Crafting Materials",
+    "subcategory": "Refined Material",
+    "rarity": "uncommon",
+    "description": "Used to craft medical supplies",
+    "usage": {
+      "recipes": [
+        {
+          "id": "herbal_bandage",
+          "qty": 1
+        },
+        {
+          "id": "sterilized_bandage",
+          "qty": 2
+        }
+      ],
+      "quests": [
+        "eyes_in_the_sky"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "medical_lab_2",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 6
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "fabric",
+          "qty": 14
+        }
+      ],
+      "station": [
+        {
+          "id": "refinery",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Crafting",
+      "Recycling",
+      "medical",
+      "commercial"
+    ],
+    "weight": 0.25,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "electrical_components",
+    "name": "Electrical Components",
+    "category": "Crafting Materials",
+    "subcategory": "Refined Material",
+    "rarity": "uncommon",
+    "description": "Used to craft components, utility items, shields, and shield mods. Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "advanced_electrical_components",
+          "qty": 2
+        },
+        {
+          "id": "combat_mk_2",
+          "qty": 2
+        },
+        {
+          "id": "jolt_mine",
+          "qty": 1
+        },
+        {
+          "id": "looting_mk_2",
+          "qty": 2
+        },
+        {
+          "id": "surge_shield_recharger",
+          "qty": 1
+        },
+        {
+          "id": "tactical_mk_2",
+          "qty": 2
+        }
+      ],
+      "quests": [
+        "project_ii",
+        "movie_night"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_ii",
+          "qty": 5
+        },
+        {
+          "id": "utility_sation_ii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "plastics_parts",
+        "qty": 3
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 3
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "plastic_parts",
+          "qty": 8
+        },
+        {
+          "id": "rubber_parts",
+          "qty": 4
+        }
+      ],
+      "station": [
+        {
+          "id": "refiner",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "empty_wine_bottle",
+    "name": "Empty Wine Bottle",
+    "category": "Misc",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "Yes, it really is empty.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "agave_juice",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.2,
+    "value": 1000,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "energy_clip",
+    "name": "Energy Clip",
+    "category": "",
+    "subcategory": "Ammunition",
+    "rarity": "rare",
+    "description": "Compatible with: Equalizer, Jupiter",
+    "usage": null,
+    "recycles_into": null,
+    "craft": {
+      "recipe": [
+        {
+          "id": "advanced_arc_powercell",
+          "qty": 1
+        },
+        {
+          "id": "battery",
+          "qty": 2
+        }
+      ],
+      "station": [
+        {
+          "id": "workbench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.3,
+    "value": 5,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "esr_analyzer",
+    "name": "ESR Analyzer",
+    "category": "Quest Item",
+    "subcategory": "Quest Item",
+    "rarity": "common",
+    "description": "A portable analyzer from the world before, complete with several spare tubes.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "exodus_modules",
+    "name": "Exodus Modules",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "epic",
+    "description": "Used to craft a wide range of items.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "bobcat_i",
+          "qty": 2
+        },
+        {
+          "id": "hullcracker_i",
+          "qty": 1
+        },
+        {
+          "id": "snap_hook",
+          "qty": 1
+        },
+        {
+          "id": "tempest_i",
+          "qty": 2
+        },
+        {
+          "id": "vulcano_i",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "magnet",
+        "qty": 2
+      },
+      {
+        "id": "processor",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Crafting",
+      "Recycling",
+      "Sold by Celeste",
+      "Exodus"
+    ],
+    "weight": 1,
+    "value": 2750,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "experimental_seed_sample",
+    "name": "Experimental Seed Sample",
+    "category": "",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "A cryogenically frozen research sample of an experimental crop.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "expired_pasta",
+    "name": "Expired Pasta",
+    "category": "Misc",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "Way pasta its prime.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "Scavenging",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.1,
+    "value": 1000,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "expired_respirator",
+    "name": "Expired Respirator",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "The filters are clogged with sand and noxious fumes. Long past its lifespan.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts_4x_fabric",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "medical"
+    ],
+    "weight": 2,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "explosive_compound",
+    "name": "Explosive Compound",
+    "category": "Refined Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used to craft explosives.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "blaze_grenade",
+          "qty": 1
+        },
+        {
+          "id": "deadline",
+          "qty": 3
+        },
+        {
+          "id": "explosive_mine",
+          "qty": 1
+        },
+        {
+          "id": "heavy_fuze_grenade",
+          "qty": 1
+        },
+        {
+          "id": "wolfpack",
+          "qty": 3
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_iii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "crude_explosives",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "security",
+      "industrial"
+    ],
+    "weight": 0.3,
+    "value": 1000,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "fabric",
+    "name": "Fabric",
+    "category": "Basic Material",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Used to craft medical supplies and shields.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "bandage",
+          "qty": 5
+        },
+        {
+          "id": "durable_cloth",
+          "qty": 14
+        },
+        {
+          "id": "herbal_bandage",
+          "qty": 14
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_i",
+          "qty": 30
+        },
+        {
+          "id": "medical_lab_i",
+          "qty": 50
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "commercial",
+      "residential",
+      "medical"
+    ],
+    "weight": 0.1,
+    "value": 50,
+    "max_stack_size": 50,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "faded_photograph",
+    "name": "Faded Photograph",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "A snapshot of the world before, faded by sunlight and time.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 640,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "fertilizer",
+    "name": "Fertilizer",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "May be worth a few coins.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "unexpected_initiative"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 0.4,
+    "value": 1000,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "film_reel",
+    "name": "Film reel",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "May be worth a few coins.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "movie_night"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "residential",
+      "old world"
+    ],
+    "weight": 0.2,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "fine_wristwatch",
+    "name": "Fine Wristwatch",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Perfect for telling the time, and showcasing that you're an exceedingly dignified person.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.2,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "fireball_burner",
+    "name": "Fireball Burner",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into ARC Alloy.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "flame_spray",
+          "qty": 1
+        }
+      ],
+      "quests": [
+        "what_goes_around"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "refiner_ii",
+          "qty": 8
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      },
+      {
+        "id": "crude_explosives",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "first_wave_compass",
+    "name": "First Wave Compass",
+    "category": "",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "Dusty but functional, these helped chart a course when all seemed lost.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "first_wave_rations",
+    "name": "First Wave Rations",
+    "category": "",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "Often heated above discreet fires, these meager provisions are said to have fueled a resistance.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "first_wave_tape",
+    "name": "First Wave Tape",
+    "category": "",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "An old tape found inside a battered old camcorder.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "flame_spray",
+    "name": "Flame Spray",
+    "category": "Quick use",
+    "subcategory": "Quick use",
+    "rarity": "uncommon",
+    "description": "A classic makeshift weapon, sure to leave scorch marks.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 1,
+    "value": 640,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "flow_controller",
+    "name": "Flow Controller",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "sensors_recipe",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "frequency_modulation_box",
+    "name": "Frequency Modulation Box",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_electrical_components",
+        "qty": 1
+      },
+      {
+        "id": "speaker_component",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "fried_motherboard",
+    "name": "Fried Motherboard",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "utility_station_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 5
+      },
+      {
+        "id": "electrical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "technological"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "fruit_mix",
+    "name": "Fruit Mix",
+    "category": "Medical",
+    "subcategory": "Medical",
+    "rarity": "common",
+    "description": "A food item that moderately increases both health and stamina.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "frying_pan",
+    "name": "Frying Pan",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 2,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "garlic_press",
+    "name": "Garlic Press",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "It'll press garlic, olives, and probably many other things.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 12
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.8,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "gas_mine",
+    "name": "Gas Mine",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "common",
+    "description": "A proximity-triggered mine that pops up and deploys a gas cloud that rapidly drains stamina.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 1
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "geiger_counter",
+    "name": "Geiger Counter",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "battery",
+        "qty": 3
+      },
+      {
+        "id": "exodus_modules",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3500,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "great_mullein",
+    "name": "Great Mullein",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Used to craft medical supplies.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "antiseptic",
+          "qty": 2
+        },
+        {
+          "id": "herbal_bandage",
+          "qty": 1
+        }
+      ],
+      "quests": [
+        "doctor_s_orders"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "headphones",
+    "name": "Headphones",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 7
+      },
+      {
+        "id": "speaker_components",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "heavy_gun_parts",
+    "name": "Heavy Gun Parts",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used directly in crafting items of all tiers.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "anvil_iii",
+          "qty": 1
+        },
+        {
+          "id": "anvil_iv",
+          "qty": 1
+        },
+        {
+          "id": "bettina_i",
+          "qty": 3
+        },
+        {
+          "id": "bettina_ii",
+          "qty": 2
+        },
+        {
+          "id": "bettina_iii",
+          "qty": 2
+        },
+        {
+          "id": "bettina_iv",
+          "qty": 2
+        },
+        {
+          "id": "complex_gun_parts",
+          "qty": 2
+        },
+        {
+          "id": "hullcracker_i",
+          "qty": 3
+        },
+        {
+          "id": "hullcracker_ii",
+          "qty": 2
+        },
+        {
+          "id": "hullcracker_iii",
+          "qty": 1
+        },
+        {
+          "id": "hullcracker_iv",
+          "qty": 3
+        },
+        {
+          "id": "il_toro_iiii",
+          "qty": 1
+        },
+        {
+          "id": "il_toro_iv",
+          "qty": 1
+        },
+        {
+          "id": "vulcano_i",
+          "qty": 3
+        },
+        {
+          "id": "vulcano_ii",
+          "qty": 2
+        },
+        {
+          "id": "vulcano_iii",
+          "qty": 1
+        },
+        {
+          "id": "vulcano_iv",
+          "qty": 3
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "simple_gun_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "raider",
+      "security"
+    ],
+    "weight": 0.5,
+    "value": 700,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "herbal_bandage",
+    "name": "Herbal Bandage",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "uncommon",
+    "description": "An improvised medical item that gradually restores health over time.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 2
+      },
+      {
+        "id": "fabric",
+        "qty": 5
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "durable_cloth",
+          "qty": 1
+        },
+        {
+          "id": "great_mullein",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.15,
+    "value": 640,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "hornet_driver",
+    "name": "Hornet Driver",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A control module used to operate Hornet drones or vehicles.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "the_trifecta"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_ii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      },
+      {
+        "id": "electrical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.75,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "household_cleaner",
+    "name": "Household Cleaner",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into chemicals.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 11
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "humidifier",
+    "name": "Humidifier",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "canister",
+        "qty": 2
+      },
+      {
+        "id": "wires",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ice_cream_scooper",
+    "name": "Ice Cream Scooper",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "It is theorized that scooping things was a favorite pastime in the world before.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 7
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "impure_arc_coolant",
+    "name": "Impure ARC Coolant",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Obtained from ARC enemies or activities. Can be recycled into chemicals.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 12
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "industrial_battery",
+    "name": "Industrial Battery",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 7
+      },
+      {
+        "id": "battery",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "industrial_charger",
+    "name": "Industrial Charger",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 5
+      },
+      {
+        "id": "voltage_converter",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "industrial_magnet",
+    "name": "Industrial Magnet",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 4
+      },
+      {
+        "id": "magnet",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ion_sputter",
+    "name": "Ion Sputter",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into Crafting Materials ",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "exodus_modules",
+        "qty": 1
+      },
+      {
+        "id": "voltage_converter",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 1.5,
+    "value": 6000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "jolt_mine",
+    "name": "Jolt Mine",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A proximity-triggered mine that pops up and stuns anything within its radius.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "battery",
+        "qty": 1
+      },
+      {
+        "id": "plastic_parts",
+        "qty": 2
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "battery",
+          "qty": 1
+        },
+        {
+          "id": "electrical_components",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "explosives_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.2,
+    "value": 850,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "laboratory_reagents",
+    "name": "Laboratory Reagents",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 16
+      },
+      {
+        "id": "crude_explosives",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "medical"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "lance_s_mixtape_5th_edition",
+    "name": "Lance's Mixtape (5th Edition)",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "epic",
+    "description": "",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": null,
+    "weight": 0,
+    "value": 10000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "leaper_pulse_unit",
+    "name": "Leaper Pulse Unit",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "epic",
+    "description": "Can be thrown to create a violent singularity",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "into_the_fray"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "utility_station_iii",
+          "qty": 4
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 3
+      },
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "lemon",
+    "name": "Lemon",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be consumed for a small amount of stamina",
+    "usage": {
+      "recipes": [
+        {
+          "id": "fruit_mix",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_3",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.2,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "lidar_scanner",
+    "name": "Lidar Scanner",
+    "category": "Trinket",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "A laser-based scanner used to detect the subtlest changer to the Earth's surface.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "light_bulb",
+    "name": "Light Bulb",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Without light, life underground would be impossible.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "electrical"
+    ],
+    "weight": 0.2,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "light_gun_parts",
+    "name": "Light Gun Parts",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Assorted spare parts used for pistols and SMGs.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "bobcat_i",
+          "qty": 3
+        },
+        {
+          "id": "bobcat_ii",
+          "qty": 1
+        },
+        {
+          "id": "bobcat_iii",
+          "qty": 3
+        },
+        {
+          "id": "bobcat_iv",
+          "qty": 3
+        },
+        {
+          "id": "burletta_iv",
+          "qty": 1
+        },
+        {
+          "id": "complex_gun_parts",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "simple_gun_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "security",
+      "raider"
+    ],
+    "weight": 0.3,
+    "value": 700,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "magnet",
+    "name": "Magnet",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Fun thing to put on a fridgerator.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "combat_mk_2",
+          "qty": 3
+        },
+        {
+          "id": "looting_mk_2",
+          "qty": 3
+        },
+        {
+          "id": "snap_blast_grenade",
+          "qty": 1
+        },
+        {
+          "id": "tactical_mk_2",
+          "qty": 3
+        },
+        {
+          "id": "venator_i",
+          "qty": 5
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "magnetic_accelerator",
+    "name": "Magnetic Accelerator",
+    "category": "Refined Material",
+    "subcategory": "",
+    "rarity": "epic",
+    "description": "Used to craft advanced weapons.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "aphelion_rifle",
+          "qty": 3
+        },
+        {
+          "id": "bobcat_i",
+          "qty": 1
+        },
+        {
+          "id": "equalizer",
+          "qty": 3
+        },
+        {
+          "id": "equalizer_i",
+          "qty": 3
+        },
+        {
+          "id": "hullcracker_i",
+          "qty": 1
+        },
+        {
+          "id": "jupiter",
+          "qty": 3
+        },
+        {
+          "id": "jupiter_i",
+          "qty": 3
+        },
+        {
+          "id": "tempest_i",
+          "qty": 1
+        },
+        {
+          "id": "vulcano_i",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "arc_motion_core",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1,
+    "value": 5500,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "magnetron",
+    "name": "Magnetron",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "magnetic_accelerator",
+        "qty": 1
+      },
+      {
+        "id": "spring",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 6000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "major_aivas_patch",
+    "name": "Major Aiva's Patch",
+    "category": "",
+    "subcategory": "Trinket",
+    "rarity": "common",
+    "description": "A torn patch, found amidst rubble and ruin.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "matriarch_reactor",
+    "name": "Matriarch Reactor",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "legendary",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "aphelion_rifle",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "magnetic_accelerator",
+        "qty": 1
+      },
+      {
+        "id": "power_rod",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Matriarch",
+      "arc"
+    ],
+    "weight": 10,
+    "value": 13000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "mechanical_components",
+    "name": "Mechanical Components",
+    "category": "Refined Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Used to craft a wide range of items. Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "advanced_mechanical_components",
+          "qty": 2
+        },
+        {
+          "id": "angled_grip_ii",
+          "qty": 1
+        },
+        {
+          "id": "anvil_i",
+          "qty": 5
+        },
+        {
+          "id": "anvil_ii",
+          "qty": 3
+        },
+        {
+          "id": "anvil_iii",
+          "qty": 4
+        },
+        {
+          "id": "anvil_iv",
+          "qty": 4
+        },
+        {
+          "id": "arpeggio_i",
+          "qty": 6
+        },
+        {
+          "id": "arpeggio_iv",
+          "qty": 1
+        },
+        {
+          "id": "burletta_i",
+          "qty": 3
+        },
+        {
+          "id": "burletta_ii",
+          "qty": 3
+        },
+        {
+          "id": "burletta_iiii",
+          "qty": 3
+        },
+        {
+          "id": "burletta_iv",
+          "qty": 4
+        },
+        {
+          "id": "compensator_ii",
+          "qty": 2
+        },
+        {
+          "id": "extended_light_mag_ii",
+          "qty": 1
+        },
+        {
+          "id": "extended_shotgun_mag_ii",
+          "qty": 2
+        },
+        {
+          "id": "ferro_iv",
+          "qty": 1
+        },
+        {
+          "id": "hairpin_iv",
+          "qty": 1
+        },
+        {
+          "id": "il_toro_i",
+          "qty": 5
+        },
+        {
+          "id": "il_toro_ii",
+          "qty": 3
+        },
+        {
+          "id": "il_toro_iiii",
+          "qty": 4
+        },
+        {
+          "id": "il_toro_iv",
+          "qty": 4
+        },
+        {
+          "id": "kettle_iv",
+          "qty": 3
+        },
+        {
+          "id": "mod_components",
+          "qty": 1
+        },
+        {
+          "id": "rattler_iii",
+          "qty": 3
+        },
+        {
+          "id": "rattler_iv",
+          "qty": 3
+        },
+        {
+          "id": "shotgun_choke_ii",
+          "qty": 1
+        },
+        {
+          "id": "silencer_i",
+          "qty": 1
+        },
+        {
+          "id": "stable_stock_ii",
+          "qty": 1
+        },
+        {
+          "id": "stitcher_iv",
+          "qty": 3
+        },
+        {
+          "id": "zipline",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_ii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 3
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "mechanical"
+    ],
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "medium_gun_parts",
+    "name": "Medium Gun Parts",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Assorted spare parts used for rifles. ",
+    "usage": {
+      "recipes": [
+        {
+          "id": "arpeggio_iv",
+          "qty": 2
+        },
+        {
+          "id": "complex_gun_parts",
+          "qty": 2
+        },
+        {
+          "id": "osprey_i",
+          "qty": 3
+        },
+        {
+          "id": "osprey_ii",
+          "qty": 2
+        },
+        {
+          "id": "osprey_iii",
+          "qty": 2
+        },
+        {
+          "id": "osprey_iv",
+          "qty": 2
+        },
+        {
+          "id": "renegade_i",
+          "qty": 3
+        },
+        {
+          "id": "renegade_ii",
+          "qty": 2
+        },
+        {
+          "id": "renegade_iii",
+          "qty": 2
+        },
+        {
+          "id": "renegade_iv",
+          "qty": 2
+        },
+        {
+          "id": "tempest_i",
+          "qty": 3
+        },
+        {
+          "id": "tempest_ii",
+          "qty": 1
+        },
+        {
+          "id": "tempest_iii",
+          "qty": 3
+        },
+        {
+          "id": "tempest_iv",
+          "qty": 3
+        },
+        {
+          "id": "torrente_i",
+          "qty": 2
+        },
+        {
+          "id": "torrente_ii",
+          "qty": 2
+        },
+        {
+          "id": "torrente_iii",
+          "qty": 2
+        },
+        {
+          "id": "torrente_iv",
+          "qty": 3
+        },
+        {
+          "id": "venator_i",
+          "qty": 3
+        },
+        {
+          "id": "venator_ii",
+          "qty": 2
+        },
+        {
+          "id": "venator_iii",
+          "qty": 2
+        },
+        {
+          "id": "venator_iv",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "simple_gun_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "raider",
+      "security"
+    ],
+    "weight": 0.4,
+    "value": 700,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "metal_brackets",
+    "name": "Metal Brackets",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into metal parts.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "mechanical",
+      "electrical"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "metal_parts",
+    "name": "Metal Parts",
+    "category": "Basic Material",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Used to craft a wide range of items.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "arpeggio_ii",
+          "qty": 14
+        },
+        {
+          "id": "arpeggio_iii",
+          "qty": 10
+        },
+        {
+          "id": "barricade_kit",
+          "qty": 5
+        },
+        {
+          "id": "blaze_grenade",
+          "qty": 7
+        },
+        {
+          "id": "compensator_i",
+          "qty": 6
+        },
+        {
+          "id": "door_blocker",
+          "qty": 3
+        },
+        {
+          "id": "ferro_i",
+          "qty": 5
+        },
+        {
+          "id": "ferro_ii",
+          "qty": 7
+        },
+        {
+          "id": "ferro_iii",
+          "qty": 9
+        },
+        {
+          "id": "hairpin_i",
+          "qty": 2
+        },
+        {
+          "id": "hairpin_ii",
+          "qty": 8
+        },
+        {
+          "id": "hairpin_iii",
+          "qty": 9
+        },
+        {
+          "id": "heavy_ammo",
+          "qty": 3
+        },
+        {
+          "id": "kettle_i",
+          "qty": 6
+        },
+        {
+          "id": "kettle_ii",
+          "qty": 8
+        },
+        {
+          "id": "kettle_iii",
+          "qty": 10
+        },
+        {
+          "id": "light_ammo",
+          "qty": 3
+        },
+        {
+          "id": "mechanical_components",
+          "qty": 7
+        },
+        {
+          "id": "medium_ammo",
+          "qty": 3
+        },
+        {
+          "id": "muzzle_brake_i",
+          "qty": 6
+        },
+        {
+          "id": "rattler_i",
+          "qty": 16
+        },
+        {
+          "id": "rattler_ii",
+          "qty": 10
+        },
+        {
+          "id": "shotgun_ammo",
+          "qty": 3
+        },
+        {
+          "id": "shotgun_choke_i",
+          "qty": 6
+        },
+        {
+          "id": "stitcher_i",
+          "qty": 8
+        },
+        {
+          "id": "stitcher_ii",
+          "qty": 8
+        },
+        {
+          "id": "stitcher_iii",
+          "qty": 10
+        },
+        {
+          "id": "zipline",
+          "qty": 7
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_i",
+          "qty": 60
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "mechanical",
+      "industrial",
+      "electrical",
+      "technological"
+    ],
+    "weight": 0.15,
+    "value": 75,
+    "max_stack_size": 50,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "microscope",
+    "name": "Microscope",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "magnet",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "mini_centrifuge",
+    "name": "Mini Centrifuge",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "canister",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "mod_components",
+    "name": "Mod Components",
+    "category": "Refined Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used to craft weapon mods. Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "extended_light_mag_iii",
+          "qty": 1
+        },
+        {
+          "id": "extended_medium_mag_iii",
+          "qty": 1
+        },
+        {
+          "id": "extended_shotgun_mag_iii",
+          "qty": 1
+        },
+        {
+          "id": "lightweight_stock",
+          "qty": 1
+        },
+        {
+          "id": "padded_stock",
+          "qty": 2
+        },
+        {
+          "id": "shotgun_silencer",
+          "qty": 1
+        },
+        {
+          "id": "stable_stock_iii",
+          "qty": 1
+        },
+        {
+          "id": "vertical_grip_iii",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "steel_spring",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 1,
+    "value": 1750,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "moss",
+    "name": "Moss",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be used to regain a small amount of health.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "defibrillator",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.3,
+    "value": 500,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "motor",
+    "name": "Motor",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "oil",
+        "qty": 2
+      },
+      {
+        "id": "mechanical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "mechanical"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "mushroom",
+    "name": "Mushroom",
+    "category": "Misc",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Can be consumed to regain a small amount of health.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_5",
+          "qty": 12
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.2,
+    "value": 1000,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "music_album",
+    "name": "Music Album",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Perfect for relaxing nights at home, casual get-togethers, and private air and guitar concerts.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "residential",
+      "commercial"
+    ],
+    "weight": 0.3,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "music_box",
+    "name": "Music Box",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Worth a small fortune.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.4,
+    "value": 5000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "noisemaker",
+    "name": "Noisemaker",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "common",
+    "description": "A deployable proximity sensor that sounds an alarm when enemy raiders are detected.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.3,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "number_plate",
+    "name": "Number Plate",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into metal parts.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "mechanical"
+    ],
+    "weight": 0.8,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "oil",
+    "name": "Oil",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Used to craft weapons and explosives. Can be recycled into chemicals.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "blaze_grenade",
+          "qty": 2
+        },
+        {
+          "id": "explosive_compound",
+          "qty": 2
+        },
+        {
+          "id": "renegade_i",
+          "qty": 5
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "mechanical"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "olives",
+    "name": "Olives",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be consumed for a small amount of stamina.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_4",
+          "qty": 8
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.2,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "painted_box",
+    "name": "Painted Box",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "May be worth a few coins.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world"
+    ],
+    "weight": 0.3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "photoelectric_cloak",
+    "name": "Photoelectric Cloak",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "epic",
+    "description": "A gadget that allows the user to conceal themselves from ARC.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_electrical_components",
+        "qty": 1
+      },
+      {
+        "id": "speaker_component",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "advanced_electrical_components",
+          "qty": 2
+        },
+        {
+          "id": "speaker_component",
+          "qty": 4
+        }
+      ],
+      "station": [
+        {
+          "id": "utility_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "plastic_parts",
+    "name": "Plastic Parts",
+    "category": "Basic Material",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Used to craft a wide range of items.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "adrenaline_shot",
+          "qty": 3
+        },
+        {
+          "id": "angled_grip_i",
+          "qty": 6
+        },
+        {
+          "id": "binoculars",
+          "qty": 8
+        },
+        {
+          "id": "combat_mk_1",
+          "qty": 6
+        },
+        {
+          "id": "defibrillator",
+          "qty": 9
+        },
+        {
+          "id": "electrical_components",
+          "qty": 8
+        },
+        {
+          "id": "extended_light_mag_i",
+          "qty": 6
+        },
+        {
+          "id": "extended_medium_mag_i",
+          "qty": 6
+        },
+        {
+          "id": "extended_medium_mag_ii",
+          "qty": 6
+        },
+        {
+          "id": "extended_shotgun_mag_i",
+          "qty": 6
+        },
+        {
+          "id": "hairpin_i",
+          "qty": 5
+        },
+        {
+          "id": "kettle_ii",
+          "qty": 10
+        },
+        {
+          "id": "light_impact_grenade",
+          "qty": 2
+        },
+        {
+          "id": "light_shield",
+          "qty": 4
+        },
+        {
+          "id": "lil_smoke_grenade",
+          "qty": 1
+        },
+        {
+          "id": "looting_mk_1",
+          "qty": 6
+        },
+        {
+          "id": "lure_grenade",
+          "qty": 2
+        },
+        {
+          "id": "tactical_mk_1",
+          "qty": 6
+        },
+        {
+          "id": "tagging_grenade",
+          "qty": 4
+        },
+        {
+          "id": "vertical_grip_i",
+          "qty": 6
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_i",
+          "qty": 25
+        },
+        {
+          "id": "utility_station_i",
+          "qty": 50
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "technological",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.1,
+    "value": 60,
+    "max_stack_size": 50,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "playing_cards",
+    "name": "Playing Cards",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Speranzans love to see who can build the tallest tower - before the tremors knock them down.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.2,
+    "value": 5000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "polluted_air_filter",
+    "name": "Polluted Air Filter",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 6
+      },
+      {
+        "id": "oil",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 0.8,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "pop_trigger",
+    "name": "Pop Trigger",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_ii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "crude_explosives",
+        "qty": 1
+      },
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "portable_tv",
+    "name": "Portable TV",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "wires",
+        "qty": 6
+      },
+      {
+        "id": "battery",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "poster_natural_wonder",
+    "name": "Poster of Natural Wonder",
+    "category": "Trinket",
+    "subcategory": "Trinket",
+    "rarity": "uncommon",
+    "description": "If you stand close and squint your eyes, it's like the world never came crumbling down.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "residential, commercial"
+    ],
+    "weight": 0.3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "poster_of_natural_wonders",
+    "name": "Poster of Natural Wonders",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": null,
+    "weight": 0,
+    "value": 2000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "pottery",
+    "name": "Pottery",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A piece of hand-crafted pottery.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world",
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "power_bank",
+    "name": "Power Bank",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "battery",
+        "qty": 2
+      },
+      {
+        "id": "wires",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "electrical",
+      "commercial",
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "power_cable",
+    "name": "Power Cable",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gear_bench_ii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "wires",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "electrical",
+      "commercial",
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "power_rod",
+    "name": "Power Rod",
+    "category": "Advanced Material",
+    "subcategory": "",
+    "rarity": "epic",
+    "description": "Used to open the Locked room near the Loading Bay. Also Used to craft shields. Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "heavy_shield",
+          "qty": 1
+        },
+        {
+          "id": "snap_hook",
+          "qty": 2
+        }
+      ],
+      "quests": [
+        "a_href_wiki_tribute_to_toledo_title_tribute_to_toledo_tribute_to_toledo_a"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "advanced_electrical_components",
+        "qty": 1
+      },
+      {
+        "id": "arc_circuitry",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 2,
+    "value": 5500,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "prickly_pear",
+    "name": "Prickly Pear",
+    "category": "Misc",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be consumed for a small amount of stamina.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "fruit_mix",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_4",
+          "qty": 8
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.2,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "processor",
+    "name": "Processor",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used in crafting.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "combat_mk3_flanking",
+          "qty": 3
+        },
+        {
+          "id": "combat_mk_3_aggressive",
+          "qty": 3
+        },
+        {
+          "id": "looting_mk_3_cautious",
+          "qty": 3
+        },
+        {
+          "id": "tactical_mk3_defensive",
+          "qty": 3
+        },
+        {
+          "id": "tactical_mk_3_healing",
+          "qty": 3
+        },
+        {
+          "id": "trigger_nade",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "wires",
+        "qty": 1
+      },
+      {
+        "id": "plastic_parts",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "technological"
+    ],
+    "weight": 0.2,
+    "value": 500,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "projector",
+    "name": "Projector",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "wires",
+        "qty": 2
+      },
+      {
+        "id": "processor",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "pulse_mine",
+    "name": "Pulse Mine",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "uncommon",
+    "description": "A proximity-triggered mine that pops up and knocks back anything within its radius.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 6
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.25,
+    "value": 470,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "queen_reactor",
+    "name": "Queen Reactor",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "legendary",
+    "description": "Can be recycled into crafting materials. Used to craft: Equalizer, Jupiter",
+    "usage": {
+      "recipes": [
+        {
+          "id": "equalizer",
+          "qty": 1
+        },
+        {
+          "id": "equalizer_i",
+          "qty": 1
+        },
+        {
+          "id": "jupiter",
+          "qty": 1
+        },
+        {
+          "id": "jupiter_i",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 10,
+    "value": 13000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "radio",
+    "name": "Radio",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "speaker_component",
+        "qty": 1
+      },
+      {
+        "id": "sensors",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "radio_relay",
+    "name": "Radio Relay",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "sensors_recipe",
+        "qty": 2
+      },
+      {
+        "id": "speaker_component",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "recorder",
+    "name": "Recorder",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A playable recorder used to attract ARC's attention and impress other Raiders.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 10
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 0.2,
+    "value": 1000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "red_coral_jewlery",
+    "name": "Red Coral Jewlery",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": null,
+    "weight": 0,
+    "value": 5000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "refinement_1",
+    "name": "Refinement 1",
+    "category": "Refinement",
+    "subcategory": "Refinement",
+    "rarity": "",
+    "description": "A refined material used in crafting.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0,
+    "value": 0,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "remote_control",
+    "name": "Remote Control",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 7
+      },
+      {
+        "id": "sensors",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 0.8,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "remote_raider_flare",
+    "name": "Remote Raider Flare",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "common",
+    "description": "A deployable device that, when manually triggered, launches a Raider Distress Flare.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 1
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "chemicals",
+          "qty": 2
+        },
+        {
+          "id": "rubber_parts",
+          "qty": 4
+        }
+      ],
+      "station": [
+        {
+          "id": "utility_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.2,
+    "value": 270,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "resin",
+    "name": "Resin",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Can be used to gradually restore a small amount of health over time.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.4,
+    "value": 1000,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ripped_safety_vest",
+    "name": "Ripped Safety Vest",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A remnant of a time long lost, when it was fashionable to stand out.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "durable_cloth",
+        "qty": 1
+      },
+      {
+        "id": "magnet",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 0.8,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rocket_thruster",
+    "name": "Rocket Thruster",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 6
+      },
+      {
+        "id": "synthesized_fuel",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rocketeer_driver",
+    "name": "Rocketeer Driver",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "out_of_the_shadows"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "explosive_station_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 3
+      },
+      {
+        "id": "advanced_electrical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Rocketeer",
+      "Rocketeer Husk"
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "roots",
+    "name": "Roots",
+    "category": "Nature",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "May be worth a few coins.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.2,
+    "value": 640,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rope",
+    "name": "Rope",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used in crafting.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "snap_hook",
+          "qty": 4
+        },
+        {
+          "id": "zipline",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 5
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 500,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rosary",
+    "name": "Rosary",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "May be worth a few coins.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world",
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rotary_encoder",
+    "name": "Rotary Encoder",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials. ",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "electrical_components",
+        "qty": 2
+      },
+      {
+        "id": "processor",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rubber_duck",
+    "name": "Rubber Duck",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Always there to lend an ear, should you need it.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "x_quest"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 0.3,
+    "value": 1000,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rubber_pad",
+    "name": "Rubber Pad",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into rubber parts.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 18
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "electrical"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rubber_parts",
+    "name": "Rubber Parts",
+    "category": "Basic Material",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "Used to craft a wide range of items.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "binoculars",
+          "qty": 4
+        },
+        {
+          "id": "combat_mk_1",
+          "qty": 6
+        },
+        {
+          "id": "door_blocker",
+          "qty": 2
+        },
+        {
+          "id": "electrical_components",
+          "qty": 4
+        },
+        {
+          "id": "ferro_i",
+          "qty": 2
+        },
+        {
+          "id": "gas_grenade",
+          "qty": 2
+        },
+        {
+          "id": "heavy_gun_parts",
+          "qty": 8
+        },
+        {
+          "id": "kettle_i",
+          "qty": 8
+        },
+        {
+          "id": "light_gun_parts",
+          "qty": 8
+        },
+        {
+          "id": "looting_mk_1",
+          "qty": 6
+        },
+        {
+          "id": "mechanical_components",
+          "qty": 3
+        },
+        {
+          "id": "rattler_i",
+          "qty": 12
+        },
+        {
+          "id": "rattler_ii",
+          "qty": 10
+        },
+        {
+          "id": "remote_raider_flare",
+          "qty": 4
+        },
+        {
+          "id": "shield_recharger",
+          "qty": 5
+        },
+        {
+          "id": "stable_stock_i",
+          "qty": 7
+        },
+        {
+          "id": "stitcher_i",
+          "qty": 4
+        },
+        {
+          "id": "stitcher_ii",
+          "qty": 12
+        },
+        {
+          "id": "tactical_mk_1",
+          "qty": 6
+        }
+      ],
+      "quests": [
+        "project_i"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_i",
+          "qty": 30
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "medical",
+      "industrial",
+      "technological"
+    ],
+    "weight": 0.1,
+    "value": 50,
+    "max_stack_size": 50,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ruined_accordion",
+    "name": "Ruined Accordion",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 18
+      },
+      {
+        "id": "steel_spring",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ruined_baton",
+    "name": "Ruined Baton",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 6
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ruined_handcuffs",
+    "name": "Ruined Handcuffs",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ruined_parachute",
+    "name": "Ruined Parachute",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 10
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ruined_riot_shield",
+    "name": "Ruined Riot Shield",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 10
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 6
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "ruined_tactical_vest",
+    "name": "Ruined Tactical Vest",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 5
+      },
+      {
+        "id": "magnet",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rusted_bolts",
+    "name": "Rusted Bolts",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Some rusted old bolts",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "industrial",
+      "mechanical"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rusted_gear",
+    "name": "Rusted Gear",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 4
+      },
+      {
+        "id": "mechanical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rusted_shut_medical_kit",
+    "name": "Rusted Shut Medical Kit",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting material.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "medical_lab_iii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "syringe",
+        "qty": 2
+      },
+      {
+        "id": "antiseptic",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "medical"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rusted_tools",
+    "name": "Rusted Tools",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into metal parts.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_ii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      },
+      {
+        "id": "steel_spring",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "mechanical",
+      "industrial"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "rusty_arc_steel",
+    "name": "Rusty ARC Steel",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Obtained from ARC enemies and activities. Can be recycled into scrap metal.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 8
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "sample_cleaner",
+    "name": "Sample Cleaner",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "assorted_seeds",
+        "qty": 14
+      },
+      {
+        "id": "electrical_components",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "sensors",
+    "name": "Sensors",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used to craft utility items and explosives. Can be recycled into scrap metal.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "explosive_mine",
+          "qty": 1
+        },
+        {
+          "id": "raider_hatch_key",
+          "qty": 3
+        },
+        {
+          "id": "tagging_grenade",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "wires",
+        "qty": 1
+      },
+      {
+        "id": "metal_parts",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security",
+      "technological"
+    ],
+    "weight": 0.3,
+    "value": 500,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "sentinel_firing_core",
+    "name": "Sentinel Firing Core",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_iii",
+          "qty": 4
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      },
+      {
+        "id": "mechanical_components",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "shield_recharger",
+    "name": "Shield Recharger",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "uncommon",
+    "description": "A handheld kit that gradually recharges shield over time.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 4
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "arc_powercell",
+          "qty": 1
+        },
+        {
+          "id": "rubber_parts",
+          "qty": 5
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        },
+        {
+          "id": "workbench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.15,
+    "value": 520,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "shotgun_gun_parts",
+    "name": "Shotgun Parts",
+    "category": "Crafting Materials",
+    "subcategory": "Material",
+    "rarity": "rare",
+    "description": "Specialized components from shotgun-type weapons, used in crafting.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "raider, security"
+    ],
+    "weight": 0.4,
+    "value": 700,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "showstopper",
+    "name": "Showstopper",
+    "category": "Throwable",
+    "subcategory": "Throwable",
+    "rarity": "rare",
+    "description": "A grenade that detonates after a delay, stunning enemies within its radius.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "battery",
+        "qty": 2
+      },
+      {
+        "id": "electrical_components",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 0.4,
+    "value": 2200,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "shredder_gyro",
+    "name": "Shredder Gyro",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "uncommon",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 3
+      },
+      {
+        "id": "mechanical_components",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "Shredder",
+      "arc"
+    ],
+    "weight": 1,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "signal_amplifier",
+    "name": "Signal Amplifier",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "electrical_components",
+        "qty": 2
+      },
+      {
+        "id": "voltage_converter",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "silver_teaspoon_set",
+    "name": "Silver Teaspoon Set",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A shining, shimmering set  of refinement and elegance.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "simple_gun_parts",
+    "name": "Simple Gun Parts",
+    "category": "Crafting Materials",
+    "subcategory": "Topside Material",
+    "rarity": "uncommon",
+    "description": "Used to craft weapons. Can be recycled into scrap metal.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "anvil_i",
+          "qty": 6
+        },
+        {
+          "id": "anvil_ii",
+          "qty": 1
+        },
+        {
+          "id": "arpeggio_i",
+          "qty": 6
+        },
+        {
+          "id": "arpeggio_ii",
+          "qty": 1
+        },
+        {
+          "id": "arpeggio_iii",
+          "qty": 4
+        },
+        {
+          "id": "burletta_i",
+          "qty": 3
+        },
+        {
+          "id": "burletta_ii",
+          "qty": 1
+        },
+        {
+          "id": "burletta_iii",
+          "qty": 2
+        },
+        {
+          "id": "burletta_iiii",
+          "qty": 1
+        },
+        {
+          "id": "ferro_iii",
+          "qty": 1
+        },
+        {
+          "id": "ferro_iv",
+          "qty": 1
+        },
+        {
+          "id": "hairpin_iii",
+          "qty": 1
+        },
+        {
+          "id": "hairpin_iv",
+          "qty": 1
+        },
+        {
+          "id": "heavy_gun_parts",
+          "qty": 4
+        },
+        {
+          "id": "heavy_gun_parts_recipe",
+          "qty": 4
+        },
+        {
+          "id": "ii_toro_i",
+          "qty": 1
+        },
+        {
+          "id": "ii_toro_ii",
+          "qty": 1
+        },
+        {
+          "id": "il_toro_i",
+          "qty": 6
+        },
+        {
+          "id": "il_toro_ii",
+          "qty": 1
+        },
+        {
+          "id": "kettle_iii",
+          "qty": 1
+        },
+        {
+          "id": "kettle_iv",
+          "qty": 1
+        },
+        {
+          "id": "light_gun_parts",
+          "qty": 4
+        },
+        {
+          "id": "medium_gun_parts",
+          "qty": 4
+        },
+        {
+          "id": "rattler_iii",
+          "qty": 1
+        },
+        {
+          "id": "rattler_iv",
+          "qty": 1
+        },
+        {
+          "id": "shotgun_gun_parts",
+          "qty": 2
+        },
+        {
+          "id": "stitcher_iii",
+          "qty": 1
+        },
+        {
+          "id": "stitcher_iv",
+          "qty": 1
+        },
+        {
+          "id": "unusable_weapon",
+          "qty": 5
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "metals_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "Scavenging",
+      "Recycling",
+      "Sold by Celeste"
+    ],
+    "weight": 0.3,
+    "value": 330,
+    "max_stack_size": 10,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "snap_hook",
+    "name": "Snap Hook",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "legendary",
+    "description": "A gadget that allows the user to scale structures and cover large distances.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "power_rod",
+        "qty": 1
+      },
+      {
+        "id": "rope",
+        "qty": 3
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "exodus_modules",
+          "qty": 1
+        },
+        {
+          "id": "power_rod",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "utility_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 5,
+    "value": 14000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "snitch_scanner",
+    "name": "Snitch Scanner",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Gathered from ARC Snitches. Can be recycled into ARC Alloy.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "the_trifecta"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "utility_station_ii",
+          "qty": 6
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.75,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "speaker_component",
+    "name": "Speaker Component",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used in crafting.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "lure_grenade",
+          "qty": 2
+        },
+        {
+          "id": "photoelectric_cloak",
+          "qty": 3
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 2
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial"
+    ],
+    "weight": 0.3,
+    "value": 500,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "spectrometer",
+    "name": "Spectrometer",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_electrical_components",
+        "qty": 1
+      },
+      {
+        "id": "sensors_recipe",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "spectrum_analyzer",
+    "name": "Spectrum Analyzer",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "epic",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "exodus_modules",
+        "qty": 1
+      },
+      {
+        "id": "sensors_recipe",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3500,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "spotter_relay",
+    "name": "Spotter Relay",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "electrical_components",
+        "qty": 2
+      },
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": null,
+    "weight": 1,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "spring_cushion",
+    "name": "Spring Cushion",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "durable_cloth",
+        "qty": 2
+      },
+      {
+        "id": "steel_springs",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "commercial",
+      "residential"
+    ],
+    "weight": 2,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "statuette",
+    "name": "Statuette",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A small decorative statuette.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world",
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "steel_spring",
+    "name": "Steel Spring",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A tightly wound coil of metal. Used to craft a wide range of items. Can be recycled into scrap metal.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "advanced_mechanical_components",
+          "qty": 2
+        },
+        {
+          "id": "barricade_kit",
+          "qty": 1
+        },
+        {
+          "id": "extended_light_mag_i",
+          "qty": 1
+        },
+        {
+          "id": "extended_light_mag_ii",
+          "qty": 1
+        },
+        {
+          "id": "extended_light_mag_iii",
+          "qty": 6
+        },
+        {
+          "id": "extended_medium_mag_i",
+          "qty": 1
+        },
+        {
+          "id": "extended_medium_mag_ii",
+          "qty": 1
+        },
+        {
+          "id": "extended_medium_mag_iii",
+          "qty": 6
+        },
+        {
+          "id": "extended_shotgun_mag_i",
+          "qty": 1
+        },
+        {
+          "id": "extended_shotgun_mag_ii",
+          "qty": 3
+        },
+        {
+          "id": "extended_shotgun_mag_iii",
+          "qty": 6
+        },
+        {
+          "id": "mod_components",
+          "qty": 2
+        },
+        {
+          "id": "shrapnel_grenade",
+          "qty": 2
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "sterilized_bandage",
+    "name": "Sterilized Bandage",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A medical item that gradually restores a large amount of health over time.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": {
+      "recipe": [
+        {
+          "id": "antiseptic",
+          "qty": 1
+        },
+        {
+          "id": "durable_cloth",
+          "qty": 2
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.2,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "surge_shield_recharger",
+    "name": "Surge Shield Recharger",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A handheld kit that recharges a shield on use.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "electrical_components",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "advanced_arc_powercell",
+          "qty": 1
+        },
+        {
+          "id": "electrical_components",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.2,
+    "value": 1200,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "surveyor_vault",
+    "name": "Surveyor Vault",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "mixed_signals"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "medical_lab_iii",
+          "qty": 5
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "mechanical_components",
+        "qty": 2
+      },
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "synthesized_fuel",
+    "name": "Synthesized Fuel",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Used to craft utility items and explosives. Can be recycled into chemicals.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "explosives_station_ii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "oil",
+        "qty": 1
+      },
+      {
+        "id": "chemicals",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 0.5,
+    "value": 700,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "syringe",
+    "name": "Syringe",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A sterile syringe for medical use. Used to craft medical supplies. Can be recycled into plastic.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "vita_shot",
+          "qty": 1
+        }
+      ],
+      "quests": [
+        "doctor_s_orders"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 3
+      },
+      {
+        "id": "chemicals",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "medical"
+    ],
+    "weight": 0.3,
+    "value": 500,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "tattered_arc_lining",
+    "name": "Tattered ARC Lining",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Obtained from ARC enemies or activities. Can be recycled into fabric.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 12
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 1,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "tattered_clothes",
+    "name": "Tattered Clothes",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "Can be recycled into fabric.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 11
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 0.8,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "telemetry_transceiver",
+    "name": "Telemetry Transceiver",
+    "category": "Recyclable",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "advanced_electrical_components",
+        "qty": 1
+      },
+      {
+        "id": "processor",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 1.5,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "thermostat",
+    "name": "Thermostat",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 7
+      },
+      {
+        "id": "sensors",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "tick_pod",
+    "name": "Tick Pod",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "The explosive pod from a Tick. Can be recycled into ARC Alloy.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "small,_but_sinister"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "medical_lab_ii",
+          "qty": 8
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 2
+      },
+      {
+        "id": "chemicals",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "ARC"
+    ],
+    "weight": 0.5,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "toaster",
+    "name": "Toaster",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "refiner_ii",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "plastic_parts",
+        "qty": 5
+      },
+      {
+        "id": "wires",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "residential"
+    ],
+    "weight": 2,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "torch_ginger",
+    "name": "Torch Ginger",
+    "category": "Crafting Materials",
+    "subcategory": "Material",
+    "rarity": "uncommon",
+    "description": "A plant used to craft medical supplies.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "nature"
+    ],
+    "weight": 0.25,
+    "value": 300,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "torn_blanket",
+    "name": "Torn Blanket",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A tattered piece of cloth.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "fabric",
+        "qty": 12
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "residential",
+      "medical"
+    ],
+    "weight": 2,
+    "value": 640,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "torn_book",
+    "name": "Torn Book",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "What pages remain speak of chosen heroes, vampires, and lots of longing glances.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "residential",
+      "old world"
+    ],
+    "weight": 0.3,
+    "value": 1000,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "trailblazer",
+    "name": "Trailblazer",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A grenade that emits a trail of flammable gas along its path, causing an explosive chain reaction when it ignites.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "crude_explosives",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 1,
+    "value": 1600,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "trigger_nade",
+    "name": "Trigger 'Nade",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A remote-detonated grenade that can stick to surfaces and ARC, dealing explosive damage when triggered.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 1
+      },
+      {
+        "id": "processor",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "crude_explosives",
+          "qty": 2
+        },
+        {
+          "id": "processor",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "explosives_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.4,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "turbo_pump",
+    "name": "Turbo Pump",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "mechanical_components",
+        "qty": 1
+      },
+      {
+        "id": "oil",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "exodus"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "unusable_weapon",
+    "name": "Unusable Weapon",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 4
+      },
+      {
+        "id": "simple_gun_parts",
+        "qty": 5
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "security"
+    ],
+    "weight": 3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "vase",
+    "name": "Vase",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A decorative vase, possibly valuable.",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "old world",
+      "commercial",
+      "residential"
+    ],
+    "weight": 0.3,
+    "value": 3000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "very_comfortable_pillow",
+    "name": "Very Comfortable Pillow",
+    "category": "Trinket",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "The envy of every Raider. Like sleeping on an especially ergonomic cloud.",
+    "usage": {
+      "recipes": null,
+      "quests": null,
+      "bench_upgrades": [
+        {
+          "id": "scrappy_level_5",
+          "qty": 3
+        }
+      ]
+    },
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "residential",
+      "commercial"
+    ],
+    "weight": 0.3,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "vita_shot",
+    "name": "Vita Shot",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A medical item that restores a large amount of health.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "chemicals",
+        "qty": 4
+      },
+      {
+        "id": "syringe",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "antiseptic",
+          "qty": 1
+        },
+        {
+          "id": "syringe",
+          "qty": 1
+        }
+      ],
+      "station": null
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.4,
+    "value": 2000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "vita_spray",
+    "name": "Vita Spray",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "epic",
+    "description": "A medical item that continuously restores health during use. Can be used on yourself or your allies.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "antiseptic",
+        "qty": 1
+      },
+      {
+        "id": "canister",
+        "qty": 2
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "antiseptic",
+          "qty": 3
+        },
+        {
+          "id": "canister",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "med_station",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 1,
+    "value": 3000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "volcanic_rock",
+    "name": "Volcanic Rock",
+    "category": "Misc",
+    "subcategory": "",
+    "rarity": "common",
+    "description": "",
+    "usage": null,
+    "recycles_into": null,
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": null,
+    "weight": 0.5,
+    "value": 270,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "voltage_converter",
+    "name": "Voltage Converter",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "A device that adjusts electrical voltage for various crafting purposes.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "heavy_shield",
+          "qty": 1
+        },
+        {
+          "id": "showstopper",
+          "qty": 1
+        }
+      ],
+      "quests": null,
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "wires",
+        "qty": 1
+      },
+      {
+        "id": "rubber_parts",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "recycle",
+    "can_be_found_in": [
+      "electrical"
+    ],
+    "weight": 0.3,
+    "value": 500,
+    "max_stack_size": 5,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "wasp_driver",
+    "name": "Wasp Driver",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "the_trifecta",
+        "wasps_and_hornets"
+      ],
+      "bench_upgrades": [
+        {
+          "id": "gunsmith_ii",
+          "qty": 8
+        }
+      ]
+    },
+    "recycles_into": [
+      {
+        "id": "arc_alloy",
+        "qty": 1
+      },
+      {
+        "id": "electrical_components",
+        "qty": 1
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": null,
+    "weight": 0.6,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 3000,
+    "image_url": null
+  },
+  {
+    "id": "water_filter",
+    "name": "Water Filter",
+    "category": "Recyclable",
+    "subcategory": "",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 2
+      },
+      {
+        "id": "canister",
+        "qty": 3
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "industrial"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "water_pump",
+    "name": "Water Pump",
+    "category": "Crafting Materials",
+    "subcategory": "Recyclable",
+    "rarity": "rare",
+    "description": "Can be recycled into crafting materials.",
+    "usage": {
+      "recipes": null,
+      "quests": [
+        "unexpected_initiative"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "metal_parts_2x_oil",
+        "qty": 4
+      }
+    ],
+    "craft": null,
+    "recommendation": "keep",
+    "can_be_found_in": [
+      "mechanical",
+      "industrial"
+    ],
+    "weight": 2,
+    "value": 1000,
+    "max_stack_size": 3,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "wires",
+    "name": "Wires",
+    "category": "Topside Material",
+    "subcategory": "",
+    "rarity": "uncommon",
+    "description": "A bundle of old wires. Used to craft a wide range of items. Can be recycled into scrap metal.",
+    "usage": {
+      "recipes": [
+        {
+          "id": "advanced_electrical_components",
+          "qty": 3
+        },
+        {
+          "id": "compensator_i",
+          "qty": 1
+        },
+        {
+          "id": "compensator_ii",
+          "qty": 4
+        },
+        {
+          "id": "muzzle_brake_i",
+          "qty": 1
+        },
+        {
+          "id": "osprey_i",
+          "qty": 7
+        },
+        {
+          "id": "shotgun_choke_i",
+          "qty": 1
+        },
+        {
+          "id": "shotgun_choke_ii",
+          "qty": 1
+        },
+        {
+          "id": "shotgun_silencer",
+          "qty": 9
+        },
+        {
+          "id": "silencer_i",
+          "qty": 1
+        }
+      ],
+      "quests": [
+        "trash_into_treasure",
+        "eyes_on_the_prize",
+        "project_ii"
+      ],
+      "bench_upgrades": null
+    },
+    "recycles_into": [
+      {
+        "id": "rubber_parts",
+        "qty": 2
+      }
+    ],
+    "craft": null,
+    "recommendation": "sell",
+    "can_be_found_in": [
+      "electrical",
+      "technological"
+    ],
+    "weight": 0.25,
+    "value": 200,
+    "max_stack_size": 15,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "wolfpack",
+    "name": "Wolfpack",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "epic",
+    "description": "A grenade that scatters into multiple homing missiles, each one targeting ARC and dealing explosive damage on impact.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "arc_motion_core",
+        "qty": 1
+      },
+      {
+        "id": "crude_explosives",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "arc_motion_core",
+          "qty": 2
+        },
+        {
+          "id": "explosive_compound",
+          "qty": 3
+        }
+      ],
+      "station": [
+        {
+          "id": "explosives_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 1,
+    "value": 5000,
+    "max_stack_size": 1,
+    "max_stack_value": 0,
+    "image_url": null
+  },
+  {
+    "id": "zipline",
+    "name": "Zipline",
+    "category": "",
+    "subcategory": "Quick Use",
+    "rarity": "rare",
+    "description": "A deployable zipline that allows you to quickly move between two locations.",
+    "usage": null,
+    "recycles_into": [
+      {
+        "id": "metal_parts",
+        "qty": 1
+      },
+      {
+        "id": "rope",
+        "qty": 1
+      }
+    ],
+    "craft": {
+      "recipe": [
+        {
+          "id": "mechanical_components",
+          "qty": 1
+        },
+        {
+          "id": "rope",
+          "qty": 1
+        }
+      ],
+      "station": [
+        {
+          "id": "utility_bench",
+          "level": 1
+        }
+      ]
+    },
+    "recommendation": "keep",
+    "can_be_found_in": [
+      ""
+    ],
+    "weight": 0.4,
+    "value": 1000,
+    "max_stack_size": 0,
+    "max_stack_value": 0,
+    "image_url": null
+  }
+]

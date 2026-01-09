@@ -43,7 +43,6 @@
   "type": "Recyclable",
   "rarity": "Rare",
   "value": 2000,
-  "value": 2000,
   "weightKg": 3,
   "foundIn": "Technological",
   "recyclesInto": {
@@ -55,5 +54,6 @@
   },
   "imageFilename": "https://cdn.arctracker.io/items/fried_motherboard.png",
   "stackSize": 3,
-  "updatedAt": "12/07/2025"
+  "updatedAt": "12/07/2025",
+  "recommendation": "keep"
 }

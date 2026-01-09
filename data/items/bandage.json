@@ -121,5 +121,6 @@
   "craftBench": [
     "workbench",
     "med_station"
-  ]
+  ],
+  "recommendation": "recycle"
 }

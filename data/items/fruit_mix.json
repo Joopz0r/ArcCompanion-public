@@ -118,5 +118,6 @@
   "craftBench": "Inventory",
   "blueprintLocked": false,
   "imageFilename": "https://cdn.arctracker.io/items/fruit_mix.png",
-  "updatedAt": "11/12/2025"
+  "updatedAt": "11/12/2025",
+  "recommendation": "recycle"
 }

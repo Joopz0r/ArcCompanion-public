@@ -94,5 +94,6 @@
       "value": "1s"
     }
   },
-  "imageFilename": "https://cdn.arctracker.io/items/olives.png"
+  "imageFilename": "https://cdn.arctracker.io/items/olives.png",
+  "recommendation": "keep"
 }

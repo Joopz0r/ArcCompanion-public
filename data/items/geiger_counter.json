@@ -51,5 +51,6 @@
   "recyclesInto": {
     "battery": 3,
     "exodus_modules": 1
-  }
+  },
+  "recommendation": "recycle"
 }

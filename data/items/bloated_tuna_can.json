@@ -91,5 +91,6 @@
   "weightKg": 0.2,
   "imageFilename": "https://cdn.arctracker.io/items/bloated_tuna_can.png",
   "rarity": "Common",
-  "updatedAt": "10/30/2025"
+  "updatedAt": "10/30/2025",
+  "recommendation": "sell"
 }

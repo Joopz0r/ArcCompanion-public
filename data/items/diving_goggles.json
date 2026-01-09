@@ -50,5 +50,6 @@
   "stackSize": 3,
   "foundIn": "Residential",
   "imageFilename": "https://cdn.arctracker.io/items/diving_goggles.png",
-  "updatedAt": "11/23/2025"
+  "updatedAt": "11/23/2025",
+  "recommendation": "recycle"
 }

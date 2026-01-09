@@ -56,5 +56,6 @@
     "metal_parts": 7,
     "rubber_parts": 3
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "keep"
 }

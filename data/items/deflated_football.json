@@ -54,5 +54,6 @@
   "weightKg": 0.8,
   "stackSize": 3,
   "foundIn": "Residential",
-  "updatedAt": "11/20/2025"
+  "updatedAt": "11/20/2025",
+  "recommendation": "recycle"
 }

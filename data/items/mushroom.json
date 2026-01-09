@@ -92,5 +92,6 @@
     }
   },
   "imageFilename": "https://cdn.arctracker.io/items/mushroom.png",
-  "stackSize": 10
+  "stackSize": 10,
+  "recommendation": "keep"
 }

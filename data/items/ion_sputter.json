@@ -51,5 +51,6 @@
   "recyclesInto": {
     "voltage_converter": 4,
     "exodus_modules": 1
-  }
+  },
+  "recommendation": "recycle"
 }

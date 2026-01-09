@@ -51,5 +51,6 @@
   "recyclesInto": {
     "magnetic_accelerator": 1,
     "steel_spring": 1
-  }
+  },
+  "recommendation": "keep"
 }

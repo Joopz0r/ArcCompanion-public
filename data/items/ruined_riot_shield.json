@@ -55,5 +55,5 @@
   "salvagesInto": {
     "plastic_parts": 10
   },
-  "stackSize": 3
+  "recommendation": "recycle"
 }

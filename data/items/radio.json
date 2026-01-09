@@ -54,5 +54,6 @@
   "weightKg": 2,
   "stackSize": 3,
   "foundIn": "Commercial, Residential",
-  "imageFilename": "https://cdn.arctracker.io/items/radio.png"
+  "imageFilename": "https://cdn.arctracker.io/items/radio.png",
+  "recommendation": "recycle"
 }

@@ -73,5 +73,6 @@
     }
   },
   "imageFilename": "https://cdn.arctracker.io/items/recorder.png",
-  "stackSize": 1
+  "stackSize": 1,
+  "recommendation": "recycle"
 }

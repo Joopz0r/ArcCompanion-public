@@ -54,5 +54,6 @@
   "recipe": {
     "arc_alloy": 8
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "keep"
 }

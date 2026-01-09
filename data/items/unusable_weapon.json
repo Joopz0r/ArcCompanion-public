@@ -54,5 +54,6 @@
   },
   "imageFilename": "https://cdn.arctracker.io/items/unusable_weapon.png",
   "updatedAt": "11/20/2025",
-  "stackSize": 3
+  "stackSize": 3,
+  "recommendation": "recycle"
 }

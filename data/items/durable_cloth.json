@@ -54,5 +54,6 @@
   "recipe": {
     "fabric": 14
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "keep"
 }

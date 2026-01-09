@@ -53,5 +53,6 @@
   "weightKg": 0.8,
   "stackSize": 3,
   "foundIn": "Mechanical",
-  "imageFilename": "https://cdn.arctracker.io/items/number_plate.png"
+  "imageFilename": "https://cdn.arctracker.io/items/number_plate.png",
+  "recommendation": "recycle"
 }

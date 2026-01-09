@@ -56,5 +56,6 @@
     "advanced_mechanical_components": 2,
     "arc_motion_core": 2
   },
-  "craftBench": "refiner"
+  "craftBench": "refiner",
+  "recommendation": "keep"
 }

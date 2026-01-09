@@ -123,5 +123,6 @@
   "craftBench": "med_station",
   "salvagesInto": {
     "chemicals": 1
-  }
+  },
+  "recommendation": "keep"
 }

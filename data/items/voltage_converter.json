@@ -51,5 +51,6 @@
   "recyclesInto": {
     "wires": 1,
     "rubber_parts": 1
-  }
+  },
+  "recommendation": "recycle"
 }

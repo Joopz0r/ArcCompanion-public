@@ -48,5 +48,6 @@
   "foundIn": "Residential, Commercial",
   "imageFilename": "https://cdn.arctracker.io/items/cat_bed.png",
   "rarity": "Uncommon",
-  "updatedAt": "12/07/2025"
+  "updatedAt": "12/07/2025",
+  "recommendation": "keep"
 }

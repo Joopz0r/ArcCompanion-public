@@ -47,5 +47,6 @@
   "imageFilename": "https://cdn.arctracker.io/items/fine_wristwatch.png",
   "rarity": "Rare",
   "updatedAt": "11/01/2025",
-  "value": 3000
+  "value": 3000,
+  "recommendation": "sell"
 }

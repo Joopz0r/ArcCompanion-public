@@ -54,5 +54,6 @@
   },
   "salvagesInto": {
     "oil": 2
-  }
+  },
+  "recommendation": "recycle"
 }

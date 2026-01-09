@@ -48,5 +48,6 @@
   "weightKg": 0.3,
   "stackSize": 3,
   "foundIn": "Residential, Old World, Commercial",
-  "imageFilename": "https://cdn.arctracker.io/items/silver_teaspoon_set.png"
+  "imageFilename": "https://cdn.arctracker.io/items/silver_teaspoon_set.png",
+  "recommendation": "sell"
 }

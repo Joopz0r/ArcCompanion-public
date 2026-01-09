@@ -53,5 +53,6 @@
   "weightKg": 0.8,
   "stackSize": 3,
   "foundIn": "Industrial, Mechanical",
-  "imageFilename": "https://cdn.arctracker.io/items/rusted_bolts.png"
+  "imageFilename": "https://cdn.arctracker.io/items/rusted_bolts.png",
+  "recommendation": "recycle"
 }

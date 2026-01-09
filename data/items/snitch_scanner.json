@@ -54,5 +54,6 @@
   "updatedAt": "11/13/2025",
   "weightKg": 0.75,
   "stackSize": 3,
-  "foundIn": "ARC"
+  "foundIn": "ARC",
+  "recommendation": "keep"
 }

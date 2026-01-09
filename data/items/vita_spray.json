@@ -123,5 +123,6 @@
     "antiseptic": 3,
     "canister": 1
   },
-  "craftBench": "med_station"
+  "craftBench": "med_station",
+  "recommendation": "keep"
 }
