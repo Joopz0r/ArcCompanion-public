@@ -9,3 +9,4 @@ pyqt6
 requests
 mss
 opencv-python-headless
+demjson3
