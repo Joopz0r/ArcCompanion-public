@@ -3,10 +3,10 @@ import argparse, os, sys, traceback
 import ctypes
 from dataclasses import dataclass
 from typing import Optional
-from datetime import datetime 
+from datetime import datetime
 
 from pynput import keyboard as pynput_keyboard
-from PyQt6.QtWidgets import (QApplication, QSystemTrayIcon, QMenu, 
+from PyQt6.QtWidgets import (QApplication, QSystemTrayIcon, QMenu,
                              QMessageBox, QProgressDialog)
 from PyQt6.QtGui import QIcon, QAction, QDesktopServices
 from PyQt6.QtCore import QObject, pyqtSignal, QThread, Qt, QUrl, QSharedMemory
@@ -16,15 +16,16 @@ from modules.overlay_ui import ItemOverlay, QuestOverlayUI
 from modules.progress_hub_window import ProgressHubWindow
 from modules.data_manager import ItemDatabase, DataManager
 from modules.scanner import ItemScanner
-from modules.update_checker import UpdateChecker    
+from modules.update_checker import UpdateChecker
 from modules.app_updater import AppUpdateChecker
 from modules.config_manager import ConfigManager
+from modules.remote_database import RemoteDatabaseDownloader
 
 # --- SCIPY IMPORTS REMOVED HERE ---
 # (They used to be here, but we deleted them because we use OpenCV now)
 
 APP_VERSION = "1.3.1"
-APP_UPDATE_URL = "https://arc-companion.xyz/check_update.php" 
+APP_UPDATE_URL = "https://arc-companion.xyz/check_update.php"
 
 @dataclass
 class Config:
@@ -37,7 +38,7 @@ class HotkeyListener(QObject):
     item_check_triggered = pyqtSignal()
     quest_log_triggered = pyqtSignal()
     hub_triggered = pyqtSignal()
-    
+
     def __init__(self, item_hotkey, quest_hotkey, hub_hotkey):
         super().__init__()
         self.item_hotkey_str = self._convert_to_pynput_format(item_hotkey)
@@ -56,8 +57,8 @@ class HotkeyListener(QObject):
 
     def run(self):
         print(f"Hotkey listener started. Mapping: Item='{self.item_hotkey_str}', Quest='{self.quest_hotkey_str}', Hub='{self.hub_hotkey_str}'")
-        hotkeys = { 
-            self.item_hotkey_str: self._on_item_check, 
+        hotkeys = {
+            self.item_hotkey_str: self._on_item_check,
             self.quest_hotkey_str: self._on_quest_log,
             self.hub_hotkey_str: self._on_hub
         }
@@ -101,19 +102,19 @@ class ArcCompanionApp(QObject):
 
     def __init__(self, config: Config):
         super().__init__()
-        self.app = QApplication.instance() 
+        self.app = QApplication.instance()
         self.app.setQuitOnLastWindowClosed(False)
         self.app.aboutToQuit.connect(self.cleanup_threads)
-        self.cmd_config = config 
-        
+        self.cmd_config = config
+
         # 1. Initialize Config Manager
         self.config_manager = ConfigManager()
-        
+
         # 2. Initialize Data
         self.db = ItemDatabase()
         self.data_manager = DataManager(self.db.items)
         self.overlays = []
-        self.scan_thread = None 
+        self.scan_thread = None
 
         # 3. Initialize Scanner
         self.scanner = ItemScanner(self.cmd_config, self.data_manager)
@@ -122,23 +123,24 @@ class ArcCompanionApp(QObject):
 
         # 4. Initialize Windows
         self.progress_hub = ProgressHubWindow(
-            self.data_manager, 
-            self.config_manager, 
-            self.reload_settings, 
+            self.data_manager,
+            self.config_manager,
+            self.reload_settings,
             APP_VERSION,
             lambda: self.check_for_app_updates(manual=True),
-            lang_code=self.json_lang_code 
+            lang_code=self.json_lang_code
         )
         # NOTE: Do NOT connect to reload_progress here - it creates a new dict object
         # which breaks references held by manager windows. The in-memory data is already correct.
-        
+
         self.progress_hub.settings_tab.request_data_update.connect(self.run_manual_data_check)
         self.progress_hub.settings_tab.request_lang_download.connect(self.run_lang_download)
         self.progress_hub.settings_tab.request_app_update.connect(lambda: self.check_for_app_updates(manual=True))
         self.progress_hub.settings_tab.hotkeys_updated.connect(self.restart_hotkeys)
+        self.progress_hub.settings_tab.request_remote_database_download.connect(self.run_remote_database_download)
 
         self.progress_hub.show()
-        
+
         # 5. Tray & Hotkeys
         self.tray = QSystemTrayIcon()
         self.tray.setIcon(QIcon(Constants.ICON_FILE if os.path.exists(Constants.ICON_FILE) else self.app.style().standardIcon(self.app.style().StandardPixmap.SP_ComputerIcon)))
@@ -191,12 +193,12 @@ class ArcCompanionApp(QObject):
         # 1. Stop existing
         if hasattr(self, 'hotkey_worker') and self.hotkey_worker:
             self.hotkey_worker.stop()
-        
+
         if hasattr(self, 'hotkey_thread') and self.hotkey_thread:
             if self.hotkey_thread.isRunning():
                 self.hotkey_thread.quit()
                 self.hotkey_thread.wait()
-        
+
         # 2. Re-create thread (QThreads are one-shot)
         self.hotkey_thread = QThread()
         self._start_hotkey_service()
@@ -204,7 +206,7 @@ class ArcCompanionApp(QObject):
 
     def show_settings_tab(self):
         self.progress_hub.show()
-        self.progress_hub.tabs.setCurrentIndex(4) 
+        self.progress_hub.tabs.setCurrentIndex(4)
 
     def reload_settings(self, is_initial_load=False):
         self.config_manager.load()
@@ -212,21 +214,21 @@ class ArcCompanionApp(QObject):
             color_str = self.config_manager.get_ocr_color()
             self.target_color = tuple(map(int, color_str.split(',')))
         except ValueError: self.target_color = (249, 238, 223)
-            
+
         self.ocr_lang_code = self.config_manager.get_language()
         self.json_lang_code = 'en'
         for _, (json_c, tess_c) in Constants.LANGUAGES.items():
             if tess_c == self.ocr_lang_code:
                 self.json_lang_code = json_c; break
-        
+
         full_screen = self.config_manager.get_full_screen_scan()
         save_debug = self.config_manager.get_save_debug_images()
 
         self.scanner.update_settings(self.target_color, self.ocr_lang_code, self.json_lang_code, full_screen_mode=full_screen, save_debug_images=save_debug)
-        
+
         # --- NEW: Trigger Live Overlay Update ---
         for overlay in self.overlays:
-            if hasattr(overlay, 'refresh_ui'):    
+            if hasattr(overlay, 'refresh_ui'):
                 overlay.refresh_ui()
         # ----------------------------------------
 
@@ -236,7 +238,7 @@ class ArcCompanionApp(QObject):
     # --- ITEM CHECK WITH THREADING ---
     def process_item_check(self, from_tray=False):
         # 1. Close overlays
-        for overlay in self.overlays: 
+        for overlay in self.overlays:
             overlay.close()
         self.overlays.clear()
 
@@ -290,7 +292,7 @@ class ArcCompanionApp(QObject):
             msg = QMessageBox(self.progress_hub if hasattr(self, 'progress_hub') else None)
             msg.setWindowTitle("Missing Data"); msg.setText("Missing data. Download now?")
             msg.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
-            if msg.exec() == QMessageBox.StandardButton.Yes: 
+            if msg.exec() == QMessageBox.StandardButton.Yes:
                 self.run_manual_data_check(initial=True)
                 return False
             return False # User said no, but data is still missing
@@ -298,14 +300,14 @@ class ArcCompanionApp(QObject):
 
     def run_manual_data_check(self, initial=False):
         if hasattr(self, 'data_update_thread') and self.data_update_thread.isRunning(): return
-        
+
         self.data_update_thread = QThread()
         self.data_updater = UpdateChecker()
         self.data_updater.moveToThread(self.data_update_thread)
-        
+
         self.start_data_download.connect(self.data_updater.download_updates)
         self.data_updater.update_check_finished.connect(self._on_data_check_finished)
-        
+
         if not initial:
             self.data_updater.checking_for_updates.connect(lambda: self.progress_hub.settings_tab.set_update_status("Checking..."))
             self.data_updater.download_progress.connect(lambda c, t, f: self.progress_hub.settings_tab.set_update_status(f"Downloading ({c}/{t}): {f}"))
@@ -325,25 +327,29 @@ class ArcCompanionApp(QObject):
         """Called when a manual update download finishes."""
         self.progress_hub.settings_tab.set_update_status(message)
         self.data_update_thread.quit()
-        
+
         if success:
-            # Hot Reload: Store state -> Reload -> Restore state
-            try:
-                current_tab_index = self.progress_hub.tabs.currentIndex()
-                was_visible = self.progress_hub.isVisible()
-                saved_geometry = self.progress_hub.saveGeometry()
-                
-                self.reload_data_subsystems()
-                
-                if was_visible:
-                    self.progress_hub.restoreGeometry(saved_geometry)
-                    self.progress_hub.show()
-                    self.progress_hub.tabs.setCurrentIndex(current_tab_index)
-                
-                QMessageBox.information(self.progress_hub, "Update Complete", "Data updated and reloaded successfully.")
-            except Exception as e:
-                print(f"Error during hot reload: {e}")
-                QMessageBox.warning(self.progress_hub, "Reload Error", f"Data downloaded, but reload failed: {e}\\nPlease restart the app manually.")
+            # Check if remote database download is enabled and trigger it
+            if self.config_manager.get_remote_database_enabled():
+                self.run_remote_database_download(auto_triggered=True)
+            else:
+                # Hot Reload: Store state -> Reload -> Restore state
+                try:
+                    current_tab_index = self.progress_hub.tabs.currentIndex()
+                    was_visible = self.progress_hub.isVisible()
+                    saved_geometry = self.progress_hub.saveGeometry()
+
+                    self.reload_data_subsystems()
+
+                    if was_visible:
+                        self.progress_hub.restoreGeometry(saved_geometry)
+                        self.progress_hub.show()
+                        self.progress_hub.tabs.setCurrentIndex(current_tab_index)
+
+                    QMessageBox.information(self.progress_hub, "Update Complete", "Data updated and reloaded successfully.")
+                except Exception as e:
+                    print(f"Error during hot reload: {e}")
+                    QMessageBox.warning(self.progress_hub, "Reload Error", f"Data downloaded, but reload failed: {e}\\nPlease restart the app manually.")
 
     def _on_data_check_finished(self, files, msg):
         if hasattr(self, 'progress_dialog') and self.progress_dialog.isVisible():
@@ -363,20 +369,24 @@ class ArcCompanionApp(QObject):
         self.data_updater = UpdateChecker()
         self.data_updater.moveToThread(self.data_update_thread)
         self.start_lang_download.connect(self.data_updater.download_language)
-        
+
         self.data_updater.download_progress.connect(lambda c, t, f: self.progress_hub.settings_tab.set_update_status(f"Downloading Language... {c}%"))
         self.data_updater.update_complete.connect(lambda s, m: self.progress_hub.settings_tab.set_update_status(m))
         self.data_updater.update_complete.connect(self.data_update_thread.quit)
-        
+
         self.data_update_thread.started.connect(lambda: self.start_lang_download.emit(lang_code))
         self.data_update_thread.finished.connect(self.data_updater.deleteLater)
         self.data_update_thread.start()
 
     def _on_initial_complete(self, success, message):
         self.progress_dialog.close(); self.data_update_thread.quit()
-        if success: 
-            self.reload_data_subsystems()
-            self.start_background_services()
+        if success:
+            # Check if remote database download is enabled and trigger it
+            if self.config_manager.get_remote_database_enabled():
+                self.run_remote_database_download(auto_triggered=True, on_complete=lambda: self.reload_data_subsystems() or self.start_background_services())
+            else:
+                self.reload_data_subsystems()
+                self.start_background_services()
         else: QMessageBox.critical(self.progress_hub, "Failed", message)
 
     def reload_data_subsystems(self):
@@ -384,16 +394,76 @@ class ArcCompanionApp(QObject):
         self.scanner = ItemScanner(self.cmd_config, self.data_manager)
         self.progress_hub.cleanup()
         self.progress_hub = ProgressHubWindow(self.data_manager, self.config_manager, self.reload_settings, APP_VERSION, lambda: self.check_for_app_updates(manual=True), lang_code=self.json_lang_code)
-        
+
         # --- RE-CONNECT SIGNALS ---
         # Critical for hot reload: Re-attach buttons to their handlers
         self.progress_hub.settings_tab.request_data_update.connect(self.run_manual_data_check)
         self.progress_hub.settings_tab.request_lang_download.connect(self.run_lang_download)
         self.progress_hub.settings_tab.request_app_update.connect(lambda: self.check_for_app_updates(manual=True))
         self.progress_hub.settings_tab.hotkeys_updated.connect(self.restart_hotkeys)
+        self.progress_hub.settings_tab.request_remote_database_download.connect(self.run_remote_database_download)
         # --------------------------
-        
+
         self._build_tray_menu()
+
+    def run_remote_database_download(self, auto_triggered=False, on_complete=None):
+        """Download and merge remote database recommendations"""
+        if not self.config_manager.get_remote_database_enabled():
+            if not auto_triggered:
+                QMessageBox.information(self.progress_hub, "Remote Database", "Remote database downloads are disabled. Enable it in Settings > Data Management.")
+            return
+
+        if hasattr(self, 'remote_db_thread') and self.remote_db_thread and self.remote_db_thread.isRunning():
+            if not auto_triggered:
+                QMessageBox.information(self.progress_hub, "Download in Progress", "Remote database download is already in progress.")
+            return
+
+        self.remote_db_thread = QThread()
+        self.remote_db_downloader = RemoteDatabaseDownloader(self.config_manager)
+        self.remote_db_downloader.moveToThread(self.remote_db_thread)
+
+        # Connect signals
+        self.remote_db_downloader.download_progress.connect(
+            lambda msg: self.progress_hub.settings_tab.set_remote_database_status(msg, "#3498db")
+        )
+        self.remote_db_downloader.status_update.connect(
+            lambda status: self.progress_hub.settings_tab.set_remote_database_status(status, "#2ecc71" if status == "Ready" else "#e74c3c")
+        )
+
+        def on_download_complete(success, message):
+            self.remote_db_thread.quit()
+            if success:
+                self.progress_hub.settings_tab.set_remote_database_status(message, "#2ecc71")
+                # Reload data subsystems to pick up merged recommendations
+                try:
+                    current_tab_index = self.progress_hub.tabs.currentIndex()
+                    was_visible = self.progress_hub.isVisible()
+                    saved_geometry = self.progress_hub.saveGeometry()
+
+                    self.reload_data_subsystems()
+
+                    if was_visible:
+                        self.progress_hub.restoreGeometry(saved_geometry)
+                        self.progress_hub.show()
+                        self.progress_hub.tabs.setCurrentIndex(current_tab_index)
+
+                    if not auto_triggered:
+                        QMessageBox.information(self.progress_hub, "Download Complete", message)
+                    if on_complete:
+                        on_complete()
+                except Exception as e:
+                    print(f"Error during reload after remote database download: {e}")
+                    if not auto_triggered:
+                        QMessageBox.warning(self.progress_hub, "Reload Error", f"Database downloaded, but reload failed: {e}\nPlease restart the app manually.")
+            else:
+                self.progress_hub.settings_tab.set_remote_database_status(message, "#e74c3c")
+                if not auto_triggered:
+                    QMessageBox.warning(self.progress_hub, "Download Failed", message)
+
+        self.remote_db_downloader.download_complete.connect(on_download_complete)
+        self.remote_db_thread.started.connect(self.remote_db_downloader.download_database)
+        self.remote_db_thread.finished.connect(self.remote_db_downloader.deleteLater)
+        self.remote_db_thread.start()
 
     def check_for_app_updates(self, manual=False):
         if hasattr(self, 'app_update_thread') and self.app_update_thread:
@@ -415,10 +485,10 @@ class ArcCompanionApp(QObject):
         if manual: self.app_update_worker.check_finished.connect(lambda: QMessageBox.information(self.progress_hub, "Up to Date", f"Version {APP_VERSION} is the latest."))
         self.app_update_thread.start()
 
-        
+
     def cleanup_threads(self):
             # Hotkey Worker
-            if hasattr(self, 'hotkey_worker') and self.hotkey_worker: 
+            if hasattr(self, 'hotkey_worker') and self.hotkey_worker:
                 try:
                     self.hotkey_worker.stop()
                 except RuntimeError: pass
@@ -431,23 +501,23 @@ class ArcCompanionApp(QObject):
                 except RuntimeError: pass
 
             # Scan Thread (The one causing the error)
-            if hasattr(self, 'scan_thread') and self.scan_thread: 
+            if hasattr(self, 'scan_thread') and self.scan_thread:
                 try:
                     if self.scan_thread.isRunning():
                         self.scan_thread.quit()
                         self.scan_thread.wait()
-                except RuntimeError: 
+                except RuntimeError:
                     pass # Thread was already deleted, which is fine
 
             # Data Update Thread
-            if hasattr(self, 'data_update_thread') and self.data_update_thread: 
+            if hasattr(self, 'data_update_thread') and self.data_update_thread:
                 try:
                     self.data_update_thread.quit()
                     self.data_update_thread.wait()
                 except RuntimeError: pass
 
             # Progress Hub
-            if hasattr(self, 'progress_hub'): 
+            if hasattr(self, 'progress_hub'):
                 try:
                     self.progress_hub.cleanup()
                 except RuntimeError: pass
@@ -478,7 +548,7 @@ def main():
 
     parser = argparse.ArgumentParser(); parser.add_argument('--tesseract', default=get_tesseract_path()); parser.add_argument('--once', action='store_true'); parser.add_argument('--debug', action='store_true')
     config = Config.from_args(parser.parse_args())
-    
+
     try:
         myappid = f'joopzor.arccompanion.client.{APP_VERSION}'
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
@@ -487,13 +557,13 @@ def main():
     try:
         app_instance = QApplication(sys.argv)
         app_instance.setStyleSheet(Constants.DARK_THEME_QSS)
-        
+
         # Apply dark title bars globally
         dark_proxy = DarkTitleBarProxy()
         app_instance.installEventFilter(dark_proxy)
         # Keep reference to prevent GC
         app_instance._dark_proxy = dark_proxy
-        
+
         if os.path.exists(Constants.ICON_FILE): app_instance.setWindowIcon(QIcon(Constants.ICON_FILE))
         shared_memory = QSharedMemory("ArcCompanion_Unique_Instance_Lock")
         if not shared_memory.create(1): QMessageBox.warning(None, "Already Running", "Arc Companion is already running."); sys.exit(0)
